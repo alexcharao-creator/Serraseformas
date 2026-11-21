@@ -1,0 +1,320 @@
+[
+ {
+  "pais": "Brasil",
+  "id": "brasil",
+  "itens": [
+   {
+    "n": "Morito Ebine",
+    "tipo": "Mestre",
+    "d": "Marceneiro japonês em Santo Antônio do Pinhal (SP). Traz o sashimono, a marcenaria de encaixes sem pregos, com encaixes aparentes. Ensina desde 2015.",
+    "u": "https://www.homofaber.com/en/artisans/homofaber-3g3ted"
+   },
+   {
+    "n": "Banco de Dados de Madeiras Brasileiras (LPF/SFB)",
+    "tipo": "Banco de dados",
+    "d": "Propriedades físicas, mecânicas e anatômicas de madeiras nativas, medidas em laboratório pelo Serviço Florestal Brasileiro.",
+    "u": "https://lpf.florestal.gov.br/pt-br/bd-madeiras-brasileiras"
+   },
+   {
+    "n": "Fernando Belchior",
+    "tipo": "Canal",
+    "d": "Marcenaria em língua portuguesa, acompanhado pela casa.",
+    "yt": "Fernando Belchior marcenaria"
+   },
+   {
+    "n": "Marcenaria Faça Você Mesmo (Elias Leão)",
+    "tipo": "Canal",
+    "d": "Um dos canais brasileiros mais antigos: do básico ao uso seguro de máquinas.",
+    "yt": "Marcenaria Faça Você Mesmo Elias Leão"
+   },
+   {
+    "n": "Adilson Pinheiro",
+    "tipo": "Canal",
+    "d": "Operação de ferramentas, escolha de lâminas, colas, tintas e vernizes.",
+    "yt": "Adilson Pinheiro marcenaria"
+   },
+   {
+    "n": "Oficina de Casa",
+    "tipo": "Canal",
+    "d": "Projetos de marcenaria doméstica e faça você mesmo, com público grande.",
+    "yt": "Oficina de Casa marcenaria"
+   },
+   {
+    "n": "Leandro Mendes",
+    "tipo": "Canal",
+    "d": "Curso gratuito de marcenaria em vídeo.",
+    "yt": "Leandro Mendes marcenaria"
+   },
+   {
+    "n": "Eduardo Casa Grande — Marcenaria Artística",
+    "tipo": "Canal",
+    "d": "Móveis e peças artísticas passo a passo, na oficina Alberto Rizzi.",
+    "yt": "Eduardo Casa Grande marcenaria artística"
+   },
+   {
+    "n": "Marcenaria Amadora (Rodrigo Pioto)",
+    "tipo": "Canal",
+    "d": "Marcenaria de hobby, projetos e ferramentas.",
+    "yt": "Marcenaria Amadora Rodrigo Pioto"
+   },
+   {
+    "n": "LumberJills",
+    "tipo": "Canal",
+    "d": "As marceneiras Letícia Piagentini e Fernanda Sanino.",
+    "yt": "LumberJills marcenaria"
+   }
+  ]
+ },
+ {
+  "pais": "Estados Unidos",
+  "id": "estados-unidos",
+  "itens": [
+   {
+    "n": "Lost Art Press",
+    "tipo": "Editora",
+    "d": "Christopher Schwarz e equipe resgatam livros clássicos de marcenaria manual. O blog tem mais de 5 mil artigos pesquisáveis.",
+    "u": "https://lostartpress.com"
+   },
+   {
+    "n": "Fine Woodworking",
+    "tipo": "Revista",
+    "d": "A revista de referência em técnica, com décadas de acervo.",
+    "u": "https://www.finewoodworking.com"
+   },
+   {
+    "n": "Popular Woodworking",
+    "tipo": "Revista",
+    "d": "Técnicas, projetos e testes de ferramentas.",
+    "u": "https://www.popularwoodworking.com"
+   },
+   {
+    "n": "Alex Snodgrass — Band Saw Clinic (Carter Products)",
+    "tipo": "Canal",
+    "d": "A aula mais citada sobre regulagem de serra de fita.",
+    "yt": "Alex Snodgrass band saw clinic"
+   },
+   {
+    "n": "The Woodwright's Shop (Roy Underhill)",
+    "tipo": "Canal",
+    "d": "Programa clássico da TV pública americana sobre marcenaria com ferramentas manuais e tradicionais.",
+    "yt": "The Woodwright's Shop Roy Underhill"
+   },
+   {
+    "n": "Rex Krueger",
+    "tipo": "Canal",
+    "d": "Marcenaria manual acessível, com poucas ferramentas.",
+    "yt": "Rex Krueger woodworking"
+   },
+   {
+    "n": "Stumpy Nubs",
+    "tipo": "Canal",
+    "d": "Ferramentas, gabaritos e técnicas de oficina.",
+    "yt": "Stumpy Nubs woodworking"
+   },
+   {
+    "n": "Lie-Nielsen Toolworks",
+    "tipo": "Loja",
+    "d": "Fabricante de plainas e formões de alta precisão, com vídeos de uso e afiação.",
+    "u": "https://www.lie-nielsen.com"
+   },
+   {
+    "n": "Sawmill Creek",
+    "tipo": "Fórum",
+    "d": "Um dos maiores fóruns de marcenaria, bom para máquinas antigas.",
+    "u": "https://sawmillcreek.org"
+   }
+  ]
+ },
+ {
+  "pais": "Inglaterra",
+  "id": "inglaterra",
+  "itens": [
+   {
+    "n": "Paul Sellers",
+    "tipo": "Canal",
+    "d": "O canal definitivo de marcenaria manual: espiga e furo, rabo de andorinha, plaina e afiação, com didática paciente.",
+    "u": "https://paulsellers.com"
+   },
+   {
+    "n": "Common Woodworking",
+    "tipo": "Site",
+    "d": "Curso gratuito e estruturado de Paul Sellers para iniciantes.",
+    "u": "https://commonwoodworking.com"
+   },
+   {
+    "n": "Richard Maguire — The English Woodworker",
+    "tipo": "Canal",
+    "d": "Marcenaria manual sem rodeios, com foco em bancadas.",
+    "u": "https://www.theenglishwoodworker.com"
+   },
+   {
+    "n": "Matt Estlea",
+    "tipo": "Canal",
+    "d": "Técnica de encaixes, testes de ferramentas e máquinas.",
+    "yt": "Matt Estlea woodworking"
+   },
+   {
+    "n": "David Barron Furniture",
+    "tipo": "Canal",
+    "d": "Gabaritos e encaixes de grande precisão.",
+    "yt": "David Barron Furniture"
+   },
+   {
+    "n": "Peter Millard",
+    "tipo": "Canal",
+    "d": "Móveis contemporâneos com explicações detalhadas.",
+    "yt": "Peter Millard woodworking"
+   },
+   {
+    "n": "UKworkshop",
+    "tipo": "Fórum",
+    "d": "O principal fórum britânico de marcenaria.",
+    "u": "https://www.ukworkshop.co.uk"
+   }
+  ]
+ },
+ {
+  "pais": "Canadá",
+  "id": "canada",
+  "itens": [
+   {
+    "n": "Matthias Wandel — woodgears.ca",
+    "tipo": "Site",
+    "d": "Engenheiro e marceneiro; máquinas feitas em casa, física do corte e muitos gabaritos.",
+    "u": "https://woodgears.ca"
+   },
+   {
+    "n": "Rob Cosman",
+    "tipo": "Canal",
+    "d": "Mestre do rabo de andorinha à mão e da afiação.",
+    "yt": "Rob Cosman"
+   },
+   {
+    "n": "Lee Valley / Veritas",
+    "tipo": "Loja",
+    "d": "Fabricante de ferramentas manuais inovadoras, com guias e artigos técnicos.",
+    "u": "https://www.leevalley.com"
+   }
+  ]
+ },
+ {
+  "pais": "Japão",
+  "id": "japao",
+  "itens": [
+   {
+    "n": "Ishitani Furniture",
+    "tipo": "Canal",
+    "d": "O mestre Natsuki Ishitani une métodos japoneses tradicionais e máquinas modernas. Vídeos silenciosos e precisos.",
+    "yt": "Ishitani Furniture"
+   },
+   {
+    "n": "Dylan Iwakuni",
+    "tipo": "Canal",
+    "d": "Carpintaria japonesa tradicional e encaixes, em Kyoto.",
+    "yt": "Dylan Iwakuni"
+   },
+   {
+    "n": "Kezurou-kai",
+    "tipo": "Site",
+    "d": "Competição japonesa de aplainamento: quem tira a apara mais fina. Ótima para entender a plaina japonesa.",
+    "yt": "Kezurou-kai plane shavings"
+   },
+   {
+    "n": "DIY Japanese Joinery",
+    "tipo": "Canal",
+    "d": "Cursos e vídeos de encaixes japoneses para estrangeiros.",
+    "yt": "DIY Japanese Joinery"
+   }
+  ]
+ },
+ {
+  "pais": "França",
+  "id": "franca",
+  "itens": [
+   {
+    "n": "L'Air du Bois",
+    "tipo": "Site",
+    "d": "Plataforma colaborativa e aberta de quem trabalha com madeira: projetos, técnicas e achados.",
+    "u": "https://www.lairdubois.fr"
+   },
+   {
+    "n": "Les Compagnons du Devoir",
+    "tipo": "Escola",
+    "d": "A formação tradicional itinerante dos ofícios franceses.",
+    "u": "https://www.compagnons-du-devoir.com"
+   },
+   {
+    "n": "French Coast Workshop",
+    "tipo": "Canal",
+    "d": "Marcenaria em francês, do manual às ferramentas elétricas.",
+    "yt": "French Coast Workshop"
+   }
+  ]
+ },
+ {
+  "pais": "Alemanha",
+  "id": "alemanha",
+  "itens": [
+   {
+    "n": "Jonas Winkler",
+    "tipo": "Canal",
+    "d": "Mestre marceneiro e designer de produto; tutoriais, testes e projetos em alemão.",
+    "yt": "Jonas Winkler"
+   },
+   {
+    "n": "HolzWerken (Guido Henn)",
+    "tipo": "Revista",
+    "d": "Revista alemã com vídeos de técnica, segurança e projetos.",
+    "yt": "HolzWerken Guido Henn"
+   },
+   {
+    "n": "Heiko Rech",
+    "tipo": "Canal",
+    "d": "Técnica de oficina e cursos online com muito conteúdo.",
+    "yt": "Heiko Rech"
+   },
+   {
+    "n": "Schwalbe und Zinken",
+    "tipo": "Canal",
+    "d": "Marcenaria manual e teoria bem explicada.",
+    "yt": "Schwalbe und Zinken"
+   }
+  ]
+ },
+ {
+  "pais": "Austrália",
+  "id": "australia",
+  "itens": [
+   {
+    "n": "Australian Wood Review",
+    "tipo": "Revista",
+    "d": "Revista de marcenaria fina, torno, entalhe, madeiras e máquinas, com mais de três décadas.",
+    "u": "https://www.woodreview.com.au"
+   },
+   {
+    "n": "Sturt School for Wood",
+    "tipo": "Escola",
+    "d": "Programa de um ano em Mittagong, com forte desenho autoral.",
+    "yt": "Sturt School for Wood"
+   }
+  ]
+ },
+ {
+  "pais": "Suécia",
+  "id": "suecia",
+  "itens": [
+   {
+    "n": "Carl Malmsten Furniture Studies",
+    "tipo": "Escola",
+    "d": "Design de móveis, marcenaria, conservação e estofamento, ligada à Universidade de Linköping.",
+    "yt": "Carl Malmsten Furniture Studies"
+   },
+   {
+    "n": "Capellagården",
+    "tipo": "Escola",
+    "d": "A segunda escola de Malmsten, na ilha de Öland.",
+    "yt": "Capellagården"
+   }
+  ]
+ }
+]

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Serras e Formas</title>
+<meta name="description" content="Serras e Formas: biblioteca de marcenaria em língua portuguesa. Afiação, ferramentas manuais, máquinas, encaixes, madeiras, oficina e referências do mundo todo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+/* VOICE: clínico, calmo, preciso — uma biblioteca técnica, não um blog.
+   IDEA: um catálogo de biblioteca de oficina; cada artigo é uma ficha.
+   PICTURE: o perfil da Serra Fluminense que, da esquerda para a direita, vira dentes de serrote, com o sol amarelo.
+   COLOUR and TYPE: branco dominante, verde Mata Atlântica de apoio, amarelo-sol de acento; Manrope nos títulos, Inter no texto.
+   LAYOUT: cabeçalho fino, panorama em largura total, índice de seções em grade, listas com fios finos. */
+:root{color-scheme:light dark;
+--bg:light-dark(#ffffff,#0b1510);
+--ink:light-dark(#10231a,#e5eee8);
+--muted:light-dark(#57685e,#9fb3a7);
+--line:light-dark(#e2eae4,#1f3027);
+--folha:light-dark(#eef5f0,#12221a);
+--mata:light-dark(#1d5a3b,#5dbb86);
+--mata-fundo:light-dark(#174a30,#0f2a1d);
+--sol:light-dark(#f0b400,#f5c53e);
+--sol-ink:#2a2000;
+--r1:light-dark(#d7e8dc,#163126);
+--r2:light-dark(#9cc8ab,#1e4632);
+--r3:light-dark(#1d5a3b,#2f7a52);
+}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.6 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+h1,h2,h3{font-family:Manrope,Inter,sans-serif;line-height:1.1;text-wrap:balance;margin:0}
+.wrap{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px)}
+.band{padding:clamp(32px,5vw,72px) 0}
+:focus-visible{outline:3px solid var(--sol);outline-offset:2px;border-radius:4px}
+
+/* cabeçalho */
+header.top{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:20px;min-height:60px;flex-wrap:wrap}
+.marca{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:Manrope,sans-serif;font-weight:800;font-size:19px;letter-spacing:-.01em;margin-right:auto}
+.marca svg{width:30px;height:22px;flex:none}
+nav.menu{display:flex;gap:4px;flex-wrap:wrap}
+nav.menu a{text-decoration:none;font-size:15px;font-weight:500;color:var(--muted);padding:10px 12px;border-radius:8px;min-height:44px;display:inline-flex;align-items:center}
+nav.menu a:hover{color:var(--ink);background:var(--folha)}
+nav.menu a[aria-current=page]{color:var(--mata);background:var(--folha)}
+@media(max-width:520px){.top .wrap{gap:4px;padding-top:6px}.marca{width:100%}nav.menu{margin:0 -10px}nav.menu a{padding:10px 10px;font-size:14.5px}}
+
+/* panorama */
+.hero{padding-top:clamp(36px,6vw,80px)}
+.hero h1{font-size:clamp(38px,6vw,64px);font-weight:800;letter-spacing:-.025em}
+.hero p.sub{font-size:clamp(17px,1.8vw,20px);color:var(--muted);max-width:40ch;margin:14px 0 0}
+.panorama{display:block;width:100%;height:auto;margin-top:clamp(20px,3vw,36px)}
+@media(max-width:600px){.panorama{height:220px}.grade a{min-height:0}}
+.busca{position:relative;max-width:620px;margin:-28px auto 0;padding:0 16px}
+.busca input,.filtro input{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:15px 18px 15px 46px;min-height:52px;box-shadow:0 8px 24px -12px rgba(16,35,26,.25)}
+.busca svg,.filtro svg{position:absolute;left:32px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--muted);pointer-events:none}
+.filtro{position:relative;max-width:620px}
+.filtro svg{left:16px}
+
+/* seções */
+.titulo-bloco{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+.titulo-bloco h2{font-size:clamp(26px,3vw,34px);font-weight:700;letter-spacing:-.015em}
+.titulo-bloco a{font-size:15px;color:var(--mata);font-weight:500;text-decoration:none}
+.grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.grade a{background:var(--bg);padding:22px 22px 20px;text-decoration:none;display:flex;flex-direction:column;gap:6px;min-height:140px;transition:background .15s}
+.grade a:hover{background:var(--folha)}
+.grade h3{font-size:19px;font-weight:700;display:flex;justify-content:space-between;gap:12px}
+.grade h3 span{font-family:Inter,sans-serif;font-size:13px;font-weight:600;color:var(--mata);background:var(--folha);border-radius:999px;padding:2px 9px;align-self:flex-start;white-space:nowrap}
+.grade a:hover h3 span{background:var(--bg)}
+.grade p{margin:0;color:var(--muted);font-size:15px;line-height:1.5}
+
+/* listas de artigos */
+.lista{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.lista li{border-bottom:1px solid var(--line)}
+.lista a{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 24px;padding:20px 4px;text-decoration:none}
+.lista a:hover h3{color:var(--mata)}
+.lista h3{font-size:20px;font-weight:700;transition:color .15s}
+.lista p{grid-column:1;margin:0;color:var(--muted);font-size:15.5px;max-width:72ch}
+.lista .meta{grid-column:2;grid-row:1/3;align-self:center;text-align:right;font-size:13.5px;color:var(--muted);white-space:nowrap}
+.lista .meta b{display:block;color:var(--mata);font-weight:600}
+@media(max-width:640px){.lista a{grid-template-columns:1fr}.lista .meta{grid-column:1;grid-row:auto;text-align:left}.lista .meta b{display:inline;margin-right:8px}}
+
+.faixa{background:var(--mata-fundo);color:#eaf4ee}
+.faixa .titulo-bloco h2{color:#fff}
+.faixa .titulo-bloco a{color:var(--sol)}
+.faixa p{color:#cfe2d6;max-width:62ch;margin:0 0 22px}
+.paises{display:flex;flex-wrap:wrap;gap:8px}
+.paises a{text-decoration:none;font-size:15px;font-weight:500;padding:10px 16px;min-height:44px;display:inline-flex;align-items:center;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:#fff}
+.paises a:hover{background:var(--sol);color:var(--sol-ink);border-color:var(--sol)}
+.paises.claro a{color:var(--ink);border-color:var(--line)}
+.paises.claro a:hover{background:var(--folha);color:var(--mata);border-color:var(--folha)}
+.manifesto{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);align-items:start}
+.manifesto h2{font-size:clamp(26px,3vw,34px)}
+.manifesto p{margin:0 0 14px;color:var(--muted)}
+@media(max-width:760px){.manifesto{grid-template-columns:1fr}}
+
+/* páginas internas */
+.cabeca{padding:clamp(32px,5vw,64px) 0 clamp(20px,3vw,32px);border-bottom:1px solid var(--line);margin-bottom:28px}
+.cabeca .trilha{font-size:14px;color:var(--muted);margin-bottom:14px}
+.cabeca .trilha a{color:var(--mata);text-decoration:none}
+.cabeca h1{font-size:clamp(32px,4.5vw,48px);font-weight:800;letter-spacing:-.02em}
+.cabeca p{color:var(--muted);font-size:18px;margin:12px 0 0;max-width:60ch}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:4px 0 18px;scrollbar-width:thin}
+.chips button{flex:none;font:inherit;font-size:14.5px;font-weight:500;padding:9px 15px;min-height:44px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--muted);cursor:pointer}
+.chips button[aria-pressed=true]{background:var(--mata);border-color:var(--mata);color:#fff}
+:root[data-theme=dark] .chips button[aria-pressed=true]{color:#0b1510}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .chips button[aria-pressed=true]{color:#0b1510}}
+.vazio{padding:40px 24px;text-align:center;color:var(--muted);background:var(--folha);border-radius:14px}
+.contagem{font-size:14px;color:var(--muted);margin:0 0 6px}
+
+/* artigo */
+article.texto{max-width:720px}
+.texto .linha-meta{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--muted);margin-top:16px}
+.texto .linha-meta b{color:var(--mata);font-weight:600}
+.texto .lead{font-size:19px;line-height:1.55;color:var(--ink);margin:0 0 28px;padding-bottom:24px;border-bottom:1px solid var(--line)}
+.corpo h2{font-size:24px;font-weight:700;margin:36px 0 12px;letter-spacing:-.01em}
+.corpo p{margin:0 0 16px}
+.corpo ul,.corpo ol{padding-left:22px;margin:0 0 18px}
+.corpo li{margin:0 0 8px}
+.corpo li::marker{color:var(--mata);font-weight:600}
+.corpo strong{font-weight:600}
+.corpo .miudo{font-size:14px;color:var(--muted)}
+.corpo aside.nota{background:var(--folha);border-radius:12px;padding:16px 20px;margin:24px 0;font-size:15.5px}
+.corpo aside.nota strong{color:var(--mata)}
+.corpo table{width:100%;border-collapse:collapse;margin:8px 0 24px;font-size:15px}
+.corpo th{text-align:left;font-weight:600;font-size:13.5px;color:var(--muted);border-bottom:2px solid var(--line);padding:8px 10px}
+.corpo td{border-bottom:1px solid var(--line);padding:10px;vertical-align:top}
+.corpo figure{margin:24px 0}
+.corpo figure img,.corpo figure video{display:block;width:100%;height:auto;max-height:78vh;object-fit:contain;background:var(--folha);border-radius:12px}
+.corpo figure.vertical video{max-width:380px;margin:0 auto}
+.corpo figcaption{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.45}
+.corpo .par{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0}
+.corpo .par figure{margin:0}
+.corpo .par img{aspect-ratio:3/4;object-fit:cover}
+@media(max-width:480px){.corpo .par{grid-template-columns:1fr}}
+.fotos a.foto{display:block;text-decoration:none}
+.fotos a.foto img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:12px;background:var(--folha);transition:opacity .15s}
+.fotos a.foto:hover img{opacity:.88}
+.fotos a.foto span{display:block;font-size:14px;color:var(--muted);margin-top:8px;line-height:1.4}
+.fontes{margin-top:40px;padding:20px 22px;border:1px solid var(--line);border-radius:12px}
+.fontes h3{font-size:16px;margin-bottom:8px}
+.fontes ul{margin:0;padding-left:18px}
+.fontes li{margin:6px 0;font-size:15px}
+.fontes a{color:var(--mata);overflow-wrap:anywhere}
+.vizinhos{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
+.vizinhos a{display:block;text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:15px}
+.vizinhos a:hover{background:var(--folha)}
+.vizinhos small{display:block;color:var(--muted);font-size:13px}
+.vizinhos .prox{text-align:right;grid-column:2}
+@media(max-width:560px){.vizinhos{grid-template-columns:1fr}.vizinhos .prox{grid-column:1;text-align:left}}
+
+/* referências */
+.ref-grupo{margin:0 0 40px}
+.ref-grupo h2{font-size:24px;margin-bottom:14px;display:flex;align-items:baseline;gap:10px}
+.ref-grupo h2 span{font-family:Inter,sans-serif;font-size:14px;font-weight:500;color:var(--muted)}
+.refs{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:12px}
+.refs a{display:flex;flex-direction:column;gap:6px;text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:16px 18px;transition:background .15s,border-color .15s}
+.refs a:hover{background:var(--folha);border-color:var(--folha)}
+.refs strong{font-family:Manrope,sans-serif;font-size:17px;line-height:1.25}
+.refs span.tipo{font-size:12.5px;font-weight:600;color:var(--mata)}
+.refs p{margin:0;font-size:14.5px;color:var(--muted);line-height:1.5}
+.refs em{font-style:normal;font-size:13px;color:var(--muted);margin-top:auto}
+
+/* galeria */
+.fotos{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:12px}
+.fotos figure{margin:0;aspect-ratio:4/3;background:var(--folha);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--muted);font-size:14px}
+.fotos svg{width:56px;height:40px;opacity:.7}
+
+footer{border-top:1px solid var(--line);margin-top:clamp(40px,6vw,80px)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:28px;padding-bottom:36px;font-size:14px;color:var(--muted)}
+footer b{color:var(--ink);font-family:Manrope,sans-serif}
+
+#app{min-height:60vh}
+@media(max-width:600px){.grade a{min-height:0;padding:18px 20px}}
+.vista{animation:surge .35s ease both}
+@keyframes surge{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.vista{animation:none}}
+
+pre,.scroll{overflow-x:auto}code{overflow-wrap:anywhere}
+@media(max-width:600px){table{font-size:13.5px}.stack thead{display:none}.stack tr{display:grid;padding-block:10px;border-bottom:1px solid var(--line)}.stack td{display:flow-root;border:0;padding:3px 0;padding-inline-start:8em;text-align:start}.stack td::before{content:attr(data-l);float:inline-start;width:7.5em;margin-inline-start:-8em;white-space:normal;font-weight:600;color:var(--muted);font-size:12.5px}.stack td:empty{display:none}}
+</style>
+<script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;c.dataset.l=c.closest('table').rows[0].cells[i]?.textContent||''}}).observe(document,{childList:true,subtree:true})</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo" viewBox="0 0 30 22"><path d="M1 20 L7 6 L10 20 L14 9 L17 20 L21 11 L24 20 Z" fill="var(--mata)"/><circle cx="24" cy="5" r="3.6" fill="var(--sol)"/></symbol>
+  <symbol id="lupa" viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 13l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="marca" href="#inicio" aria-label="Serras e Formas, página inicial"><svg aria-hidden="true"><use href="#logo"/></svg>Serras e Formas</a>
+    <nav class="menu" aria-label="Principal">
+      <a href="#inicio" data-r="inicio">Início</a>
+      <a href="#biblioteca" data-r="biblioteca">Biblioteca</a>
+      <a href="#referencias" data-r="referencias">Referências</a>
+      <a href="#galeria" data-r="galeria">Galeria</a>
+    </nav>
+  </div>
+</header>
+
+<main id="app" tabindex="-1"></main>
+
+<template id="tpl-inicio">
+  <section class="hero">
+    <div class="wrap">
+      <h1>Serras e Formas</h1>
+      <p class="sub">Biblioteca de marcenaria em língua portuguesa. Afiação, ferramentas, máquinas, encaixes e madeiras, estudados um a um.</p>
+    </div>
+    <svg class="panorama" viewBox="0 0 1200 320" preserveAspectRatio="xMaxYMax slice" role="img" aria-label="Perfil das montanhas da Serra Fluminense que se transforma em dentes de serrote, com o sol amarelo ao fundo">
+      <defs>
+        <radialGradient id="halo" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="var(--sol)" stop-opacity=".35"/><stop offset="1" stop-color="var(--sol)" stop-opacity="0"/></radialGradient>
+        <linearGradient id="ceu" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--bg)"/><stop offset="1" stop-color="var(--folha)"/></linearGradient>
+      </defs>
+      <rect width="1200" height="320" fill="url(#ceu)"/>
+      <circle cx="905" cy="112" r="120" fill="url(#halo)"/>
+      <circle class="sol" cx="905" cy="112" r="44" fill="var(--sol)"/>
+      <path d="M0,320 L0,121 L86,78 L171,113 L257,165 L343,180 L429,169 L514,128 L600,86 L686,120 L771,143 L857,155 L943,181 L1029,164 L1114,149 L1200,104 L1200,320 Z" fill="var(--r1)"/>
+      <path d="M0,320 L0,192 L67,214 L133,227 L200,208 L267,172 L333,177 L400,182 L467,173 L533,218 L600,228 L667,201 L733,178 L800,135 L867,158 L933,180 L1000,220 L1067,226 L1133,202 L1200,175 L1200,320 Z" fill="var(--r2)"/>
+      <path d="M0,320 L0.0,268.0 L50.4,200.1 L100.9,275.0 L136.0,195.8 L171.2,275.0 L218.3,218.2 L265.3,275.0 L299.8,190.6 L334.2,275.0 L378.6,197.8 L423.0,275.0 L476.0,198.3 L529.5,275.0 L565.8,221.8 L616.6,275.0 L640.7,227.0 L685.5,275.0 L703.0,224.7 L744.5,275.0 L755.7,240.8 L789.1,275.0 L797.8,237.8 L829.2,275.0 L835.8,243.9 L864.6,275.0 L870.7,245.0 L898.6,275.0 L904.7,245.0 L932.6,275.0 L938.7,245.0 L966.6,275.0 L972.7,245.0 L1000.6,275.0 L1006.7,245.0 L1034.6,275.0 L1040.7,245.0 L1068.6,275.0 L1074.7,245.0 L1102.6,275.0 L1108.7,245.0 L1136.6,275.0 L1142.7,245.0 L1170.6,275.0 L1176.7,245.0 L1200.0,275.0 L1200,320 Z" fill="var(--r3)"/>
+      <rect y="274" width="1200" height="46" fill="var(--mata-fundo)"/>
+    </svg>
+    <form class="busca" role="search" id="form-busca">
+      <svg aria-hidden="true"><use href="#lupa"/></svg>
+      <label class="sr" for="q-inicio" style="position:absolute;left:-9999px">Buscar no acervo</label>
+      <input id="q-inicio" type="search" placeholder="Buscar: afiação, serra de fita, encaixe…" autocomplete="off">
+    </form>
+  </section>
+
+  <section class="band"><div class="wrap">
+    <div class="titulo-bloco"><h2>Seções</h2><a href="#biblioteca">Ver o acervo inteiro</a></div>
+    <div class="grade" id="grade-secoes"></div>
+  </div></section>
+
+  <section class="band" style="padding-top:0"><div class="wrap">
+    <div class="titulo-bloco"><h2>Publicados recentemente</h2><a href="#biblioteca">Todos os artigos</a></div>
+    <ul class="lista" id="recentes"></ul>
+  </div></section>
+
+  <section class="band faixa"><div class="wrap">
+    <div class="titulo-bloco"><h2>Referências pelo mundo</h2><a href="#referencias">Abrir o índice</a></div>
+    <p>Mestres, canais, revistas, escolas e bancos de dados do Brasil, dos Estados Unidos, da Inglaterra e de outros países, reunidos num só lugar e comentados em português.</p>
+    <div class="paises" id="paises-inicio"></div>
+  </div></section>
+
+  <section class="band"><div class="wrap manifesto">
+    <h2>Por que uma biblioteca</h2>
+    <div>
+      <p>Quase tudo o que se escreve de melhor sobre marcenaria está em inglês, em francês, em alemão ou em japonês. Serras e Formas reúne, traduz e organiza esse conhecimento em português, um tema por vez.</p>
+      <p>Cada estudo da oficina vira um artigo: a regulagem de uma máquina, uma ferramenta manual vista por dentro, um encaixe, uma madeira. Nada se perde no celular. Tudo fica aqui, com as fontes indicadas.</p>
+    </div>
+  </div></section>
+</template>
+
+<footer>
+  <div class="wrap">
+    <span><b>Serras e Formas</b> · Biblioteca de marcenaria em língua portuguesa · Serra Fluminense, RJ</span>
+    <span id="rodape-contagem"></span>
+  </div>
+</footer>
+
+<script src="artigos.js"></script>
+<script src="referencias.js"></script>
+<script src="fotos.js"></script>
+<script>
+{
+const SECOES = [
+  { id: "afiacao", nome: "Afiação", d: "Pedras, ângulos e métodos para um fio que corta sem esforço." },
+  { id: "ferramentas", nome: "Ferramentas manuais", d: "Uma a uma: anatomia, escolha, uso e cuidado de cada ferramenta." },
+  { id: "maquinas", nome: "Máquinas", d: "Regulagem, manutenção e segurança das máquinas estacionárias." },
+  { id: "encaixes", nome: "Técnicas e encaixes", d: "Espiga e furo, rabo de andorinha, sashimono e outras uniões." },
+  { id: "madeiras", nome: "Madeiras", d: "Espécies brasileiras e estrangeiras, secagem e madeira de demolição." },
+  { id: "acabamento", nome: "Acabamento", d: "Lixas, óleos, ceras e vernizes." },
+  { id: "oficina", nome: "Oficina", d: "Bancadas, gabaritos, acessórios e máquinas feitas em casa." },
+  { id: "projetos", nome: "Projetos", d: "Peças construídas e projetos em andamento, com medidas." },
+  { id: "traducoes", nome: "Traduções", d: "Artigos clássicos e atuais vertidos do inglês para o português." },
+  { id: "formacao", nome: "Formação", d: "Escolas, cursos e mestres no Brasil e no mundo." },
+  { id: "cronicas", nome: "Crônicas", d: "Histórias de oficina." }
+];
+const A = (window.ARTIGOS || []).slice().sort((a, b) => b.data.localeCompare(a.data));
+const R = window.REFERENCIAS || [];
+const app = document.getElementById("app");
+const secao = id => SECOES.find(s => s.id === id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const norm = s => String(s).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+const semTags = h => h.replace(/<[^>]+>/g, " ");
+const minutos = a => Math.max(1, Math.round(semTags(a.corpo).split(/\s+/).filter(Boolean).length / 200));
+const MESES = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
+const dataBR = d => { const [y, m, dd] = d.split("-").map(Number); return dd + " de " + MESES[m - 1] + " de " + y; };
+const conta = id => A.filter(a => a.secao === id).length;
+const plural = (n, s, p) => n + " " + (n === 1 ? s : p);
+
+const itemLista = a => `<li><a href="#artigo-${a.slug}"><h3>${esc(a.titulo)}</h3><p>${esc(a.resumo)}</p><span class="meta"><b>${esc(secao(a.secao)?.nome || "")}</b>${esc(a.tipo)} · ${minutos(a)} min</span></a></li>`;
+const lupa = '<svg aria-hidden="true"><use href="#lupa"/></svg>';
+const montanha = '<svg viewBox="0 0 30 22" aria-hidden="true"><use href="#logo"/></svg>';
+
+function marcaMenu(r) {
+  const base = r.startsWith("artigo-") || r.startsWith("secao-") ? "biblioteca" : r;
+  document.querySelectorAll("nav.menu a").forEach(a => { if (a.dataset.r === base) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
+}
+
+function vInicio() {
+  app.innerHTML = '<div class="vista">' + document.getElementById("tpl-inicio").innerHTML + "</div>";
+  document.getElementById("grade-secoes").innerHTML = SECOES.map(s => `<a href="#secao-${s.id}"><h3>${s.nome}<span>${conta(s.id) || "em breve"}</span></h3><p>${s.d}</p></a>`).join("") + `<a href="#referencias"><h3>Referências<span>${R.reduce((n, p) => n + p.itens.length, 0)}</span></h3><p>Mestres, canais, revistas e escolas do mundo todo.</p></a>`;
+  document.getElementById("recentes").innerHTML = A.slice(0, 6).map(itemLista).join("");
+  document.getElementById("paises-inicio").innerHTML = R.map(p => `<a href="#referencias" data-pais="${p.id}">${p.pais}</a>`).join("");
+  document.getElementById("form-busca").addEventListener("submit", e => {
+    e.preventDefault();
+    buscaPendente = document.getElementById("q-inicio").value;
+    location.hash = "biblioteca";
+  });
+  document.querySelectorAll("#paises-inicio a").forEach(a => a.addEventListener("click", () => { paisPendente = a.dataset.pais; }));
+  document.title = "Serras e Formas";
+}
+
+let buscaPendente = "", paisPendente = "", filtroSecao = "";
+function vBiblioteca() {
+  app.innerHTML = `<div class="vista wrap">
+    <div class="cabeca"><h1>Biblioteca</h1><p>Todo o acervo, do mais recente ao mais antigo. Busque por palavra ou filtre por seção.</p></div>
+    <div class="filtro">${lupa}<label for="q" style="position:absolute;left:-9999px">Buscar no acervo</label><input id="q" type="search" placeholder="Buscar no acervo" autocomplete="off"></div>
+    <div class="chips" role="group" aria-label="Filtrar por seção" id="chips" style="margin-top:14px"></div>
+    <p class="contagem" id="cont" aria-live="polite"></p>
+    <ul class="lista" id="todos"></ul>
+  </div>`;
+  const q = document.getElementById("q");
+  q.value = buscaPendente; buscaPendente = "";
+  const chips = document.getElementById("chips");
+  const opcoes = [{ id: "", nome: "Todas" }].concat(SECOES.filter(s => conta(s.id)));
+  chips.innerHTML = opcoes.map(s => `<button type="button" data-s="${s.id}" aria-pressed="${s.id === filtroSecao}">${s.nome}</button>`).join("");
+  const desenha = () => {
+    const t = norm(q.value.trim());
+    const lista = A.filter(a => (!filtroSecao || a.secao === filtroSecao) && (!t || norm(a.titulo + " " + a.resumo + " " + semTags(a.corpo)).includes(t)));
+    document.getElementById("cont").textContent = plural(lista.length, "artigo", "artigos") + (t ? " para “" + q.value.trim() + "”" : "");
+    document.getElementById("todos").innerHTML = lista.length ? lista.map(itemLista).join("") : '<li class="vazio">Nada encontrado. Tente outra palavra, como “plaina” ou “madeira”.</li>';
+  };
+  chips.addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    filtroSecao = b.dataset.s;
+    chips.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b));
+    desenha();
+  });
+  q.addEventListener("input", desenha);
+  desenha();
+  if (q.value) q.focus();
+  document.title = "Biblioteca — Serras e Formas";
+}
+
+function vSecao(id) {
+  const s = secao(id); if (!s) return vNaoEncontrado();
+  const lista = A.filter(a => a.secao === id);
+  app.innerHTML = `<div class="vista wrap">
+    <div class="cabeca"><div class="trilha"><a href="#biblioteca">Biblioteca</a> / Seção</div><h1>${s.nome}</h1><p>${s.d}</p></div>
+    ${lista.length ? `<p class="contagem">${plural(lista.length, "artigo", "artigos")}</p><ul class="lista">${lista.map(itemLista).join("")}</ul>`
+      : `<div class="vazio">Esta seção ainda não tem artigos. Os primeiros chegam em breve.</div>`}
+  </div>`;
+  document.title = s.nome + " — Serras e Formas";
+}
+
+function vArtigo(slug) {
+  const a = A.find(x => x.slug === slug); if (!a) return vNaoEncontrado();
+  const s = secao(a.secao);
+  const irmaos = A.filter(x => x.secao === a.secao);
+  const i = irmaos.indexOf(a);
+  const ant = irmaos[i + 1], prox = irmaos[i - 1];
+  app.innerHTML = `<div class="vista wrap"><article class="texto">
+    <div class="cabeca" style="border:0;margin:0;padding-bottom:0"><div class="trilha"><a href="#biblioteca">Biblioteca</a> / <a href="#secao-${s.id}">${s.nome}</a></div>
+    <h1>${esc(a.titulo)}</h1>
+    <div class="linha-meta"><span><b>${esc(a.tipo)}</b></span><span>${dataBR(a.data)}</span><span>${minutos(a)} min de leitura</span></div></div>
+    <p class="lead" style="margin-top:22px">${esc(a.resumo)}</p>
+    <div class="corpo">${a.corpo}</div>
+    ${a.fontes && a.fontes.length ? `<div class="fontes"><h3>Fontes e leitura complementar</h3><ul>${a.fontes.map(f => `<li><a href="${esc(f.u)}" target="_blank" rel="noopener">${esc(f.t)}</a></li>`).join("")}</ul></div>` : ""}
+    ${ant || prox ? `<nav class="vizinhos" aria-label="Outros artigos da seção">${ant ? `<a href="#artigo-${ant.slug}"><small>Anterior</small>${esc(ant.titulo)}</a>` : ""}${prox ? `<a class="prox" href="#artigo-${prox.slug}"><small>Próximo</small>${esc(prox.titulo)}</a>` : ""}</nav>` : ""}
+  </article></div>`;
+  document.title = a.titulo + " — Serras e Formas";
+}
+
+function vReferencias() {
+  const total = R.reduce((n, p) => n + p.itens.length, 0);
+  const link = it => it.u || ("https://www.youtube.com/results?search_query=" + encodeURIComponent(it.yt));
+  const onde = it => it.u ? it.u.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "").split("/")[0] : "Abrir no YouTube";
+  app.innerHTML = `<div class="vista wrap">
+    <div class="cabeca"><h1>Referências</h1><p>${total} mestres, canais, revistas, escolas e bancos de dados de ${R.length} países, comentados em português.</p></div>
+    <div class="paises claro" style="margin-bottom:32px">${R.map(p => `<a href="#referencias" data-ir="${p.id}">${p.pais}</a>`).join("")}</div>
+    ${R.map(p => `<section class="ref-grupo" id="pais-${p.id}"><h2>${p.pais}<span>${plural(p.itens.length, "referência", "referências")}</span></h2>
+      <div class="refs">${p.itens.map(it => `<a href="${esc(link(it))}" target="_blank" rel="noopener"><span class="tipo">${esc(it.tipo)}</span><strong>${esc(it.n)}</strong><p>${esc(it.d)}</p><em>${esc(onde(it))}</em></a>`).join("")}</div></section>`).join("")}
+  </div>`;
+  app.querySelectorAll("[data-ir]").forEach(a => a.addEventListener("click", e => { e.preventDefault(); document.getElementById("pais-" + a.dataset.ir)?.scrollIntoView({ behavior: "smooth" }); }));
+  if (paisPendente) { const alvo = document.getElementById("pais-" + paisPendente); paisPendente = ""; if (alvo) setTimeout(() => alvo.scrollIntoView(), 30); }
+  document.title = "Referências — Serras e Formas";
+}
+
+function vGaleria() {
+  const fotos = window.FOTOS || [];
+  app.innerHTML = `<div class="vista wrap">
+    <div class="cabeca"><h1>Galeria</h1><p>A oficina, as ferramentas e algumas peças. Toque numa foto para abrir o artigo relacionado.</p></div>
+    <div class="fotos">${fotos.length ? fotos.map(f => `<a class="foto" href="${f.link ? "#" + f.link : "#galeria"}"><img src="${esc(f.src)}" alt="${esc(f.alt)}" loading="lazy"><span>${esc(f.legenda || "")}</span></a>`).join("")
+      : Array.from({ length: 6 }, () => `<figure>${montanha}<span>Foto em breve</span></figure>`).join("")}</div>
+  </div>`;
+  document.title = "Galeria — Serras e Formas";
+}
+
+function vNaoEncontrado() {
+  app.innerHTML = `<div class="vista wrap"><div class="cabeca"><h1>Página não encontrada</h1><p>O endereço pode ter mudado. <a href="#biblioteca" style="color:var(--mata)">Voltar à biblioteca</a>.</p></div></div>`;
+}
+
+function rota() {
+  const r = location.hash.replace(/^#/, "") || "inicio";
+  marcaMenu(r);
+  if (r === "inicio") vInicio();
+  else if (r === "biblioteca") vBiblioteca();
+  else if (r === "referencias") vReferencias();
+  else if (r === "galeria") vGaleria();
+  else if (r.startsWith("secao-")) vSecao(r.slice(6));
+  else if (r.startsWith("artigo-")) vArtigo(r.slice(7));
+  else vNaoEncontrado();
+  if (!(r === "referencias" && paisPendente)) window.scrollTo(0, 0);
+}
+document.getElementById("rodape-contagem").textContent = plural(A.length, "artigo", "artigos") + " no acervo";
+window.addEventListener("hashchange", rota);
+rota();
+}
+</script>
+</body>
+</html>

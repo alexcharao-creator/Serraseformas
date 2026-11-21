@@ -1,0 +1,49 @@
+[
+ {
+  "src": "media/guias-serra-frente.jpg",
+  "alt": "Guias de rolamento da serra de fita",
+  "legenda": "Guias de rolamento da serra de fita",
+  "link": "artigo-regulagem-serra-de-fita"
+ },
+ {
+  "src": "media/desengrossadeira.jpg",
+  "alt": "Desengrossadeira na oficina, com uma tábua de madeiras listradas na mesa",
+  "legenda": "A desengrossadeira e uma tábua de demolição"
+ },
+ {
+  "src": "media/broca-35mm-furo.jpg",
+  "alt": "Furo de 35 mm numa tábua de madeiras listradas",
+  "legenda": "O conserto da tábua da madeira albina",
+  "link": "artigo-o-misterio-da-madeira-albina"
+ },
+ {
+  "src": "media/guias-serra-lamina.jpg",
+  "alt": "Lâmina da serra de fita entre as guias",
+  "legenda": "Lâmina, guias e mesa",
+  "link": "artigo-regulagem-serra-de-fita"
+ },
+ {
+  "src": "media/curso-morito.jpg",
+  "alt": "Alexandre Charão e Morito Ebine no ateliê, segurando o certificado do curso e um banquinho feito no curso",
+  "legenda": "Fim do curso no ateliê de Morito Ebine, com o banquinho feito em aula",
+  "link": "artigo-escolas-de-marcenaria-pelo-mundo"
+ },
+ {
+  "src": "media/broca-furo-caixeta.jpg",
+  "alt": "Furo revelando a lingueta clara de caixeta",
+  "legenda": "A lingueta de caixeta revelada",
+  "link": "artigo-o-misterio-da-madeira-albina"
+ },
+ {
+  "src": "media/guia-serra-lateral.jpg",
+  "alt": "Conjunto de guia da serra de fita visto de lado",
+  "legenda": "Rolamento lateral e rolamento de encosto",
+  "link": "artigo-regulagem-serra-de-fita"
+ },
+ {
+  "src": "media/broca-35mm.jpg",
+  "alt": "Broca chata de 35 mm",
+  "legenda": "Broca chata de 35 mm",
+  "link": "artigo-o-misterio-da-madeira-albina"
+ }
+]

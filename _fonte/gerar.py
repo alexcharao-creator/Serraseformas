@@ -47,6 +47,7 @@ css += "\n.lista a{color:inherit}.sr{position:absolute;left:-9999px}\n"
 simbolos = '<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="lupa" viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 13l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol></svg>'
 stack_js = """<script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;c.dataset.l=c.closest('table').rows[0].cells[i]?.textContent||''}}).observe(document,{childList:true,subtree:true})</script>"""
 ESCOLAS, PAUTAS = ler("escolas"), ler("pautas")
+ASSINATURA = open(os.path.join(FONTE, "assinatura.svg"), encoding="utf-8").read()
 
 def pagina(nome, titulo, descricao, corpo, ativo=""):
     def item(href, rot, k):
@@ -72,13 +73,13 @@ def pagina(nome, titulo, descricao, corpo, ativo=""):
 <body>
 {simbolos}
 <header class="top"><div class="wrap">
-<a class="marca" href="index.html" aria-label="Serras &amp; Formas, página inicial"><img src="media/logo-96.png" alt="" width="38" height="38"><span class="tit"><b>Serras <em>&amp;</em> Formas</b><small>Biblioteca de marcenaria em português</small></span></a>
+<a class="marca" href="index.html" aria-label="Serras &amp; Formas, página inicial"><img src="media/logo-96.png" alt="" width="38" height="38"><span class="tit"><b>Serras <em>&amp;</em> Formas</b><small>Artigos e técnicas de marcenaria</small></span></a>
 <nav class="menu" aria-label="Principal">{nav}</nav>
 </div></header>
 <main id="app">
 {corpo}
 </main>
-<footer><div class="wrap"><div class="rod"><img src="media/logo-96.png" alt="Logotipo Serras &amp; Formas" width="64" height="64"><div><b>Serras &amp; Formas</b><small>Marcenaria • Projetos • Técnicas · Petrópolis, Serra Fluminense</small><small>Um projeto pessoal de compartilhamento de conhecimento.</small></div></div><span>{plural(len(A),"artigo","artigos")} no acervo · <a href="index.html#seguranca">Segurança</a></span></div></footer>
+<footer><div class="wrap"><div class="rod"><img src="media/logo-96.png" alt="Logotipo Serras &amp; Formas" width="64" height="64"><div><b>Serras &amp; Formas</b><small>Marcenaria • Projetos • Técnicas · Petrópolis, Serra Fluminense</small><small>Um projeto pessoal de compartilhamento de conhecimento, por</small>{ASSINATURA}</div></div><span>{plural(len(A),"artigo","artigos")} no acervo · <a href="index.html#seguranca">Segurança</a></span></div></footer>
 </body>
 </html>
 """
@@ -128,7 +129,8 @@ inicio = f"""<section class="hero"><div class="wrap hero-grid">
 <p>A marcenaria é um universo de descobertas. Cada ferramenta, cada técnica e cada projeto trazem novas perguntas, e novas oportunidades de aprender.</p>
 <p>Comecei a praticar marcenaria em 2020, como hobby. Desde então, venho reunindo experiências em minha pequena oficina nas montanhas de Petrópolis, participando de cursos, estudando ferramentas e consultando livros, artigos e manuais, muitos deles publicados em outros idiomas.</p>
 <p>Criei o Serras &amp; Formas para organizar e compartilhar esse material em português. Aqui você encontrará guias práticos, projetos, estudos sobre ferramentas, traduções comentadas, referências técnicas e relatos do que venho aprendendo.</p>
-<p>Não sou marceneiro profissional nem professor de marcenaria. Sou um entusiasta que acredita que o conhecimento se torna mais valioso quando é compartilhado.</p></div>
+<p>Não sou marceneiro profissional nem professor de marcenaria. Sou um entusiasta que acredita que o conhecimento se torna mais valioso quando é compartilhado.</p>
+<div class="assina">{ASSINATURA}<span>Petrópolis, Serra Fluminense</span></div></div>
 <aside class="lado"><h3>O que você encontra aqui</h3><ul>
 <li><a href="secao-ferramentas.html">Ferramentas</a> e <a href="secao-maquinas.html">máquinas</a>: funcionamento, manutenção e escolha.</li>
 <li><a href="secao-encaixes.html">Técnicas</a> e <a href="secao-projetos.html">projetos</a>: exercícios, métodos e experiências.</li>
@@ -166,7 +168,7 @@ inicio = f"""<section class="hero"><div class="wrap hero-grid">
 <p>Recomendo fortemente fazer cursos de marcenaria antes de operar máquinas, conhecer os procedimentos de segurança de cada equipamento e utilizar os equipamentos de proteção individual adequados à atividade.</p>
 <p>Aprender a trabalhar com segurança faz parte da própria arte da marcenaria.</p>
 </div></section>"""
-w("index.html", pagina("index.html", "Serras & Formas — Biblioteca de marcenaria em português",
+w("index.html", pagina("index.html", "Serras & Formas — Artigos e técnicas de marcenaria",
   "Guias, técnicas, projetos, glossário e estudos de marcenaria em português, reunidos por um entusiasta desde 2020, em Petrópolis, Serra Fluminense.", inicio, "inicio"))
 
 # ---- biblioteca (lista completa + busca no navegador) ----

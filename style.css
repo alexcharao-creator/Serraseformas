@@ -253,5 +253,10 @@ footer .rod small{display:block;color:var(--muted);font-size:13px}
 .marca .tit b{font-weight:400;white-space:nowrap}
 .marca small{font-family:system-ui,sans-serif;font-size:11.5px;letter-spacing:.06em;color:#cdd8cf;margin-top:3px;font-weight:400}
 @media(max-width:560px){.marca small{font-size:10.5px}}
+/* assinatura */
+.assina{margin-top:22px;color:var(--mata)}
+.assina .assinatura{display:block;height:58px;width:auto;max-width:100%}
+.assina span{display:block;font-size:13px;color:var(--muted);margin-top:2px}
+footer .rod .assinatura{display:block;height:30px;width:auto;color:var(--mata);margin-top:2px}
 
 .lista a{color:inherit}.sr{position:absolute;left:-9999px}

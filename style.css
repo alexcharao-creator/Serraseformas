@@ -264,3 +264,5 @@ footer .rod .assinatura{display:block;height:30px;width:auto;color:var(--mata);m
 footer .rod .assinatura{height:24px}
 
 .lista a{color:inherit}.sr{position:absolute;left:-9999px}
+.grade .grupo{grid-column:1/-1;margin:0;padding:14px 22px 10px;background:var(--bg);font:600 12px/1.2 system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mata)}
+.ref-cat{margin:44px 0 6px;scroll-margin-top:90px}.ref-cat>h2{font-size:30px}.ref-cat>p{color:var(--muted);margin:4px 0 18px}.ref-grupo h3{font-size:19px;margin:22px 0 10px;font-weight:400}

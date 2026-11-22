@@ -24,12 +24,13 @@ SECOES = [
  ("oficina","Oficina","Bancadas, gabaritos, acessórios e máquinas feitas em casa."),
  ("projetos","Projetos","Peças construídas e projetos em andamento, com medidas."),
  ("traducoes","Traduções","Artigos clássicos e atuais vertidos do inglês para o português."),
- ("formacao","Formação","Escolas, cursos e mestres no Brasil e no mundo."),
+ ("formacao","Formação","Escolas e cursos presenciais, no Brasil e no exterior: onde ir para ter aula."),
  ("historia","História","A origem das ferramentas, dos fabricantes e dos ofícios."),
  ("glossario","Glossário","Vocabulário da marcenaria em português e inglês."),
- ("cronicas","Crônicas","Histórias de oficina."),
+ ("mestres","Mestres e leituras","Perfis de marceneiros, autores e canais, e resenhas de livros."),
 ]
 SEC = {s[0]: s for s in SECOES}
+BANCADA = ["afiacao","ferramentas","maquinas","encaixes","madeiras","acabamento","oficina","projetos"]
 MESES = "janeiro fevereiro março abril maio junho julho agosto setembro outubro novembro dezembro".split()
 e = lambda s: html.escape(str(s), quote=True)
 sem_tags = lambda h: re.sub(r"<[^>]+>", " ", h)
@@ -43,7 +44,7 @@ def norm(s): return "".join(c for c in unicodedata.normalize("NFD", s) if unicod
 
 # ---- estilo, símbolos e script das tabelas ----
 css = open(os.path.join(FONTE, "estilo.css"), encoding="utf-8").read()
-css += "\n.lista a{color:inherit}.sr{position:absolute;left:-9999px}\n"
+css += "\n.lista a{color:inherit}.sr{position:absolute;left:-9999px}\n.grade .grupo{grid-column:1/-1;margin:0;padding:14px 22px 10px;background:var(--bg);font:600 12px/1.2 system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mata)}\n.ref-cat{margin:44px 0 6px;scroll-margin-top:90px}.ref-cat>h2{font-size:30px}.ref-cat>p{color:var(--muted);margin:4px 0 18px}.ref-grupo h3{font-size:19px;margin:22px 0 10px;font-weight:400}\n"
 simbolos = '<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="lupa" viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 13l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol></svg>'
 stack_js = """<script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;c.dataset.l=c.closest('table').rows[0].cells[i]?.textContent||''}}).observe(document,{childList:true,subtree:true})</script>"""
 ESCOLAS, PAUTAS = ler("escolas"), ler("pautas")
@@ -53,7 +54,7 @@ def pagina(nome, titulo, descricao, corpo, ativo=""):
     def item(href, rot, k):
         cur = ' aria-current="page"' if k == ativo else ""
         return f'<a href="{href}"{cur}>{rot}</a>'
-    nav = item("index.html","Início","inicio") + item("biblioteca.html","Biblioteca","biblioteca") + item("index.html#cursos","Onde aprender","cursos") + item("referencias.html","Referências","referencias") + item("galeria.html","Galeria","galeria")
+    nav = item("index.html","Início","inicio") + item("biblioteca.html","Biblioteca","biblioteca") + item("index.html#cursos","Escolas e cursos","cursos") + item("referencias.html","Referências","referencias") + item("galeria.html","Galeria","galeria")
     url = DOM.rstrip("/") + "/" + ("" if nome == "index.html" else nome)
     return f"""<!DOCTYPE html>
 <html lang="pt-BR">
@@ -109,9 +110,11 @@ w("style.css", css)
 
 # ---- início ----
 oficina = next((a for a in A if a["slug"] == "como-montar-sua-oficina"), A[0])
-grade = "".join(f'<a href="{pag_secao(sid)}"><h3>{nome}<span>{conta(sid) or "em breve"}</span></h3><p>{desc}</p></a>' for sid, nome, desc in SECOES)
-grade += f'<a href="referencias.html"><h3>Referências<span>{sum(len(p["itens"]) for p in R)}</span></h3><p>Mestres, canais, revistas e escolas do mundo todo.</p></a>'
-cursos = "".join(f'<a href="{e(x["u"]) if x["u"] else "referencias.html#pais-brasil"}"{" target=\"_blank\" rel=\"noopener\"" if x["u"] else ""}><span class="tipo">{e(x["local"])}</span><strong>{e(x["nome"])}</strong><p>{e(x["d"])}</p><em>{"Site e cursos" if x["u"] else "Agenda a confirmar"}</em></a>' for x in ESCOLAS)
+def cartao(sid, nome, desc): return f'<a href="{pag_secao(sid)}"><h3>{nome}<span>{conta(sid) or "em breve"}</span></h3><p>{desc}</p></a>'
+grade = '<p class="grupo">Na bancada</p>' + "".join(cartao(*x) for x in SECOES if x[0] in BANCADA)
+grade += '<p class="grupo">Para ler e aprender</p>' + "".join(cartao(*x) for x in SECOES if x[0] not in BANCADA)
+grade += f'<a href="referencias.html"><h3>Referências<span>{sum(len(p["itens"]) for p in R)}</span></h3><p>Canais do YouTube, sites e cursos online, livros, revistas e lojas do mundo todo.</p></a>'
+cursos = "".join(f'<a href="{e(x["u"]) if x["u"] else "#cursos"}"{" target=\"_blank\" rel=\"noopener\"" if x["u"] else ""}><span class="tipo">{e(x["local"])}</span><strong>{e(x["nome"])}</strong><p>{e(x["d"])}</p><em>{"Site e cursos" if x["u"] else "Agenda a confirmar"}</em></a>' for x in ESCOLAS)
 pautas = "".join(f'<li><small>{e(x["s"])} · {e(x["st"])}</small><b>{e(x["t"])}</b><span>{e(x["d"])}</span></li>' for x in PAUTAS)
 bloco_pautas = (f'<section class="band faixa-clara"><div class="wrap"><span class="eyebrow">Próximos artigos</span><h2>Em preparação</h2><p class="contagem" style="margin-bottom:18px">Pautas planejadas, ainda não publicadas.</p><ul class="pautas">{pautas}</ul></div></section>') if PAUTAS else ""
 inicio = f"""<section class="hero"><div class="wrap hero-grid">
@@ -135,7 +138,8 @@ inicio = f"""<section class="hero"><div class="wrap hero-grid">
 <li><a href="secao-encaixes.html">Técnicas</a> e <a href="secao-projetos.html">projetos</a>: exercícios, métodos e experiências.</li>
 <li><a href="secao-traducoes.html">Manuais e traduções</a>: referências comentadas em português, com as fontes indicadas.</li>
 <li><a href="secao-historia.html">História</a> e <a href="secao-glossario.html">glossário</a>: o contexto e o vocabulário da marcenaria.</li>
-<li><a href="#cursos">Formação</a>: onde estudar com quem ensina o ofício.</li>
+<li><a href="#cursos">Escolas e cursos</a>: onde ter aula presencial, no Brasil e no exterior.</li>
+<li><a href="referencias.html">Referências</a>: canais do YouTube, sites, cursos online e livros.</li>
 </ul></aside>
 </div></section>
 
@@ -156,9 +160,10 @@ inicio = f"""<section class="hero"><div class="wrap hero-grid">
 {bloco_pautas}
 
 <section class="band" id="cursos"><div class="wrap">
-<div class="titulo-bloco"><div><span class="eyebrow">Formação e referências</span><h2>Onde aprender marcenaria</h2></div><a href="referencias.html">Referências pelo mundo</a></div>
+<div class="titulo-bloco"><div><span class="eyebrow">Formação presencial</span><h2>Escolas e cursos</h2></div><a href="secao-formacao.html">Escolas no exterior</a></div>
 <p class="lede" style="max-width:62ch;color:var(--muted);margin:0 0 22px">Minha recomendação mais importante para quem está começando: procure aulas práticas com orientação de profissionais. Estas são referências para explorar; confirme diretamente com cada escola as turmas, os requisitos e a disponibilidade.</p>
-<div class="refs">{cursos}</div></div></section>
+<div class="refs">{cursos}</div>
+<p class="lede" style="margin:24px 0 0;color:var(--muted)">No exterior: escolas nos <a href="artigo-escolas-de-marcenaria-eua.html">Estados Unidos</a>, no <a href="artigo-escolas-de-marcenaria-canada.html">Canadá</a>, na <a href="artigo-escolas-de-marcenaria-reino-unido.html">Inglaterra e Escócia</a>, na <a href="artigo-escolas-de-marcenaria-franca.html">França</a>, na <a href="artigo-escolas-de-marcenaria-espanha.html">Espanha</a> e <a href="artigo-escolas-de-marcenaria-pelo-mundo.html">pelo mundo</a>. Prefere aprender online? <a href="referencias.html">Canais, sites e livros →</a></p></div></section>
 
 <section class="band seguranca" id="seguranca"><div class="wrap">
 <span class="eyebrow">Antes de começar</span><h2>Segurança em primeiro lugar</h2>
@@ -236,16 +241,36 @@ for a in A:
     w(pag_artigo(a), pagina(pag_artigo(a), f"{a['titulo']} — Serras & Formas", a["resumo"], corpo, "biblioteca"))
 
 # ---- referências ----
+CATS = [("canais","Canais do YouTube","Para assistir: quem ensina em vídeo.",("Canal",)),
+        ("sites","Sites e cursos online","Para ler e estudar no seu ritmo: blogs, cursos online, bancos de dados e encontros.",("Site","Banco de dados","Evento")),
+        ("livros","Livros e editoras","Para ter na estante.",("Livro","Editora")),
+        ("revistas","Revistas","Técnica, projetos e testes, com décadas de acervo.",("Revista",)),
+        ("lojas","Lojas e fóruns","Ferramentas de qualidade e comunidades para tirar dúvidas.",("Loja","Fórum"))]
+def link_ref2(it):
+    u = link_ref(it); ext = u.startswith("http")
+    return u, (' target="_blank" rel="noopener"' if ext else "")
+def onde2(it):
+    u = it.get("u") or ""
+    return "Neste site" if u and not u.startswith("http") else onde(it)
 total = sum(len(p["itens"]) for p in R)
-refs = f'<div class="wrap"><div class="cabeca"><h1>Referências</h1><p>{total} mestres, canais, revistas, escolas e bancos de dados de {len(R)} países, comentados em português. Para uma seleção maior, por língua (inglês, francês, espanhol e português), veja <a href="artigo-sites-de-marcenaria-pelo-mundo.html">Sites de marcenaria pelo mundo</a>.</p></div>'
-refs += '<div class="paises claro" style="margin-bottom:32px">' + "".join(f'<a href="#pais-{p["id"]}">{p["pais"]}</a>' for p in R) + "</div>"
-for p in R:
-    refs += f'<section class="ref-grupo" id="pais-{p["id"]}"><h2>{p["pais"]}<span>{plural(len(p["itens"]),"referência","referências")}</span></h2><div class="refs">'
-    refs += "".join(f'<a href="{e(link_ref(it))}" target="_blank" rel="noopener"><span class="tipo">{e(it["tipo"])}</span><strong>{e(it["n"])}</strong><p>{e(it["d"])}</p><em>{e(onde(it))}</em></a>' for it in p["itens"])
-    refs += "</div></section>"
+refs = f'<div class="wrap"><div class="cabeca"><h1>Referências</h1><p>{total} canais, sites, cursos online, livros, revistas e lojas de {len(R)} países, comentados em português. Aqui está o que se aprende pela tela ou pelo papel. Para ter aula presencial, veja <a href="index.html#cursos">Escolas e cursos</a>. Uma seleção maior de sites, por língua, está em <a href="artigo-sites-de-marcenaria-pelo-mundo.html">Sites de marcenaria pelo mundo</a>.</p></div>'
+refs += '<div class="paises claro" style="margin-bottom:12px">' + "".join(f'<a href="#{cid}">{cn}</a>' for cid, cn, _, tps in CATS if any(it["tipo"] in tps for p in R for it in p["itens"])) + "</div>"
+for cid, cn, cd, tps in CATS:
+    grupos = [(p, [it for it in p["itens"] if it["tipo"] in tps]) for p in R]
+    grupos = [(p, its) for p, its in grupos if its]
+    if not grupos: continue
+    n = sum(len(its) for _, its in grupos)
+    refs += f'<section class="ref-cat" id="{cid}"><h2>{cn}</h2><p>{cd} {plural(n,"referência","referências")}.</p>'
+    for p, its in grupos:
+        refs += f'<div class="ref-grupo"><h3>{p["pais"]}</h3><div class="refs">'
+        for it in its:
+            u, tg = link_ref2(it)
+            refs += f'<a href="{e(u)}"{tg}><span class="tipo">{e(it["tipo"])}</span><strong>{e(it["n"])}</strong><p>{e(it["d"])}</p><em>{e(onde2(it))}</em></a>'
+        refs += "</div></div>"
+    refs += "</section>"
 refs += "</div>"
-w("referencias.html", pagina("referencias.html", "Referências de marcenaria pelo mundo — Serras & Formas",
-  "Mestres, canais de YouTube, revistas, escolas e bancos de dados de marcenaria do Brasil, EUA, Inglaterra, Japão, França e outros países.", refs, "referencias"))
+w("referencias.html", pagina("referencias.html", "Referências de marcenaria: canais, sites, livros e revistas — Serras & Formas",
+  "Canais de YouTube, sites e cursos online, livros, editoras, revistas e lojas de marcenaria do Brasil, EUA, Inglaterra, Japão, França e outros países.", refs, "referencias"))
 
 # ---- galeria ----
 gal = '<div class="wrap"><div class="cabeca"><h1>Galeria</h1><p>A oficina, as ferramentas e algumas peças. Toque numa foto para abrir o artigo relacionado.</p></div><div class="fotos">'

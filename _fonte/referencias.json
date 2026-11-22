@@ -4,42 +4,6 @@
   "id": "brasil",
   "itens": [
    {
-    "n": "Fernando Belchior",
-    "tipo": "Mestre",
-    "d": "Cruzeiro, SP. Marcenaria fina, projetos e cursos presenciais.",
-    "u": "https://www.fernandobelchior.com.br/cursospresenciais"
-   },
-   {
-    "n": "Morito Ebine",
-    "tipo": "Mestre",
-    "d": "Santo Antônio do Pinhal, SP. Afiação, encaixes tradicionais e trabalho com madeira maciça.",
-    "u": "https://www.moritoebine.com/register-list.php?param=cursos"
-   },
-   {
-    "n": "Ricardo Graham Ferreira · oEbanista",
-    "tipo": "Mestre",
-    "d": "Nova Friburgo, RJ. Workshops de encaixes e ebanisteria.",
-    "u": "https://www.oebanista.com.br/workshops/"
-   },
-   {
-    "n": "Marcenaria do Bosque · Lucas Puttini",
-    "tipo": "Escola",
-    "d": "Campo Alegre, SC. Marcenaria tradicional e ferramentas manuais.",
-    "u": "https://www.feitosnobosque.com/marcenaria"
-   },
-   {
-    "n": "Escola da Marcenaria · Leo Madeiras",
-    "tipo": "Escola",
-    "d": "Barueri, SP. Cursos para iniciantes, ferragens, projeto e montagem.",
-    "u": "https://escola.leomadeiras.com.br/cursos/"
-   },
-   {
-    "n": "Vinícius Carvas",
-    "tipo": "Mestre",
-    "d": "Barra da Tijuca, Rio de Janeiro, RJ. Referência pessoal de curso realizado; programação atual a confirmar.",
-    "yt": "Vinícius Carvas marcenaria"
-   },
-   {
     "n": "Banco de Dados de Madeiras Brasileiras (LPF/SFB)",
     "tipo": "Banco de dados",
     "d": "Propriedades físicas, mecânicas e anatômicas de madeiras nativas, medidas em laboratório pelo Serviço Florestal Brasileiro.",
@@ -100,6 +64,18 @@
     "u": "https://lostartpress.com"
    },
    {
+    "n": "Nick Engler — coleção Workshop Companion",
+    "tipo": "Livro",
+    "d": "Os 21 volumes que cobrem toda a marcenaria, claros e sem dogma, hoje vendidos em PDF pelo autor. Há um perfil dele na seção Mestres e leituras.",
+    "u": "https://workshopcompanionstore.com"
+   },
+   {
+    "n": "O artífice — Richard Sennett",
+    "tipo": "Livro",
+    "d": "O sociólogo americano explica por que fazer bem uma coisa com as mãos é uma forma de pensar. Resenha neste site.",
+    "u": "artigo-livro-o-artifice-richard-sennett.html"
+   },
+   {
     "n": "Fine Woodworking",
     "tipo": "Revista",
     "d": "A revista de referência em técnica, com décadas de acervo.",
@@ -114,7 +90,7 @@
    {
     "n": "Nick Engler — Workshop Companion",
     "tipo": "Canal",
-    "d": "Autor dos 21 volumes da coleção Workshop Companion e de Woodworking Wisdom. No canal, explica madeira, ferramentas e gabaritos com a mesma clareza dos livros. Há um perfil dele na seção Formação.",
+    "d": "Autor dos 21 volumes da coleção Workshop Companion. No canal, explica madeira, ferramentas e gabaritos com a mesma clareza dos livros.",
     "u": "https://www.youtube.com/c/WorkshopCompanion"
    },
    {
@@ -163,19 +139,31 @@
     "n": "Paul Sellers",
     "tipo": "Canal",
     "d": "O canal definitivo de marcenaria manual: espiga e furo, rabo de andorinha, plaina e afiação, com didática paciente.",
+    "yt": "Paul Sellers"
+   },
+   {
+    "n": "Paul Sellers — blog",
+    "tipo": "Site",
+    "d": "O blog semanal dele, plataforma de tudo o que publica: técnicas, ferramentas, oficina e a filosofia do marceneiro de estilo de vida.",
     "u": "https://paulsellers.com"
    },
    {
-    "n": "Common Woodworking",
+    "n": "Paul Sellers — Common Woodworking",
     "tipo": "Site",
-    "d": "Curso gratuito e estruturado de Paul Sellers para iniciantes.",
+    "d": "Curso gratuito e estruturado para iniciantes: ferramentas, técnicas e primeiros projetos. É a porta de entrada para o Woodworking Masterclasses.",
     "u": "https://commonwoodworking.com"
+   },
+   {
+    "n": "Paul Sellers — Woodworking Masterclasses",
+    "tipo": "Site",
+    "d": "Cursos em vídeo, com parte gratuita e assinatura: centenas de horas de encaixes, móveis e restauro de ferramentas.",
+    "u": "https://woodworkingmasterclasses.com"
    },
    {
     "n": "Richard Maguire — The English Woodworker",
     "tipo": "Canal",
     "d": "Marcenaria manual sem rodeios, com foco em bancadas.",
-    "u": "https://www.theenglishwoodworker.com"
+    "yt": "Richard Maguire English Woodworker"
    },
    {
     "n": "Matt Estlea",
@@ -200,6 +188,12 @@
     "tipo": "Fórum",
     "d": "O principal fórum britânico de marcenaria.",
     "u": "https://www.ukworkshop.co.uk"
+   },
+   {
+    "n": "Paul Sellers — Working Wood 1 & 2 e Essential Woodworking Hand Tools",
+    "tipo": "Livro",
+    "d": "Os dois livros dele: o curso de marcenaria manual em volume duplo (2011) e o guia das ferramentas essenciais (2016).",
+    "u": "https://paulsellers.com"
    }
   ]
  },
@@ -234,7 +228,7 @@
    {
     "n": "Ishitani Furniture",
     "tipo": "Canal",
-    "d": "Natsuki Ishitani faz móveis sob encomenda aos pés do vulcão Asama; Chie filma. Vídeos sem narração, só o som da oficina. Há um perfil com a explicação da cama kigumi na seção Formação.",
+    "d": "Natsuki Ishitani faz móveis sob encomenda aos pés do vulcão Asama; Chie filma e edita. Vídeos sem narração, só o som da oficina. Perfil na seção Mestres e leituras.",
     "yt": "Ishitani Furniture"
    },
    {
@@ -245,7 +239,7 @@
    },
    {
     "n": "Kezurou-kai",
-    "tipo": "Site",
+    "tipo": "Evento",
     "d": "Competição japonesa de aplainamento: quem tira a apara mais fina. Ótima para entender a plaina japonesa.",
     "yt": "Kezurou-kai plane shavings"
    },
@@ -266,12 +260,6 @@
     "tipo": "Site",
     "d": "Plataforma colaborativa e aberta de quem trabalha com madeira: projetos, técnicas e achados.",
     "u": "https://www.lairdubois.fr"
-   },
-   {
-    "n": "Les Compagnons du Devoir",
-    "tipo": "Escola",
-    "d": "A formação tradicional itinerante dos ofícios franceses.",
-    "u": "https://www.compagnons-du-devoir.com"
    },
    {
     "n": "French Coast Workshop",
@@ -320,30 +308,6 @@
     "tipo": "Revista",
     "d": "Revista de marcenaria fina, torno, entalhe, madeiras e máquinas, com mais de três décadas.",
     "u": "https://www.woodreview.com.au"
-   },
-   {
-    "n": "Sturt School for Wood",
-    "tipo": "Escola",
-    "d": "Programa de um ano em Mittagong, com forte desenho autoral.",
-    "yt": "Sturt School for Wood"
-   }
-  ]
- },
- {
-  "pais": "Suécia",
-  "id": "suecia",
-  "itens": [
-   {
-    "n": "Carl Malmsten Furniture Studies",
-    "tipo": "Escola",
-    "d": "Design de móveis, marcenaria, conservação e estofamento, ligada à Universidade de Linköping.",
-    "yt": "Carl Malmsten Furniture Studies"
-   },
-   {
-    "n": "Capellagården",
-    "tipo": "Escola",
-    "d": "A segunda escola de Malmsten, na ilha de Öland.",
-    "yt": "Capellagården"
    }
   ]
  }

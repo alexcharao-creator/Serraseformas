@@ -9,6 +9,12 @@ Biblioteca de marcenaria em língua portuguesa. Site estático (HTML, CSS e um p
 3. Na raiz do repositório, rode `python3 _fonte/gerar.py`.
 4. Faça commit e push no `main`.
 
-Seções válidas: afiacao, ferramentas, maquinas, encaixes, madeiras, acabamento, oficina, projetos, traducoes, formacao, cronicas.
+Seções válidas: afiacao, ferramentas, maquinas, encaixes, madeiras, acabamento, oficina, projetos, traducoes, formacao, historia, glossario, cronicas.
+
+Outros arquivos em `_fonte/`:
+- `estilo.css`: o visual do site (verde-floresta, dourado, creme, títulos serifados).
+- `escolas.json`: a lista "Onde aprender" da página inicial.
+- `pautas.json`: os próximos artigos ("Em preparação"). Quando um deles for publicado, retire-o daqui.
+- `gerar.py`: monta todas as páginas.
 Referências por país ficam em `_fonte/referencias.json`.
 A pasta `_fonte/` não é servida ao público (`.htaccess`).

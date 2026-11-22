@@ -25,6 +25,8 @@ SECOES = [
  ("projetos","Projetos","Peças construídas e projetos em andamento, com medidas."),
  ("traducoes","Traduções","Artigos clássicos e atuais vertidos do inglês para o português."),
  ("formacao","Formação","Escolas, cursos e mestres no Brasil e no mundo."),
+ ("historia","História","A origem das ferramentas, dos fabricantes e dos ofícios."),
+ ("glossario","Glossário","Vocabulário da marcenaria em português e inglês."),
  ("cronicas","Crônicas","Histórias de oficina."),
 ]
 SEC = {s[0]: s for s in SECOES}
@@ -39,19 +41,18 @@ def pag_artigo(a): return f"artigo-{a['slug']}.html"
 def pag_secao(sid): return f"secao-{sid}.html"
 def norm(s): return "".join(c for c in unicodedata.normalize("NFD", s) if unicodedata.category(c) != "Mn").lower()
 
-# ---- CSS e símbolos tirados da versão de uma página ----
-src = open(os.path.join(FONTE, "modelo.html"), encoding="utf-8").read()
-css = src[src.index("<style>") + 7: src.index("</style>")]
-css += "\n.lista a{color:inherit}.sr{position:absolute;left:-9999px}\n.corpo figure.so-capa{position:relative}.corpo figure.so-capa a{color:var(--mata)}\n"
-simbolos = src[src.index('<svg width="0" height="0"'): src.index("</svg>", src.index('<svg width="0" height="0"')) + 6]
-painel = src[src.index('<svg class="panorama"'): src.index("</svg>", src.index('<svg class="panorama"')) + 6]
-stack_js = src[src.index("<script>new MutationObserver"): src.index("</script>", src.index("<script>new MutationObserver")) + 9]
+# ---- estilo, símbolos e script das tabelas ----
+css = open(os.path.join(FONTE, "estilo.css"), encoding="utf-8").read()
+css += "\n.lista a{color:inherit}.sr{position:absolute;left:-9999px}\n"
+simbolos = '<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="lupa" viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 13l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol></svg>'
+stack_js = """<script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;c.dataset.l=c.closest('table').rows[0].cells[i]?.textContent||''}}).observe(document,{childList:true,subtree:true})</script>"""
+ESCOLAS, PAUTAS = ler("escolas"), ler("pautas")
 
 def pagina(nome, titulo, descricao, corpo, ativo=""):
     def item(href, rot, k):
         cur = ' aria-current="page"' if k == ativo else ""
         return f'<a href="{href}"{cur}>{rot}</a>'
-    nav = item("index.html","Início","inicio") + item("biblioteca.html","Biblioteca","biblioteca") + item("referencias.html","Referências","referencias") + item("galeria.html","Galeria","galeria")
+    nav = item("index.html","Início","inicio") + item("biblioteca.html","Biblioteca","biblioteca") + item("index.html#cursos","Onde aprender","cursos") + item("referencias.html","Referências","referencias") + item("galeria.html","Galeria","galeria")
     url = DOM.rstrip("/") + "/" + ("" if nome == "index.html" else nome)
     return f"""<!DOCTYPE html>
 <html lang="pt-BR">
@@ -65,21 +66,19 @@ def pagina(nome, titulo, descricao, corpo, ativo=""):
 <meta property="og:title" content="{e(titulo)}"><meta property="og:description" content="{e(descricao)}">
 <meta property="og:locale" content="pt_BR">
 <link rel="icon" href="media/favicon.png" type="image/png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 {stack_js}
 </head>
 <body>
 {simbolos}
 <header class="top"><div class="wrap">
-<a class="marca" href="index.html" aria-label="Serras &amp; Formas, página inicial"><img src="media/logo-96.png" alt="" width="38" height="38">Serras &amp; Formas</a>
+<a class="marca" href="index.html" aria-label="Serras &amp; Formas, página inicial"><img src="media/logo-96.png" alt="" width="38" height="38">Serras <em>&amp;</em> Formas</a>
 <nav class="menu" aria-label="Principal">{nav}</nav>
 </div></header>
 <main id="app">
 {corpo}
 </main>
-<footer><div class="wrap"><span><b>Serras & Formas</b> · Biblioteca de marcenaria em língua portuguesa · Serra Fluminense, RJ</span><span>{plural(len(A),"artigo","artigos")} no acervo</span></div></footer>
+<footer><div class="wrap"><div class="rod"><img src="media/logo-96.png" alt="Logotipo Serras &amp; Formas" width="64" height="64"><div><b>Serras &amp; Formas</b><small>Marcenaria • Projetos • Técnicas · Petrópolis, Serra Fluminense</small><small>Um projeto pessoal de compartilhamento de conhecimento.</small></div></div><span>{plural(len(A),"artigo","artigos")} no acervo · <a href="index.html#seguranca">Segurança</a></span></div></footer>
 </body>
 </html>
 """
@@ -108,26 +107,67 @@ w = lambda nome, txt: open(os.path.join(OUT, nome), "w", encoding="utf-8").write
 w("style.css", css)
 
 # ---- início ----
+oficina = next((a for a in A if a["slug"] == "como-montar-sua-oficina"), A[0])
 grade = "".join(f'<a href="{pag_secao(sid)}"><h3>{nome}<span>{conta(sid) or "em breve"}</span></h3><p>{desc}</p></a>' for sid, nome, desc in SECOES)
 grade += f'<a href="referencias.html"><h3>Referências<span>{sum(len(p["itens"]) for p in R)}</span></h3><p>Mestres, canais, revistas e escolas do mundo todo.</p></a>'
-inicio = f"""<section class="hero">
-<div class="wrap"><h1>Serras & Formas</h1><p class="sub">Biblioteca de marcenaria em língua portuguesa. Afiação, ferramentas, máquinas, encaixes e madeiras, estudados um a um.</p></div>
-{painel}
-<form class="busca" role="search" action="biblioteca.html" method="get">
-<svg aria-hidden="true"><use href="#lupa"/></svg><label class="sr" for="q-inicio">Buscar no acervo</label>
-<input id="q-inicio" name="q" type="search" placeholder="Buscar: afiação, serra de fita, encaixe…" autocomplete="off">
-</form></section>
-<section class="band"><div class="wrap"><div class="titulo-bloco"><h2>Seções</h2><a href="biblioteca.html">Ver o acervo inteiro</a></div><div class="grade">{grade}</div></div></section>
-<section class="band" style="padding-top:0"><div class="wrap"><div class="titulo-bloco"><h2>Publicados recentemente</h2><a href="biblioteca.html">Todos os artigos</a></div>
+cursos = "".join(f'<a href="{e(x["u"]) if x["u"] else "referencias.html#pais-brasil"}"{" target=\"_blank\" rel=\"noopener\"" if x["u"] else ""}><span class="tipo">{e(x["local"])}</span><strong>{e(x["nome"])}</strong><p>{e(x["d"])}</p><em>{"Site e cursos" if x["u"] else "Agenda a confirmar"}</em></a>' for x in ESCOLAS)
+pautas = "".join(f'<li><small>{e(x["s"])} · {e(x["st"])}</small><b>{e(x["t"])}</b><span>{e(x["d"])}</span></li>' for x in PAUTAS)
+inicio = f"""<section class="hero"><div class="wrap hero-grid">
+<div><span class="eyebrow">Petrópolis · Serra Fluminense</span>
+<h1>O prazer de aprender, criar e compartilhar.</h1>
+<p class="sub">Guias, ferramentas, projetos e técnicas de marcenaria em português. Um acervo pessoal de descobertas, estudos e experiências que começou em 2020.</p>
+<div class="botoes"><a class="btn" href="biblioteca.html">Explorar o acervo</a><a class="btn sec" href="#sobre">Conheça o projeto</a></div>
+<form class="busca" role="search" action="biblioteca.html" method="get"><svg aria-hidden="true"><use href="#lupa"/></svg><label class="sr" for="q-inicio">Buscar no acervo</label><input id="q-inicio" name="q" type="search" placeholder="Buscar: afiação, serra de fita, encaixe…" autocomplete="off"></form>
+</div>
+<figure><img src="media/pedra-itaipava.webp" alt="Vista das montanhas da região de Itaipava a partir de Nogueira, Petrópolis"><figcaption>A paisagem que inspira o Serras &amp; Formas: Nogueira, Petrópolis.</figcaption></figure>
+</div></section>
+
+<section class="band" id="sobre"><div class="wrap intro">
+<div><span class="eyebrow">Por que este site existe</span><h2>Um caderno aberto de marcenaria</h2>
+<p>A marcenaria é um universo de descobertas. Cada ferramenta, cada técnica e cada projeto trazem novas perguntas, e novas oportunidades de aprender.</p>
+<p>Comecei a praticar marcenaria em 2020, como hobby. Desde então, venho reunindo experiências em minha pequena oficina nas montanhas de Petrópolis, participando de cursos, estudando ferramentas e consultando livros, artigos e manuais, muitos deles publicados em outros idiomas.</p>
+<p>Criei o Serras &amp; Formas para organizar e compartilhar esse material em português. Aqui você encontrará guias práticos, projetos, estudos sobre ferramentas, traduções comentadas, referências técnicas e relatos do que venho aprendendo.</p>
+<p>Não sou marceneiro profissional nem professor de marcenaria. Sou um entusiasta que acredita que o conhecimento se torna mais valioso quando é compartilhado.</p></div>
+<aside class="lado"><h3>O que você encontra aqui</h3><ul>
+<li><a href="secao-ferramentas.html">Ferramentas</a> e <a href="secao-maquinas.html">máquinas</a>: funcionamento, manutenção e escolha.</li>
+<li><a href="secao-encaixes.html">Técnicas</a> e <a href="secao-projetos.html">projetos</a>: exercícios, métodos e experiências.</li>
+<li><a href="secao-traducoes.html">Manuais e traduções</a>: referências comentadas em português, com as fontes indicadas.</li>
+<li><a href="secao-historia.html">História</a> e <a href="secao-glossario.html">glossário</a>: o contexto e o vocabulário da marcenaria.</li>
+<li><a href="#cursos">Formação</a>: onde estudar com quem ensina o ofício.</li>
+</ul></aside>
+</div></section>
+
+<section class="band" style="padding-top:0"><div class="wrap">
+<span class="eyebrow">Primeiro guia publicado</span><h2>Comece pela oficina</h2>
+<a class="feature" href="{pag_artigo(oficina)}"><img src="media/oficina-desengrosso-entrada.webp" alt="Desengrosso posicionado sobre a serra de bancada na entrada da oficina" loading="lazy">
+<div><span class="eyebrow">Organização do espaço · 17,3 m²</span><h3>Quer montar sua oficina e não sabe por onde começar?</h3>
+<p>Uma garagem de 6,40 × 2,70 m serve de estudo de caso para discutir layout, circulação, posição das máquinas, bancada, iluminação, energia, armazenamento e controle de pó. Não é um modelo a copiar: é um ponto de partida para pensar no seu espaço.</p><span class="mais">Ler o guia completo →</span></div></a>
+</div></section>
+
+<section class="band faixa-clara"><div class="wrap">
+<div class="titulo-bloco"><div><span class="eyebrow">Biblioteca em construção</span><h2>Explore por assunto</h2></div><a href="biblioteca.html">Ver o acervo inteiro</a></div>
+<div class="grade">{grade}</div></div></section>
+
+<section class="band"><div class="wrap"><div class="titulo-bloco"><h2>Publicados recentemente</h2><a href="biblioteca.html">Todos os artigos</a></div>
 <ul class="lista">{"".join(item_lista(a) for a in A[:6])}</ul></div></section>
-<section class="band faixa"><div class="wrap"><div class="titulo-bloco"><h2>Referências pelo mundo</h2><a href="referencias.html">Abrir o índice</a></div>
-<p>Mestres, canais, revistas, escolas e bancos de dados do Brasil, dos Estados Unidos, da Inglaterra e de outros países, reunidos num só lugar e comentados em português.</p>
-<div class="paises">{"".join(f'<a href="referencias.html#pais-{p["id"]}">{p["pais"]}</a>' for p in R)}</div></div></section>
-<section class="band"><div class="wrap manifesto"><h2>Por que uma biblioteca</h2><div>
-<p>Quase tudo o que se escreve de melhor sobre marcenaria está em inglês, em francês, em alemão ou em japonês. Serras & Formas reúne, traduz e organiza esse conhecimento em português, um tema por vez.</p>
-<p>Cada estudo da oficina vira um artigo: a regulagem de uma máquina, uma ferramenta manual vista por dentro, um encaixe, uma madeira. Nada se perde no celular. Tudo fica aqui, com as fontes indicadas.</p></div></div></section>"""
-w("index.html", pagina("index.html", "Serras & Formas — biblioteca de marcenaria em português",
-  "Biblioteca de marcenaria em língua portuguesa: afiação, ferramentas manuais, máquinas, encaixes, madeiras, oficina e referências do mundo todo.", inicio, "inicio"))
+
+<section class="band faixa-clara"><div class="wrap"><span class="eyebrow">Próximos artigos</span><h2>Em preparação</h2>
+<p class="contagem" style="margin-bottom:18px">Pautas planejadas, ainda não publicadas.</p><ul class="pautas">{pautas}</ul></div></section>
+
+<section class="band" id="cursos"><div class="wrap">
+<div class="titulo-bloco"><div><span class="eyebrow">Formação e referências</span><h2>Onde aprender marcenaria</h2></div><a href="referencias.html">Referências pelo mundo</a></div>
+<p class="lede" style="max-width:62ch;color:var(--muted);margin:0 0 22px">Minha recomendação mais importante para quem está começando: procure aulas práticas com orientação de profissionais. Estas são referências para explorar; confirme diretamente com cada escola as turmas, os requisitos e a disponibilidade.</p>
+<div class="refs">{cursos}</div></div></section>
+
+<section class="band seguranca" id="seguranca"><div class="wrap">
+<span class="eyebrow">Antes de começar</span><h2>Segurança em primeiro lugar</h2>
+<p>A marcenaria envolve ferramentas cortantes, máquinas de alta rotação, poeira e outros riscos que podem provocar acidentes graves.</p>
+<p>Os conteúdos deste site são registros de estudo e experiência pessoal. Não substituem cursos presenciais, treinamento supervisionado, manuais dos fabricantes ou orientações de profissionais qualificados. Cada leitor é responsável por avaliar os riscos e trabalhar dentro dos limites de sua formação e experiência.</p>
+<p>Recomendo fortemente fazer cursos de marcenaria antes de operar máquinas, conhecer os procedimentos de segurança de cada equipamento e utilizar os equipamentos de proteção individual adequados à atividade.</p>
+<p>Aprender a trabalhar com segurança faz parte da própria arte da marcenaria.</p>
+</div></section>"""
+w("index.html", pagina("index.html", "Serras & Formas — Marcenaria, Projetos e Técnicas",
+  "Guias, técnicas, projetos, glossário e estudos de marcenaria em português, reunidos por um entusiasta desde 2020, em Petrópolis, Serra Fluminense.", inicio, "inicio"))
 
 # ---- biblioteca (lista completa + busca no navegador) ----
 indice = [{"s": a["secao"], "t": norm(a["titulo"] + " " + a["resumo"] + " " + sem_tags(a["corpo"]))} for a in A]

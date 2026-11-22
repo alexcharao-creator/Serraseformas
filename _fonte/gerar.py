@@ -126,9 +126,9 @@ inicio = f"""<section class="hero"><div class="wrap hero-grid">
 
 <section class="band" id="sobre"><div class="wrap intro">
 <div><span class="eyebrow">Por que este site existe</span><h2>Um caderno aberto de marcenaria</h2>
-<p>Já procurou como afiar um formão, regular uma plaina ou escolher a lixa certa e só achou resposta em inglês, em vídeos soltos ou em lojas querendo vender? O melhor conhecimento de marcenaria está em livros, manuais e revistas de outros idiomas.</p>
-<p>Quem está progredindo no ofício acaba passando horas na tela, em vez de na oficina, juntando peças soltas da internet. Para devolver esse tempo à bancada, criei o Serras &amp; Formas: guias práticos, projetos, estudos sobre ferramentas e traduções comentadas, em português e com as fontes.</p>
-<p>Sou um entusiasta que pratica numa pequena oficina na serra de Petrópolis, faz cursos e lê tudo sobre o ofício. Não sou profissional, mas já tropecei nas mesmas dúvidas e anoto o que aprendo para que a sua próxima peça saia melhor.</p>
+<p>Já procurou como afiar um formão, regular uma plaina ou escolher a lixa certa e só achou resposta em inglês, em vídeos soltos ou em lojas querendo vender? O melhor da marcenaria está em livros, manuais e revistas de outros idiomas.</p>
+<p>Quem está progredindo no ofício passa horas na tela, em vez de na oficina, juntando peças soltas da internet. Para devolver esse tempo à bancada, criei o Serras &amp; Formas: guias práticos, projetos, estudos sobre ferramentas e traduções comentadas, em português e com as fontes.</p>
+<p>Sou um entusiasta que pratica numa pequena oficina na serra de Petrópolis, faz cursos e lê muito. Não sou profissional, mas já tropecei nas mesmas dúvidas e anoto o que aprendo para que a sua próxima peça saia melhor.</p>
 <div class="assina">{ASSINATURA}<span>Petrópolis, Serra Fluminense</span></div></div>
 <aside class="lado"><h3>O que você encontra aqui</h3><ul>
 <li><a href="secao-ferramentas.html">Ferramentas</a> e <a href="secao-maquinas.html">máquinas</a>: funcionamento, manutenção e escolha.</li>

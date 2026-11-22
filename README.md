@@ -1,4 +1,4 @@
-# Serras e Formas
+# Serras & Formas
 
 Biblioteca de marcenaria em língua portuguesa. Site estático (HTML, CSS e um pouco de JavaScript), publicado na Hostinger a partir deste repositório: cada mudança no ramo `main` vai ao ar automaticamente.
 

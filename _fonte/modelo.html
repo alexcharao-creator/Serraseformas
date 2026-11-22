@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Serras e Formas</title>
-<meta name="description" content="Serras e Formas: biblioteca de marcenaria em língua portuguesa. Afiação, ferramentas manuais, máquinas, encaixes, madeiras, oficina e referências do mundo todo.">
+<title>Serras &amp; Formas</title>
+<meta name="description" content="Serras &amp; Formas: biblioteca de marcenaria em língua portuguesa. Afiação, ferramentas manuais, máquinas, encaixes, madeiras, oficina e referências do mundo todo.">
+<link rel="icon" href="media/favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
@@ -175,6 +176,17 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
 footer b{color:var(--ink);font-family:Manrope,sans-serif}
 
 #app{min-height:60vh}
+.marca img{width:38px;height:38px;border-radius:50%;flex:none}
+.corpo h3{font-size:19px;font-weight:700;margin:26px 0 8px}
+.corpo .numeros{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:26px 0}
+.corpo .numeros div{background:var(--bg);padding:16px 14px}
+.corpo .numeros b{display:block;font-family:Manrope,sans-serif;font-size:clamp(22px,3vw,28px);color:var(--mata);white-space:nowrap}
+.corpo .numeros span{font-size:13.5px;color:var(--muted)}
+.corpo .planta{display:grid;grid-template-columns:minmax(0,240px) minmax(0,1fr);gap:24px;align-items:start;margin:18px 0 8px}
+.corpo .planta svg{width:100%;height:auto;color:var(--ink);font-family:Inter,sans-serif}
+.corpo .planta ol{margin:0}
+@media(max-width:560px){.corpo .planta{grid-template-columns:1fr}.corpo .planta svg{max-width:220px;margin:0 auto;display:block}}
+
 @media(max-width:600px){.grade a{min-height:0;padding:18px 20px}}
 .vista{animation:surge .35s ease both}
 @keyframes surge{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
@@ -194,7 +206,7 @@ pre,.scroll{overflow-x:auto}code{overflow-wrap:anywhere}
 
 <header class="top">
   <div class="wrap">
-    <a class="marca" href="#inicio" aria-label="Serras e Formas, página inicial"><svg aria-hidden="true"><use href="#logo"/></svg>Serras e Formas</a>
+    <a class="marca" href="#inicio" aria-label="Serras &amp; Formas, página inicial"><img src="media/logo-96.png" alt="" width="38" height="38">Serras &amp; Formas</a>
     <nav class="menu" aria-label="Principal">
       <a href="#inicio" data-r="inicio">Início</a>
       <a href="#biblioteca" data-r="biblioteca">Biblioteca</a>
@@ -209,7 +221,7 @@ pre,.scroll{overflow-x:auto}code{overflow-wrap:anywhere}
 <template id="tpl-inicio">
   <section class="hero">
     <div class="wrap">
-      <h1>Serras e Formas</h1>
+      <h1>Serras &amp; Formas</h1>
       <p class="sub">Biblioteca de marcenaria em língua portuguesa. Afiação, ferramentas, máquinas, encaixes e madeiras, estudados um a um.</p>
     </div>
     <svg class="panorama" viewBox="0 0 1200 320" preserveAspectRatio="xMaxYMax slice" role="img" aria-label="Perfil das montanhas da Serra Fluminense que se transforma em dentes de serrote, com o sol amarelo ao fundo">
@@ -251,7 +263,7 @@ pre,.scroll{overflow-x:auto}code{overflow-wrap:anywhere}
   <section class="band"><div class="wrap manifesto">
     <h2>Por que uma biblioteca</h2>
     <div>
-      <p>Quase tudo o que se escreve de melhor sobre marcenaria está em inglês, em francês, em alemão ou em japonês. Serras e Formas reúne, traduz e organiza esse conhecimento em português, um tema por vez.</p>
+      <p>Quase tudo o que se escreve de melhor sobre marcenaria está em inglês, em francês, em alemão ou em japonês. Serras &amp; Formas reúne, traduz e organiza esse conhecimento em português, um tema por vez.</p>
       <p>Cada estudo da oficina vira um artigo: a regulagem de uma máquina, uma ferramenta manual vista por dentro, um encaixe, uma madeira. Nada se perde no celular. Tudo fica aqui, com as fontes indicadas.</p>
     </div>
   </div></section>
@@ -259,7 +271,7 @@ pre,.scroll{overflow-x:auto}code{overflow-wrap:anywhere}
 
 <footer>
   <div class="wrap">
-    <span><b>Serras e Formas</b> · Biblioteca de marcenaria em língua portuguesa · Serra Fluminense, RJ</span>
+    <span><b>Serras &amp; Formas</b> · Biblioteca de marcenaria em língua portuguesa · Serra Fluminense, RJ</span>
     <span id="rodape-contagem"></span>
   </div>
 </footer>
@@ -315,7 +327,7 @@ function vInicio() {
     location.hash = "biblioteca";
   });
   document.querySelectorAll("#paises-inicio a").forEach(a => a.addEventListener("click", () => { paisPendente = a.dataset.pais; }));
-  document.title = "Serras e Formas";
+  document.title = "Serras & Formas";
 }
 
 let buscaPendente = "", paisPendente = "", filtroSecao = "";
@@ -347,7 +359,7 @@ function vBiblioteca() {
   q.addEventListener("input", desenha);
   desenha();
   if (q.value) q.focus();
-  document.title = "Biblioteca — Serras e Formas";
+  document.title = "Biblioteca — Serras &amp; Formas";
 }
 
 function vSecao(id) {
@@ -358,7 +370,7 @@ function vSecao(id) {
     ${lista.length ? `<p class="contagem">${plural(lista.length, "artigo", "artigos")}</p><ul class="lista">${lista.map(itemLista).join("")}</ul>`
       : `<div class="vazio">Esta seção ainda não tem artigos. Os primeiros chegam em breve.</div>`}
   </div>`;
-  document.title = s.nome + " — Serras e Formas";
+  document.title = s.nome + " — Serras & Formas";
 }
 
 function vArtigo(slug) {
@@ -376,7 +388,7 @@ function vArtigo(slug) {
     ${a.fontes && a.fontes.length ? `<div class="fontes"><h3>Fontes e leitura complementar</h3><ul>${a.fontes.map(f => `<li><a href="${esc(f.u)}" target="_blank" rel="noopener">${esc(f.t)}</a></li>`).join("")}</ul></div>` : ""}
     ${ant || prox ? `<nav class="vizinhos" aria-label="Outros artigos da seção">${ant ? `<a href="#artigo-${ant.slug}"><small>Anterior</small>${esc(ant.titulo)}</a>` : ""}${prox ? `<a class="prox" href="#artigo-${prox.slug}"><small>Próximo</small>${esc(prox.titulo)}</a>` : ""}</nav>` : ""}
   </article></div>`;
-  document.title = a.titulo + " — Serras e Formas";
+  document.title = a.titulo + " — Serras & Formas";
 }
 
 function vReferencias() {
@@ -391,7 +403,7 @@ function vReferencias() {
   </div>`;
   app.querySelectorAll("[data-ir]").forEach(a => a.addEventListener("click", e => { e.preventDefault(); document.getElementById("pais-" + a.dataset.ir)?.scrollIntoView({ behavior: "smooth" }); }));
   if (paisPendente) { const alvo = document.getElementById("pais-" + paisPendente); paisPendente = ""; if (alvo) setTimeout(() => alvo.scrollIntoView(), 30); }
-  document.title = "Referências — Serras e Formas";
+  document.title = "Referências — Serras &amp; Formas";
 }
 
 function vGaleria() {
@@ -401,7 +413,7 @@ function vGaleria() {
     <div class="fotos">${fotos.length ? fotos.map(f => `<a class="foto" href="${f.link ? "#" + f.link : "#galeria"}"><img src="${esc(f.src)}" alt="${esc(f.alt)}" loading="lazy"><span>${esc(f.legenda || "")}</span></a>`).join("")
       : Array.from({ length: 6 }, () => `<figure>${montanha}<span>Foto em breve</span></figure>`).join("")}</div>
   </div>`;
-  document.title = "Galeria — Serras e Formas";
+  document.title = "Galeria — Serras &amp; Formas";
 }
 
 function vNaoEncontrado() {

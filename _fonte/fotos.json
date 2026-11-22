@@ -1,14 +1,33 @@
 [
  {
+  "src": "media/oficina-vista-fundo.webp",
+  "alt": "Vista da oficina a partir do fundo",
+  "legenda": "A oficina vista do fundo",
+  "link": "artigo-como-montar-sua-oficina"
+ },
+ {
+  "src": "media/oficina-bancada.webp",
+  "alt": "Bancada de marceneiro com parede de ferramentas",
+  "legenda": "A bancada, primeira decisão da oficina",
+  "link": "artigo-como-montar-sua-oficina"
+ },
+ {
+  "src": "media/oficina-entrada-serra-bancada.webp",
+  "alt": "Serra de bancada e mesas de apoio na entrada",
+  "legenda": "Entrada: serra de bancada e apoios",
+  "link": "artigo-como-montar-sua-oficina"
+ },
+ {
+  "src": "media/oficina-mesa-colagem.webp",
+  "alt": "Mesa móvel de colagem",
+  "legenda": "Mesa móvel para colagem",
+  "link": "artigo-como-montar-sua-oficina"
+ },
+ {
   "src": "media/guias-serra-frente.jpg",
   "alt": "Guias de rolamento da serra de fita",
   "legenda": "Guias de rolamento da serra de fita",
   "link": "artigo-regulagem-serra-de-fita"
- },
- {
-  "src": "media/desengrossadeira.jpg",
-  "alt": "Desengrossadeira na oficina, com uma tábua de madeiras listradas na mesa",
-  "legenda": "A desengrossadeira e uma tábua de demolição"
  },
  {
   "src": "media/broca-35mm-furo.jpg",

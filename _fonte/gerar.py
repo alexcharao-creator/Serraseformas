@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Gera o site estático Serras e Formas a partir de _fonte/*.json.
+"""Gera o site estático Serras & Formas a partir de _fonte/*.json.
 Uso (na raiz do repositório): python3 _fonte/gerar.py [--dominio https://www.serraseformas.com.br]
 As páginas são escritas na raiz do repositório; a pasta media/ é mantida como está."""
 import json, re, sys, os, shutil, html, math, unicodedata
@@ -61,10 +61,10 @@ def pagina(nome, titulo, descricao, corpo, ativo=""):
 <title>{e(titulo)}</title>
 <meta name="description" content="{e(descricao)}">
 <link rel="canonical" href="{e(url)}">
-<meta property="og:type" content="website"><meta property="og:site_name" content="Serras e Formas">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Serras & Formas">
 <meta property="og:title" content="{e(titulo)}"><meta property="og:description" content="{e(descricao)}">
 <meta property="og:locale" content="pt_BR">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="media/favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -73,13 +73,13 @@ def pagina(nome, titulo, descricao, corpo, ativo=""):
 <body>
 {simbolos}
 <header class="top"><div class="wrap">
-<a class="marca" href="index.html" aria-label="Serras e Formas, página inicial"><svg aria-hidden="true"><use href="#logo"/></svg>Serras e Formas</a>
+<a class="marca" href="index.html" aria-label="Serras &amp; Formas, página inicial"><img src="media/logo-96.png" alt="" width="38" height="38">Serras &amp; Formas</a>
 <nav class="menu" aria-label="Principal">{nav}</nav>
 </div></header>
 <main id="app">
 {corpo}
 </main>
-<footer><div class="wrap"><span><b>Serras e Formas</b> · Biblioteca de marcenaria em língua portuguesa · Serra Fluminense, RJ</span><span>{plural(len(A),"artigo","artigos")} no acervo</span></div></footer>
+<footer><div class="wrap"><span><b>Serras & Formas</b> · Biblioteca de marcenaria em língua portuguesa · Serra Fluminense, RJ</span><span>{plural(len(A),"artigo","artigos")} no acervo</span></div></footer>
 </body>
 </html>
 """
@@ -106,13 +106,12 @@ def ajusta_corpo(h):
 os.makedirs(OUT, exist_ok=True)
 w = lambda nome, txt: open(os.path.join(OUT, nome), "w", encoding="utf-8").write(txt)
 w("style.css", css)
-w("favicon.svg", '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 22"><path d="M1 20 L7 6 L10 20 L14 9 L17 20 L21 11 L24 20 Z" fill="#1d5a3b"/><circle cx="24" cy="5" r="3.6" fill="#f0b400"/></svg>')
 
 # ---- início ----
 grade = "".join(f'<a href="{pag_secao(sid)}"><h3>{nome}<span>{conta(sid) or "em breve"}</span></h3><p>{desc}</p></a>' for sid, nome, desc in SECOES)
 grade += f'<a href="referencias.html"><h3>Referências<span>{sum(len(p["itens"]) for p in R)}</span></h3><p>Mestres, canais, revistas e escolas do mundo todo.</p></a>'
 inicio = f"""<section class="hero">
-<div class="wrap"><h1>Serras e Formas</h1><p class="sub">Biblioteca de marcenaria em língua portuguesa. Afiação, ferramentas, máquinas, encaixes e madeiras, estudados um a um.</p></div>
+<div class="wrap"><h1>Serras & Formas</h1><p class="sub">Biblioteca de marcenaria em língua portuguesa. Afiação, ferramentas, máquinas, encaixes e madeiras, estudados um a um.</p></div>
 {painel}
 <form class="busca" role="search" action="biblioteca.html" method="get">
 <svg aria-hidden="true"><use href="#lupa"/></svg><label class="sr" for="q-inicio">Buscar no acervo</label>
@@ -125,9 +124,9 @@ inicio = f"""<section class="hero">
 <p>Mestres, canais, revistas, escolas e bancos de dados do Brasil, dos Estados Unidos, da Inglaterra e de outros países, reunidos num só lugar e comentados em português.</p>
 <div class="paises">{"".join(f'<a href="referencias.html#pais-{p["id"]}">{p["pais"]}</a>' for p in R)}</div></div></section>
 <section class="band"><div class="wrap manifesto"><h2>Por que uma biblioteca</h2><div>
-<p>Quase tudo o que se escreve de melhor sobre marcenaria está em inglês, em francês, em alemão ou em japonês. Serras e Formas reúne, traduz e organiza esse conhecimento em português, um tema por vez.</p>
+<p>Quase tudo o que se escreve de melhor sobre marcenaria está em inglês, em francês, em alemão ou em japonês. Serras & Formas reúne, traduz e organiza esse conhecimento em português, um tema por vez.</p>
 <p>Cada estudo da oficina vira um artigo: a regulagem de uma máquina, uma ferramenta manual vista por dentro, um encaixe, uma madeira. Nada se perde no celular. Tudo fica aqui, com as fontes indicadas.</p></div></div></section>"""
-w("index.html", pagina("index.html", "Serras e Formas — biblioteca de marcenaria em português",
+w("index.html", pagina("index.html", "Serras & Formas — biblioteca de marcenaria em português",
   "Biblioteca de marcenaria em língua portuguesa: afiação, ferramentas manuais, máquinas, encaixes, madeiras, oficina e referências do mundo todo.", inicio, "inicio"))
 
 # ---- biblioteca (lista completa + busca no navegador) ----
@@ -158,7 +157,7 @@ q.addEventListener("input", desenha);
 const p = new URLSearchParams(location.search).get("q"); if (p) {{ q.value = p; desenha(); }}
 }}
 </script>"""
-w("biblioteca.html", pagina("biblioteca.html", "Biblioteca — Serras e Formas", "Todos os artigos de marcenaria do acervo Serras e Formas, com busca e filtro por seção.", bib, "biblioteca"))
+w("biblioteca.html", pagina("biblioteca.html", "Biblioteca — Serras & Formas", "Todos os artigos de marcenaria do acervo Serras & Formas, com busca e filtro por seção.", bib, "biblioteca"))
 
 # ---- seções ----
 for sid, nome, desc in SECOES:
@@ -166,7 +165,7 @@ for sid, nome, desc in SECOES:
     corpo = f'<div class="wrap"><div class="cabeca"><div class="trilha"><a href="biblioteca.html">Biblioteca</a> / Seção</div><h1>{nome}</h1><p>{desc}</p></div>'
     corpo += (f'<p class="contagem">{plural(len(lista),"artigo","artigos")}</p><ul class="lista">{"".join(item_lista(a) for a in lista)}</ul>' if lista
               else '<div class="vazio">Esta seção ainda não tem artigos. Os primeiros chegam em breve.</div>') + "</div>"
-    w(pag_secao(sid), pagina(pag_secao(sid), f"{nome} — Serras e Formas", f"{nome}: {desc}", corpo, "biblioteca"))
+    w(pag_secao(sid), pagina(pag_secao(sid), f"{nome} — Serras & Formas", f"{nome}: {desc}", corpo, "biblioteca"))
 
 # ---- artigos ----
 for a in A:
@@ -183,7 +182,7 @@ for a in A:
         if prox: viz += f'<a class="prox" href="{pag_artigo(prox)}"><small>Próximo</small>{e(prox["titulo"])}</a>'
         viz += "</nav>"
     ld = {"@context": "https://schema.org", "@type": "Article", "headline": a["titulo"], "description": a["resumo"],
-          "datePublished": a["data"], "inLanguage": "pt-BR", "publisher": {"@type": "Organization", "name": "Serras e Formas"}}
+          "datePublished": a["data"], "inLanguage": "pt-BR", "publisher": {"@type": "Organization", "name": "Serras & Formas"}}
     corpo = f"""<div class="wrap"><article class="texto">
 <div class="cabeca" style="border:0;margin:0;padding-bottom:0"><div class="trilha"><a href="biblioteca.html">Biblioteca</a> / <a href="{pag_secao(s[0])}">{s[1]}</a></div>
 <h1>{e(a["titulo"])}</h1>
@@ -193,7 +192,7 @@ for a in A:
 {fontes}{viz}
 </article></div>
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>"""
-    w(pag_artigo(a), pagina(pag_artigo(a), f"{a['titulo']} — Serras e Formas", a["resumo"], corpo, "biblioteca"))
+    w(pag_artigo(a), pagina(pag_artigo(a), f"{a['titulo']} — Serras & Formas", a["resumo"], corpo, "biblioteca"))
 
 # ---- referências ----
 total = sum(len(p["itens"]) for p in R)
@@ -204,17 +203,17 @@ for p in R:
     refs += "".join(f'<a href="{e(link_ref(it))}" target="_blank" rel="noopener"><span class="tipo">{e(it["tipo"])}</span><strong>{e(it["n"])}</strong><p>{e(it["d"])}</p><em>{e(onde(it))}</em></a>' for it in p["itens"])
     refs += "</div></section>"
 refs += "</div>"
-w("referencias.html", pagina("referencias.html", "Referências de marcenaria pelo mundo — Serras e Formas",
+w("referencias.html", pagina("referencias.html", "Referências de marcenaria pelo mundo — Serras & Formas",
   "Mestres, canais de YouTube, revistas, escolas e bancos de dados de marcenaria do Brasil, EUA, Inglaterra, Japão, França e outros países.", refs, "referencias"))
 
 # ---- galeria ----
 gal = '<div class="wrap"><div class="cabeca"><h1>Galeria</h1><p>A oficina, as ferramentas e algumas peças. Toque numa foto para abrir o artigo relacionado.</p></div><div class="fotos">'
 gal += "".join(f'<a class="foto" href="{(f["link"].replace("artigo-", "artigo-", 1) + ".html") if f.get("link") else "galeria.html"}"><img src="{e(f["src"])}" alt="{e(f["alt"])}" loading="lazy"><span>{e(f.get("legenda",""))}</span></a>' for f in F)
 gal += "</div></div>"
-w("galeria.html", pagina("galeria.html", "Galeria — Serras e Formas", "Fotos da oficina, das máquinas e das peças do Serras e Formas.", gal, "galeria"))
+w("galeria.html", pagina("galeria.html", "Galeria — Serras & Formas", "Fotos da oficina, das máquinas e das peças do Serras & Formas.", gal, "galeria"))
 
 # ---- 404, robots e sitemap ----
-w("404.html", pagina("404.html", "Página não encontrada — Serras e Formas", "Página não encontrada.",
+w("404.html", pagina("404.html", "Página não encontrada — Serras & Formas", "Página não encontrada.",
   '<div class="wrap"><div class="cabeca"><h1>Página não encontrada</h1><p>O endereço pode ter mudado. <a href="biblioteca.html" style="color:var(--mata)">Voltar à biblioteca</a>.</p></div></div>'))
 paginas = ["", "biblioteca.html", "referencias.html", "galeria.html"] + [pag_secao(s[0]) for s in SECOES] + [pag_artigo(a) for a in A]
 base = DOM.rstrip("/") + "/"

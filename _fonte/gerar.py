@@ -126,8 +126,8 @@ inicio = f"""<section class="hero"><div class="wrap hero-grid">
 
 <section class="band" id="sobre"><div class="wrap intro">
 <div><span class="eyebrow">Por que este site existe</span><h2>Um caderno aberto de marcenaria</h2>
-<p>Sou um entusiasta da marcenaria: gosto de praticar, de ler e de aprender sobre o ofício. Na minha pequena oficina nas montanhas de Petrópolis, em cursos e em livros, artigos e manuais, muitos deles em outros idiomas, venho reunindo o que descubro. Não sou marceneiro profissional nem professor.</p>
-<p>Criei o Serras &amp; Formas para organizar e compartilhar esse material em português: guias práticos, projetos, estudos sobre ferramentas, traduções comentadas e relatos do que venho aprendendo, porque o conhecimento vale mais quando é compartilhado.</p>
+<p>Você já procurou como afiar um formão, regular uma plaina ou escolher a lixa certa e só achou resposta em inglês, em vídeos soltos ou em lojas querendo vender alguma coisa? Boa parte do melhor conhecimento de marcenaria está espalhada em livros, manuais e revistas de outros idiomas. Quem está começando, ou quer ir além do básico, acaba perdendo tempo, madeira e paciência tentando juntar as peças sozinho.</p>
+<p>O Serras &amp; Formas existe para encurtar esse caminho. Aqui você encontra guias práticos, projetos, estudos sobre ferramentas e traduções comentadas, em português e com as fontes indicadas para ir mais fundo. Quem organiza é um entusiasta que pratica numa pequena oficina nas montanhas de Petrópolis, faz cursos e lê tudo o que encontra sobre o ofício. Não é um marceneiro profissional, mas alguém que já tropeçou nas mesmas dúvidas e anota o que aprendeu para que a sua próxima peça saia melhor.</p>
 <div class="assina">{ASSINATURA}<span>Petrópolis, Serra Fluminense</span></div></div>
 <aside class="lado"><h3>O que você encontra aqui</h3><ul>
 <li><a href="secao-ferramentas.html">Ferramentas</a> e <a href="secao-maquinas.html">máquinas</a>: funcionamento, manutenção e escolha.</li>

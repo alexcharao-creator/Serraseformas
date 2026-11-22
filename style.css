@@ -242,5 +242,11 @@ footer .rod small{display:block;color:var(--muted);font-size:13px}
 .corpo figure.diagrama{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 16px 12px}
 .corpo figure.diagrama svg{display:block;width:100%;height:auto;max-height:none;color:var(--ink)}
 .corpo figure.diagrama figcaption{margin-top:10px}
+/* cartão do manual para baixar */
+.corpo .manual{display:grid;grid-template-columns:150px minmax(0,1fr);gap:22px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;margin:8px 0 22px}
+.corpo .manual img{width:100%;height:auto;border:1px solid var(--line);border-radius:4px;box-shadow:0 6px 18px #17291d1f}
+.corpo .manual p{margin:0 0 12px}
+.corpo .manual .btn{color:var(--sol-ink)}
+@media(max-width:520px){.corpo .manual{grid-template-columns:1fr}.corpo .manual img{max-width:180px}}
 
 .lista a{color:inherit}.sr{position:absolute;left:-9999px}

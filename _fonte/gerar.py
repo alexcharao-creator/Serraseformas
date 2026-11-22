@@ -117,7 +117,7 @@ bloco_pautas = (f'<section class="band faixa-clara"><div class="wrap"><span clas
 inicio = f"""<section class="hero"><div class="wrap hero-grid">
 <div><span class="eyebrow">Petrópolis · Serra Fluminense</span>
 <h1>O prazer de aprender, criar e compartilhar.</h1>
-<p class="sub">Guias, ferramentas, projetos e técnicas de marcenaria em português. Um acervo pessoal de descobertas, estudos e experiências que começou em 2020.</p>
+<p class="sub">Guias, ferramentas, projetos e técnicas de marcenaria em português. Um acervo pessoal de descobertas, estudos e experiências.</p>
 <div class="botoes"><a class="btn" href="biblioteca.html">Explorar o acervo</a><a class="btn sec" href="#sobre">Conheça o projeto</a></div>
 <form class="busca" role="search" action="biblioteca.html" method="get"><svg aria-hidden="true"><use href="#lupa"/></svg><label class="sr" for="q-inicio">Buscar no acervo</label><input id="q-inicio" name="q" type="search" placeholder="Buscar: afiação, serra de fita, encaixe…" autocomplete="off"></form>
 </div>
@@ -126,10 +126,8 @@ inicio = f"""<section class="hero"><div class="wrap hero-grid">
 
 <section class="band" id="sobre"><div class="wrap intro">
 <div><span class="eyebrow">Por que este site existe</span><h2>Um caderno aberto de marcenaria</h2>
-<p>A marcenaria é um universo de descobertas. Cada ferramenta, cada técnica e cada projeto trazem novas perguntas, e novas oportunidades de aprender.</p>
-<p>Comecei a praticar marcenaria em 2020, como hobby. Desde então, venho reunindo experiências em minha pequena oficina nas montanhas de Petrópolis, participando de cursos, estudando ferramentas e consultando livros, artigos e manuais, muitos deles publicados em outros idiomas.</p>
-<p>Criei o Serras &amp; Formas para organizar e compartilhar esse material em português. Aqui você encontrará guias práticos, projetos, estudos sobre ferramentas, traduções comentadas, referências técnicas e relatos do que venho aprendendo.</p>
-<p>Não sou marceneiro profissional nem professor de marcenaria. Sou um entusiasta que acredita que o conhecimento se torna mais valioso quando é compartilhado.</p>
+<p>Sou um entusiasta da marcenaria: gosto de praticar, de ler e de aprender sobre o ofício. Na minha pequena oficina nas montanhas de Petrópolis, em cursos e em livros, artigos e manuais, muitos deles em outros idiomas, venho reunindo o que descubro. Não sou marceneiro profissional nem professor.</p>
+<p>Criei o Serras &amp; Formas para organizar e compartilhar esse material em português: guias práticos, projetos, estudos sobre ferramentas, traduções comentadas e relatos do que venho aprendendo, porque o conhecimento vale mais quando é compartilhado.</p>
 <div class="assina">{ASSINATURA}<span>Petrópolis, Serra Fluminense</span></div></div>
 <aside class="lado"><h3>O que você encontra aqui</h3><ul>
 <li><a href="secao-ferramentas.html">Ferramentas</a> e <a href="secao-maquinas.html">máquinas</a>: funcionamento, manutenção e escolha.</li>
@@ -169,7 +167,7 @@ inicio = f"""<section class="hero"><div class="wrap hero-grid">
 <p>Aprender a trabalhar com segurança faz parte da própria arte da marcenaria.</p>
 </div></section>"""
 w("index.html", pagina("index.html", "Serras & Formas — Artigos e técnicas de marcenaria",
-  "Guias, técnicas, projetos, glossário e estudos de marcenaria em português, reunidos por um entusiasta desde 2020, em Petrópolis, Serra Fluminense.", inicio, "inicio"))
+  "Guias, técnicas, projetos, glossário e estudos de marcenaria em português, reunidos por um entusiasta de marcenaria em Petrópolis, Serra Fluminense.", inicio, "inicio"))
 
 # ---- biblioteca (lista completa + busca no navegador) ----
 indice = [{"s": a["secao"], "t": norm(a["titulo"] + " " + a["resumo"] + " " + sem_tags(a["corpo"]))} for a in A]

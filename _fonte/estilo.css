@@ -258,3 +258,7 @@ footer .rod small{display:block;color:var(--muted);font-size:13px}
 .assina .assinatura{display:block;height:58px;width:auto;max-width:100%}
 .assina span{display:block;font-size:13px;color:var(--muted);margin-top:2px}
 footer .rod .assinatura{display:block;height:30px;width:auto;color:var(--mata);margin-top:2px}
+/* assinatura menor e à direita */
+.assina{display:flex;flex-direction:column;align-items:flex-end;text-align:right}
+.assina .assinatura{height:40px}
+footer .rod .assinatura{height:24px}

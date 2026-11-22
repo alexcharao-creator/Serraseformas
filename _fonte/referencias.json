@@ -4,10 +4,22 @@
   "id": "brasil",
   "itens": [
    {
+    "n": "Stopa Lab — cursos online",
+    "tipo": "Site",
+    "d": "Cursos em vídeo com acesso vitalício, como móveis com madeira de pallet e entalhe geométrico.",
+    "u": "https://stopalab.com.br/cursos-online"
+   },
+   {
     "n": "Banco de Dados de Madeiras Brasileiras (LPF/SFB)",
     "tipo": "Banco de dados",
     "d": "Propriedades físicas, mecânicas e anatômicas de madeiras nativas, medidas em laboratório pelo Serviço Florestal Brasileiro.",
     "u": "https://lpf.florestal.gov.br/pt-br/bd-madeiras-brasileiras"
+   },
+   {
+    "n": "Stopa Lab (Daniel Stopa e Letícia Saba)",
+    "tipo": "Canal",
+    "d": "Canal de escola de marcenaria paulistana; tem a websérie Marcenarias do Brasil, em oito episódios por oito estados. Perfil na seção Mestres e leituras.",
+    "u": "https://www.youtube.com/channel/UChNgVwGmKHtWsZn7jyAV2Cw"
    },
    {
     "n": "Marcenaria Faça Você Mesmo (Elias Leão)",

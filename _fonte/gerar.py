@@ -37,7 +37,7 @@ sem_tags = lambda h: re.sub(r"<[^>]+>", " ", h)
 def minutos(a): return max(1, round(len(sem_tags(a["corpo"]).split()) / 200))
 def data_br(s): y, m, dd = map(int, s.split("-")); return f"{dd} de {MESES[m-1]} de {y}"
 def plural(n, s, p): return f"{n} {s if n == 1 else p}"
-def conta(sid): return sum(1 for a in A if a["secao"] == sid)
+def conta(sid): return sum(1 for a in A if a["secao"] == sid) + (1 if sid == "formacao" else 0)
 def pag_artigo(a): return f"artigo-{a['slug']}.html"
 def pag_secao(sid): return f"secao-{sid}.html"
 def norm(s): return "".join(c for c in unicodedata.normalize("NFD", s) if unicodedata.category(c) != "Mn").lower()
@@ -209,7 +209,10 @@ w("biblioteca.html", pagina("biblioteca.html", "Biblioteca — Serras & Formas",
 for sid, nome, desc in SECOES:
     lista = [a for a in A if a["secao"] == sid]
     corpo = f'<div class="wrap"><div class="cabeca"><div class="trilha"><a href="biblioteca.html">Biblioteca</a> / Seção</div><h1>{nome}</h1><p>{desc}</p></div>'
-    corpo += (f'<p class="contagem">{plural(len(lista),"artigo","artigos")}</p><ul class="lista">{"".join(item_lista(a) for a in lista)}</ul>' if lista
+    extra = ""
+    if sid == "formacao":
+        extra = f'<li data-s="formacao"><a href="index.html#cursos"><h3>Escolas de marcenaria no Brasil</h3><p>Mestres e escolas brasileiras com cursos presenciais: {len(ESCOLAS)} endereços, de Cruzeiro (SP) a Nova Friburgo (RJ) e Campo Alegre (SC). A lista fica na página inicial.</p><span class="meta"><b>Formação</b>Lista · página inicial</span></a></li>'
+    corpo += (f'<p class="contagem">{plural(len(lista) + (1 if extra else 0),"item","itens") if extra else plural(len(lista),"artigo","artigos")}</p><ul class="lista">{extra}{"".join(item_lista(a) for a in lista)}</ul>' if lista
               else '<div class="vazio">Esta seção ainda não tem artigos. Os primeiros chegam em breve.</div>') + "</div>"
     w(pag_secao(sid), pagina(pag_secao(sid), f"{nome} — Serras & Formas", f"{nome}: {desc}", corpo, "biblioteca"))
 

@@ -238,7 +238,7 @@ for a in A:
 
 # ---- referências ----
 total = sum(len(p["itens"]) for p in R)
-refs = f'<div class="wrap"><div class="cabeca"><h1>Referências</h1><p>{total} mestres, canais, revistas, escolas e bancos de dados de {len(R)} países, comentados em português.</p></div>'
+refs = f'<div class="wrap"><div class="cabeca"><h1>Referências</h1><p>{total} mestres, canais, revistas, escolas e bancos de dados de {len(R)} países, comentados em português. Para uma seleção maior, por língua (inglês, francês, espanhol e português), veja <a href="artigo-sites-de-marcenaria-pelo-mundo.html">Sites de marcenaria pelo mundo</a>.</p></div>'
 refs += '<div class="paises claro" style="margin-bottom:32px">' + "".join(f'<a href="#pais-{p["id"]}">{p["pais"]}</a>' for p in R) + "</div>"
 for p in R:
     refs += f'<section class="ref-grupo" id="pais-{p["id"]}"><h2>{p["pais"]}<span>{plural(len(p["itens"]),"referência","referências")}</span></h2><div class="refs">'

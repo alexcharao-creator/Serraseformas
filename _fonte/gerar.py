@@ -112,6 +112,7 @@ grade = "".join(f'<a href="{pag_secao(sid)}"><h3>{nome}<span>{conta(sid) or "em 
 grade += f'<a href="referencias.html"><h3>Referências<span>{sum(len(p["itens"]) for p in R)}</span></h3><p>Mestres, canais, revistas e escolas do mundo todo.</p></a>'
 cursos = "".join(f'<a href="{e(x["u"]) if x["u"] else "referencias.html#pais-brasil"}"{" target=\"_blank\" rel=\"noopener\"" if x["u"] else ""}><span class="tipo">{e(x["local"])}</span><strong>{e(x["nome"])}</strong><p>{e(x["d"])}</p><em>{"Site e cursos" if x["u"] else "Agenda a confirmar"}</em></a>' for x in ESCOLAS)
 pautas = "".join(f'<li><small>{e(x["s"])} · {e(x["st"])}</small><b>{e(x["t"])}</b><span>{e(x["d"])}</span></li>' for x in PAUTAS)
+bloco_pautas = (f'<section class="band faixa-clara"><div class="wrap"><span class="eyebrow">Próximos artigos</span><h2>Em preparação</h2><p class="contagem" style="margin-bottom:18px">Pautas planejadas, ainda não publicadas.</p><ul class="pautas">{pautas}</ul></div></section>') if PAUTAS else ""
 inicio = f"""<section class="hero"><div class="wrap hero-grid">
 <div><span class="eyebrow">Petrópolis · Serra Fluminense</span>
 <h1>O prazer de aprender, criar e compartilhar.</h1>
@@ -151,8 +152,7 @@ inicio = f"""<section class="hero"><div class="wrap hero-grid">
 <section class="band"><div class="wrap"><div class="titulo-bloco"><h2>Publicados recentemente</h2><a href="biblioteca.html">Todos os artigos</a></div>
 <ul class="lista">{"".join(item_lista(a) for a in A[:6])}</ul></div></section>
 
-<section class="band faixa-clara"><div class="wrap"><span class="eyebrow">Próximos artigos</span><h2>Em preparação</h2>
-<p class="contagem" style="margin-bottom:18px">Pautas planejadas, ainda não publicadas.</p><ul class="pautas">{pautas}</ul></div></section>
+{bloco_pautas}
 
 <section class="band" id="cursos"><div class="wrap">
 <div class="titulo-bloco"><div><span class="eyebrow">Formação e referências</span><h2>Onde aprender marcenaria</h2></div><a href="referencias.html">Referências pelo mundo</a></div>

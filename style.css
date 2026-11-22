@@ -238,5 +238,9 @@ footer .rod small{display:block;color:var(--muted);font-size:13px}
 .grade a{border:1px solid var(--line);border-radius:8px}
 @media(max-width:760px){.hero figure{order:0}.hero figure img{height:220px}}
 @media(max-width:560px){nav.menu{flex-wrap:nowrap;overflow-x:auto;width:100%;margin:0 -10px;padding-bottom:2px;scrollbar-width:none}nav.menu::-webkit-scrollbar{display:none}nav.menu a{flex:none}}
+/* diagramas e gráficos dos artigos */
+.corpo figure.diagrama{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 16px 12px}
+.corpo figure.diagrama svg{display:block;width:100%;height:auto;max-height:none;color:var(--ink)}
+.corpo figure.diagrama figcaption{margin-top:10px}
 
 .lista a{color:inherit}.sr{position:absolute;left:-9999px}

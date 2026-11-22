@@ -248,5 +248,10 @@ footer .rod small{display:block;color:var(--muted);font-size:13px}
 .corpo .manual p{margin:0 0 12px}
 .corpo .manual .btn{color:var(--sol-ink)}
 @media(max-width:520px){.corpo .manual{grid-template-columns:1fr}.corpo .manual img{max-width:180px}}
+/* subtítulo do site no cabeçalho */
+.marca .tit{display:flex;flex-direction:column;line-height:1.15}
+.marca .tit b{font-weight:400;white-space:nowrap}
+.marca small{font-family:system-ui,sans-serif;font-size:11.5px;letter-spacing:.06em;color:#cdd8cf;margin-top:3px;font-weight:400}
+@media(max-width:560px){.marca small{font-size:10.5px}}
 
 .lista a{color:inherit}.sr{position:absolute;left:-9999px}

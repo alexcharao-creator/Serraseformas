@@ -72,7 +72,7 @@ def pagina(nome, titulo, descricao, corpo, ativo=""):
 <body>
 {simbolos}
 <header class="top"><div class="wrap">
-<a class="marca" href="index.html" aria-label="Serras &amp; Formas, página inicial"><img src="media/logo-96.png" alt="" width="38" height="38">Serras <em>&amp;</em> Formas</a>
+<a class="marca" href="index.html" aria-label="Serras &amp; Formas, página inicial"><img src="media/logo-96.png" alt="" width="38" height="38"><span class="tit"><b>Serras <em>&amp;</em> Formas</b><small>Biblioteca de marcenaria em português</small></span></a>
 <nav class="menu" aria-label="Principal">{nav}</nav>
 </div></header>
 <main id="app">
@@ -166,7 +166,7 @@ inicio = f"""<section class="hero"><div class="wrap hero-grid">
 <p>Recomendo fortemente fazer cursos de marcenaria antes de operar máquinas, conhecer os procedimentos de segurança de cada equipamento e utilizar os equipamentos de proteção individual adequados à atividade.</p>
 <p>Aprender a trabalhar com segurança faz parte da própria arte da marcenaria.</p>
 </div></section>"""
-w("index.html", pagina("index.html", "Serras & Formas — Marcenaria, Projetos e Técnicas",
+w("index.html", pagina("index.html", "Serras & Formas — Biblioteca de marcenaria em português",
   "Guias, técnicas, projetos, glossário e estudos de marcenaria em português, reunidos por um entusiasta desde 2020, em Petrópolis, Serra Fluminense.", inicio, "inicio"))
 
 # ---- biblioteca (lista completa + busca no navegador) ----

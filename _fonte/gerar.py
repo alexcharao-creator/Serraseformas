@@ -179,7 +179,7 @@ inicio = f"""<section class="hero"><div class="wrap hero-grid">
 <div class="titulo-bloco"><div><span class="eyebrow">Formação presencial</span><h2>Escolas e cursos</h2></div><a href="secao-formacao.html">Escolas no exterior</a></div>
 <p class="lede" style="max-width:62ch;color:var(--muted);margin:0 0 22px">Minha recomendação mais importante para quem está começando: procure aulas práticas com orientação de profissionais. Estas são referências para explorar; confirme diretamente com cada escola as turmas, os requisitos e a disponibilidade.</p>
 <div class="refs">{cursos}</div>
-<p class="lede" style="margin:24px 0 0;color:var(--muted)">No exterior: escolas nos <a href="artigo-escolas-de-marcenaria-eua.html">Estados Unidos</a>, no <a href="artigo-escolas-de-marcenaria-canada.html">Canadá</a>, na <a href="artigo-escolas-de-marcenaria-reino-unido.html">Inglaterra e Escócia</a>, na <a href="artigo-escolas-de-marcenaria-franca.html">França</a>, na <a href="artigo-escolas-de-marcenaria-espanha.html">Espanha</a> e <a href="artigo-escolas-de-marcenaria-pelo-mundo.html">pelo mundo</a>. Prefere aprender online? <a href="referencias.html">Canais, sites e livros →</a></p></div></section>
+<p class="lede" style="margin:24px 0 0;color:var(--muted)">No exterior: escolas nos <a href="artigo-escolas-de-marcenaria-eua.html">Estados Unidos</a>, no <a href="artigo-escolas-de-marcenaria-canada.html">Canadá</a>, na <a href="artigo-escolas-de-marcenaria-reino-unido.html">Inglaterra e Escócia</a>, na <a href="artigo-escolas-de-marcenaria-franca.html">França</a>, na <a href="artigo-escolas-de-marcenaria-espanha.html">Espanha</a> e <a href="artigo-escolas-de-marcenaria-pelo-mundo.html">pelo mundo</a>. Prefere aprender online? <a href="referencias.html">Canais, sites e livros →</a></p><p class="discreto"><a href="fabricantes.html">Quem faz as ferramentas? Conheça os fabricantes →</a></p></div></section>
 
 <section class="band seguranca" id="seguranca"><div class="wrap">
 <span class="eyebrow">Antes de começar</span><h2>Segurança em primeiro lugar</h2>
@@ -290,6 +290,20 @@ refs += "</div>"
 w("referencias.html", pagina("referencias.html", "Referências de marcenaria: canais, sites, livros e revistas — Serras & Formas",
   "Canais de YouTube, sites e cursos online, livros, editoras, revistas e lojas de marcenaria do Brasil, EUA, Inglaterra, Japão, França e outros países.", refs, "referencias"))
 
+# ---- fabricantes ----
+FAB = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "fabricantes.json"), encoding="utf-8"))
+nf = sum(len(p["itens"]) for p in FAB)
+fab = f'<div class="wrap"><div class="cabeca"><h1>Fabricantes</h1><p>Quem faz as ferramentas: {nf} fabricantes de {len(FAB)} países, do artesão que faz uma plaina por vez às oficinas que abastecem o mundo. A lista vai crescer; para escolas, veja <a href="index.html#cursos">Escolas e cursos</a>, e para lojas, canais e livros, as <a href="referencias.html">Referências</a>.</p></div>'
+fab += '<div class="paises claro" style="margin-bottom:12px">' + "".join(f'<a href="#{p["id"]}">{p["pais"]}</a>' for p in FAB) + "</div>"
+for p in FAB:
+    fab += f'<section class="ref-cat" id="{p["id"]}"><h2>{p["pais"]}</h2><div class="refs">'
+    for it in p["itens"]:
+        fab += f'<a href="{e(it["u"])}" target="_blank" rel="noopener"><span class="tipo">{e(it["local"])}</span><strong>{e(it["n"])}</strong><p>{e(it["d"])}</p><em>{e(it["faz"])}</em></a>'
+    fab += "</div></section>"
+fab += "</div>"
+w("fabricantes.html", pagina("fabricantes.html", "Fabricantes de ferramentas de marcenaria — Serras & Formas",
+  "Fabricantes de ferramentas manuais de marcenaria no Brasil, Estados Unidos, Canadá, Inglaterra e Alemanha: plainas, formões, serrotes e morsas.", fab, "referencias"))
+
 # ---- galeria ----
 gal = '<div class="wrap"><div class="cabeca"><h1>Galeria</h1><p>A oficina, as ferramentas e algumas peças. Toque numa foto para abrir o artigo relacionado.</p></div><div class="fotos">'
 gal += "".join(f'<a class="foto" href="{(f["link"].replace("artigo-", "artigo-", 1) + ".html") if f.get("link") else "galeria.html"}"><img src="{e(f["src"])}" alt="{e(f["alt"])}" loading="lazy"><span>{e(f.get("legenda",""))}</span></a>' for f in F)
@@ -299,7 +313,7 @@ w("galeria.html", pagina("galeria.html", "Galeria — Serras & Formas", "Fotos d
 # ---- 404, robots e sitemap ----
 w("404.html", pagina("404.html", "Página não encontrada — Serras & Formas", "Página não encontrada.",
   '<div class="wrap"><div class="cabeca"><h1>Página não encontrada</h1><p>O endereço pode ter mudado. <a href="biblioteca.html" style="color:var(--mata)">Voltar à biblioteca</a>.</p></div></div>'))
-paginas = ["", "biblioteca.html", "referencias.html", "galeria.html"] + [pag_secao(s[0]) for s in SECOES] + [pag_artigo(a) for a in A]
+paginas = ["", "biblioteca.html", "referencias.html", "fabricantes.html", "galeria.html"] + [pag_secao(s[0]) for s in SECOES] + [pag_artigo(a) for a in A]
 base = DOM.rstrip("/") + "/"
 w("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
   "".join(f"  <url><loc>{base}{p}</loc></url>\n" for p in paginas) + "</urlset>\n")

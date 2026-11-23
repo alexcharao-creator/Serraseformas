@@ -1,0 +1,137 @@
+[
+ {
+  "pais": "Brasil",
+  "id": "brasil",
+  "itens": [
+   {
+    "n": "Silmar Rodrigues",
+    "local": "Puxinanã, PB",
+    "faz": "Plainas de madeira, brunidores, martelos de ajuste, facas de marcação",
+    "d": "Artesão que faz ferramentas de madeira e metal. Suas plainas block, mini block e as equivalentes às nº 3 e nº 4, em jatobá, são vendidas na loja dele e também na RMW Tools.",
+    "u": "https://silmargomes.mercadoshops.com.br/"
+   },
+   {
+    "n": "RMW Tools — Ricardo Morcegão Woodworking",
+    "local": "São Paulo, SP",
+    "faz": "Plainas, router plane, shoulder plane, graminho de roda, morsas",
+    "d": "Ricardo Morcegão se apresenta como fabricante de ferramentas e organizador da MEGA Feira de Hobbismo. A loja reúne ferramentas artesanais, as dele e as de outros artesãos.",
+    "u": "https://www.rmwtools.com.br"
+   }
+  ]
+ },
+ {
+  "pais": "Estados Unidos",
+  "id": "eua",
+  "itens": [
+   {
+    "n": "Lie-Nielsen Toolworks",
+    "local": "Warren, Maine",
+    "faz": "Plainas, serrotes, formões, raspadores",
+    "d": "Fundada em 1981 para voltar a fabricar nos EUA ferramentas manuais de primeira linha e reviver desenhos clássicos fora de linha. É mais conhecida pelas plainas de bronze e ferro fundido.",
+    "u": "https://www.lie-nielsen.com/"
+   },
+   {
+    "n": "Blue Spruce Toolworks",
+    "local": "Oregon",
+    "faz": "Formões de rabo de andorinha, facas de marcação, maços",
+    "d": "Pequena oficina de ferramentas de acabamento impecável, pensadas para durar gerações; famosa pelos formões e pelas facas de marcação.",
+    "u": "https://www.bluesprucetoolworks.com/"
+   },
+   {
+    "n": "Bad Axe Tool Works",
+    "local": "La Crosse, Wisconsin",
+    "faz": "Serrotes de costas e serrotes de bancada",
+    "d": "Fundada em 2009, tornou-se uma das principais fabricantes americanas de serrotes, com afiação e travamento feitos à mão.",
+    "u": "https://www.badaxetoolworks.com/"
+   },
+   {
+    "n": "Benchcrafted",
+    "local": "Iowa",
+    "faz": "Morsas e ferragens para bancada",
+    "d": "Desde 2005 faz morsas de perna, morsas de cauda, morsas Moxon e outros acessórios usados nas bancadas de marceneiro mais conhecidas.",
+    "u": "https://benchcrafted.com/"
+   }
+  ]
+ },
+ {
+  "pais": "Canadá",
+  "id": "canada",
+  "itens": [
+   {
+    "n": "Veritas (Lee Valley)",
+    "local": "Ottawa, Ontário",
+    "faz": "Plainas, serrotes, formões, graminhos, afiação",
+    "d": "A marca de ferramentas da Lee Valley, fundada por Leonard Lee em 1978. As plainas Veritas são feitas no Canadá, muitas com lâminas do aço PM-V11, desenvolvido pela própria empresa.",
+    "u": "https://www.leevalley.com/en-ca/shop/tools/hand-tools"
+   },
+   {
+    "n": "IBC Tools",
+    "local": "Toronto, Ontário",
+    "faz": "Formões, lâminas de plaina e contra-ferros",
+    "d": "Fabricante familiar que desde 1997 produz formões e lâminas de reposição em aço A2, com tratamento criogênico, na própria fábrica em Toronto.",
+    "u": "https://ibctools.com/"
+   },
+   {
+    "n": "JessEm",
+    "local": "Ontário",
+    "faz": "Mesas de tupia, elevadores e acessórios de máquina",
+    "d": "Fabricante canadense de acessórios de precisão para a oficina de máquinas, como elevadores de tupia, guias e gabaritos.",
+    "u": "https://www.jessem.com/"
+   }
+  ]
+ },
+ {
+  "pais": "Inglaterra",
+  "id": "inglaterra",
+  "itens": [
+   {
+    "n": "Thomas Flinn & Co. (Clifton, Pax, Lynx)",
+    "local": "Sheffield",
+    "faz": "Serrotes e plainas",
+    "d": "Família que faz serrotes em Sheffield desde 1923, com as marcas Pax, Lynx e Roberts & Lee. Em 2014 assumiu também as plainas Clifton: plainas de bancada, de ombro e cepilhos.",
+    "u": "https://www.flinn-garlick-saws.co.uk/"
+   },
+   {
+    "n": "Ashley Iles",
+    "local": "East Kirkby, Lincolnshire",
+    "faz": "Formões e goivas",
+    "d": "Empresa familiar fundada em 1949 pelo modelador Ashley Iles e hoje tocada pelos filhos. Os formões e goivas ainda são forjados e esmerilhados à mão, com garantia vitalícia.",
+    "u": "https://workshopheaven.com/ashley-iles"
+   },
+   {
+    "n": "Robert Sorby",
+    "local": "Sheffield",
+    "faz": "Formões, goivas de tornear e ferramentas de entalhe",
+    "d": "Uma das marcas tradicionais de Sheffield, conhecida sobretudo pelas ferramentas de tornearia e pelos formões.",
+    "u": "https://www.robert-sorby.co.uk/"
+   }
+  ]
+ },
+ {
+  "pais": "Alemanha",
+  "id": "alemanha",
+  "itens": [
+   {
+    "n": "E.C. Emmerich (ECE)",
+    "local": "Remscheid",
+    "faz": "Plainas de madeira",
+    "d": "Fundada em 1852 pelo mestre marceneiro Friedrich-Wilhelm Emmerich. Mantém viva a tradição alemã das plainas de madeira com chifre na frente, e criou o ajuste Primus em 1950.",
+    "u": "https://www.ecemmerich.de/"
+   },
+   {
+    "n": "Kirschen (Two Cherries)",
+    "local": "Remscheid",
+    "faz": "Formões, goivas e ferramentas de entalhe",
+    "d": "Fabricante de ferramentas manuais desde 1858, da empresa Wilhelm Schmitt. Os formões de cabo de carpino com as duas cerejas na marca estão em muitas bancadas pelo mundo.",
+    "u": "https://www.kirschen.de/"
+   },
+   {
+    "n": "Kunz",
+    "local": "Großbreitenbach, Turíngia",
+    "faz": "Plainas de ferro e cepilhos",
+    "d": "Plainas no padrão Bailey, cepilhos e plainas de bolso, feitos na Alemanha pela Tresselt, empresa fundada em 1910; uma alternativa europeia de preço intermediário.",
+    "u": "https://www.tresselt-gmbh.de/"
+   }
+  ]
+ }
+]

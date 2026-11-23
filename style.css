@@ -355,6 +355,9 @@ footer .rod .assinatura{height:24px}
 .cor-ouro .lista.com-foto li:nth-child(even):hover{box-shadow:0 10px 28px -6px #4a3a1455}
 .cor-ouro .lista.com-foto li:nth-child(odd) .foto-ausente.mini{border-color:transparent}
 
+/* chamada discreta para a página de fabricantes */
+.discreto{margin:14px 0 0;font-size:14px}.discreto a{color:var(--muted);text-decoration:none;border-bottom:1px dotted currentColor}.discreto a:hover{color:var(--mata)}
+
 .lista a{color:inherit}.sr{position:absolute;left:-9999px}
 .grade .grupo{grid-column:1/-1;margin:0;padding:14px 22px 10px;background:var(--bg);font:600 12px/1.2 system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mata)}
 .ref-cat{margin:44px 0 6px;scroll-margin-top:90px}.ref-cat>h2{font-size:30px}.ref-cat>p{color:var(--muted);margin:4px 0 18px}.ref-grupo h3{font-size:19px;margin:22px 0 10px;font-weight:400}

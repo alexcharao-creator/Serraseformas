@@ -328,5 +328,17 @@
     "u": "https://www.woodreview.com.au"
    }
   ]
+ },
+ {
+  "pais": "Outros países",
+  "id": "outros",
+  "itens": [
+   {
+    "n": "MA-SH (Master Sh)",
+    "tipo": "Canal",
+    "d": "Gabaritos e utilidades em madeira: projetos caseiros e acessórios de oficina feitos com poucas ferramentas, também com metal.",
+    "u": "https://www.youtube.com/@MA-SH/videos"
+   }
+  ]
  }
 ]

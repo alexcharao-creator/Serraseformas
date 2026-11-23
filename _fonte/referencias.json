@@ -330,6 +330,18 @@
   ]
  },
  {
+  "pais": "Ucrânia",
+  "id": "ucrania",
+  "itens": [
+   {
+    "n": "GR Woodworking (George/Yurii Romanov)",
+    "tipo": "Canal",
+    "d": "Marceneiro de Odessa para quem a marcenaria é vida, trabalho e hobby. No Patreon, oferece plantas e pôsteres em PDF.",
+    "u": "https://www.youtube.com/@gr_woodworking"
+   }
+  ]
+ },
+ {
   "pais": "Outros países",
   "id": "outros",
   "itens": [

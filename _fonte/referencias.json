@@ -236,6 +236,12 @@
     "tipo": "Livro",
     "d": "Um dos escritores e professores de marcenaria mais influentes de sua época. Marceneiro em Devon desde 1973 e professor desde 1977, escreveu três livros pela GMC, entre eles os dois volumes de Furniture-Making Techniques, reunindo seus artigos sobre afiação, ajuste de plainas e precisão.",
     "u": "http://www.davidcharlesworth.co.uk"
+   },
+   {
+    "n": "Waters & Acland",
+    "tipo": "Canal",
+    "d": "Canal da escola de móveis Waters & Acland, em Cumbria (Inglaterra): técnicas de marcenaria fina, projetos dos alunos e do ateliê.",
+    "u": "https://www.youtube.com/channel/UCzEJTKzx46i4qG3yGHE2ZCg"
    }
   ]
  },
@@ -260,6 +266,24 @@
     "tipo": "Loja",
     "d": "Fabricante de ferramentas manuais inovadoras, com guias e artigos técnicos.",
     "u": "https://www.leevalley.com"
+   },
+   {
+    "n": "Matthias Wandel",
+    "tipo": "Canal",
+    "d": "Engenheiro de Ottawa que trata a marcenaria como engenharia: constrói as próprias máquinas, gabaritos e mecanismos de madeira, com testes e medições.",
+    "u": "https://www.youtube.com/channel/UCckETVOT59aYw80B36aP9vw"
+   },
+   {
+    "n": "Tom Fidgen — The Unplugged Woodshop",
+    "tipo": "Canal",
+    "d": "Autor e professor dedicado só às ferramentas manuais; fundou a primeira escola canadense de marcenaria exclusivamente manual.",
+    "u": "https://www.youtube.com/channel/UCaWR_UvszqJ0xIJYXcep3_w"
+   },
+   {
+    "n": "John Heisz — I Build It",
+    "tipo": "Canal",
+    "d": "Carpinteiro de Ontário que ensina a fazer as próprias ferramentas e acessórios: mesas de tupia, grampos, morsas e gabaritos.",
+    "u": "https://www.youtube.com/channel/UCjA8vRlL1c7BDixQRJ39-LQ"
    }
   ]
  },
@@ -386,6 +410,12 @@
     "tipo": "Canal",
     "d": "Canal de formação e cultura da madeira da Legno Lab, a única revista italiana inteiramente dedicada à marcenaria.",
     "u": "https://www.youtube.com/channel/UC7npacUliv3KMER0uwvci1A"
+   },
+   {
+    "n": "Falegnameria Classica",
+    "tipo": "Canal",
+    "d": "Técnicas antigas de trabalhar a madeira e o uso de ferramentas tradicionais, com predomínio do trabalho manual.",
+    "u": "https://www.youtube.com/channel/UC_349MTrCJ8sFylH6rYomTQ"
    }
   ]
  },

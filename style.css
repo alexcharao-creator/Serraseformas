@@ -262,6 +262,10 @@ footer .rod .assinatura{display:block;height:30px;width:auto;color:var(--mata);m
 .assina{display:flex;flex-direction:column;align-items:flex-end;text-align:right}
 .assina .assinatura{height:40px}
 footer .rod .assinatura{height:24px}
+.leitura{margin:22px 0 30px;padding:16px 20px;background:var(--folha);border-left:3px solid var(--sol);border-radius:0 10px 10px 0}
+.leitura h4{margin:0 0 8px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--mata)}
+.leitura ul{margin:0;padding-left:18px}
+.leitura li{margin:6px 0;font-size:15px;line-height:1.5}
 
 .lista a{color:inherit}.sr{position:absolute;left:-9999px}
 .grade .grupo{grid-column:1/-1;margin:0;padding:14px 22px 10px;background:var(--bg);font:600 12px/1.2 system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mata)}

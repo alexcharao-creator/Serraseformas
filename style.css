@@ -289,6 +289,9 @@ footer .rod .assinatura{height:24px}
 .faixa-clara .grade{margin-top:0}
 .grade .grupo:first-child{margin-top:0}
 .faixa-clara .titulo-bloco{margin-bottom:10px}.faixa-clara .titulo-bloco h2{margin-bottom:0}
+.video-yt>a{position:relative;display:block}
+.video-yt .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:68px;height:48px;border-radius:12px;background:#c4302bdd;color:#fff;font-size:22px;display:flex;align-items:center;justify-content:center;transition:transform .15s}
+.video-yt>a:hover .play{transform:translate(-50%,-50%) scale(1.08)}
 
 .lista a{color:inherit}.sr{position:absolute;left:-9999px}
 .grade .grupo{grid-column:1/-1;margin:0;padding:14px 22px 10px;background:var(--bg);font:600 12px/1.2 system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mata)}

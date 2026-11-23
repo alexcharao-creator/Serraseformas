@@ -266,3 +266,5 @@ footer .rod .assinatura{height:24px}
 .leitura h4{margin:0 0 8px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--mata)}
 .leitura ul{margin:0;padding-left:18px}
 .leitura li{margin:6px 0;font-size:15px;line-height:1.5}
+.corpo a.botao{display:inline-block;padding:12px 20px;background:var(--mata);color:#fff;border-radius:10px;text-decoration:none;font-weight:600}
+.corpo a.botao:hover{background:var(--sol);color:var(--mata)}

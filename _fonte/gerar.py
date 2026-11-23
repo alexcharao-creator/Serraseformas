@@ -117,6 +117,29 @@ grade += f'<a href="referencias.html"><h3>Referências<span>{sum(len(p["itens"])
 cursos = "".join(f'<a href="{e(x["u"]) if x["u"] else "#cursos"}"{" target=\"_blank\" rel=\"noopener\"" if x["u"] else ""}><span class="tipo">{e(x["local"])}</span><strong>{e(x["nome"])}</strong><p>{e(x["d"])}</p><em>{"Site e cursos" if x["u"] else "Agenda a confirmar"}</em></a>' for x in ESCOLAS)
 pautas = "".join(f'<li><small>{e(x["s"])} · {e(x["st"])}</small><b>{e(x["t"])}</b><span>{e(x["d"])}</span></li>' for x in PAUTAS)
 bloco_pautas = (f'<section class="band faixa-clara"><div class="wrap"><span class="eyebrow">Próximos artigos</span><h2>Em preparação</h2><p class="contagem" style="margin-bottom:18px">Pautas planejadas, ainda não publicadas.</p><ul class="pautas">{pautas}</ul></div></section>') if PAUTAS else ""
+def foto_de(a):
+    if a["slug"] == "como-montar-sua-oficina": return "media/oficina-desengrosso-entrada.webp"
+    imgs = re.findall(r'<img src="([^"]+)"', a["corpo"])
+    return next((u for u in imgs if not u.lower().endswith(".png")), imgs[0] if imgs else "media/pedra-itaipava.webp")
+GUIAS = ["como-montar-sua-oficina", "plainas-de-metal-guia", "regulagem-serra-de-fita", "graminho-tipos-uso-e-exercicios", "cinco-exercicios-plaina", "afiacao-metodo-morito", "espiga-e-furo", "escolher-armazenar-madeira"]
+POR = {a["slug"]: a for a in A}
+def slide(a, n):
+    if a["slug"] == "como-montar-sua-oficina":
+        olho, tit = "Organização do espaço · 17,3 m²", "Quer montar sua oficina e não sabe por onde começar?"
+        txt = "Uma garagem de 6,40 × 2,70 m serve de estudo de caso para discutir layout, circulação, posição das máquinas, bancada, iluminação, energia, armazenamento e controle de pó. Não é um modelo a copiar: é um ponto de partida para pensar no seu espaço."
+    else:
+        olho, tit, txt = f'{SEC[a["secao"]][1]} · {minutos(a)} min de leitura', e(a["titulo"]), e(a["resumo"])
+    return f'<a class="feature" href="{pag_artigo(a)}"><img src="{foto_de(a)}" alt="" loading="{"eager" if n == 0 else "lazy"}"><div><span class="eyebrow">{olho}</span><h3>{tit}</h3><p>{txt}</p><span class="mais">Ler o guia completo →</span></div></a>'
+guias = [POR[g] for g in GUIAS if g in POR]
+BLOCO_GUIAS = f'''<section class="band guias-band"><div class="wrap">
+<span class="eyebrow">Primeiro guia publicado</span><h2>Comece pela oficina</h2>
+<div class="arraste"><span>Arraste para o lado para ver outros guias</span><span class="setas"><button type="button" data-d="-1" aria-label="Guia anterior">←</button><button type="button" data-d="1" aria-label="Próximo guia">→</button></span></div>
+<div class="carrossel" tabindex="0" aria-label="Guias publicados">{"".join(slide(a, n) for n, a in enumerate(guias))}</div>
+</div></section>
+<script>(()=>{{const c=document.querySelector('.carrossel');document.querySelectorAll('.arraste button').forEach(b=>b.onclick=()=>c.scrollBy({{left:b.dataset.d*c.clientWidth*.9,behavior:'smooth'}}))}})()</script>'''
+BLOCO_RECENTES = f'''<section class="band recentes"><div class="wrap"><div class="titulo-bloco"><div><span class="eyebrow">Novidades</span><h2>Publicados recentemente</h2></div></div>
+<ul class="lista">{"".join(item_lista(a) for a in A[:4])}</ul>
+<p class="ver-mais"><a href="biblioteca.html">Veja mais publicações →</a></p></div></section>'''
 inicio = f"""<section class="hero"><div class="wrap hero-grid">
 <div><span class="eyebrow">Petrópolis · Serra Fluminense</span>
 <h1>O prazer de aprender, criar e compartilhar.</h1>
@@ -127,35 +150,22 @@ inicio = f"""<section class="hero"><div class="wrap hero-grid">
 <figure><img src="media/pedra-itaipava.webp" alt="Vista das montanhas da região de Itaipava a partir de Nogueira, Petrópolis"><figcaption>A paisagem que inspira o Serras &amp; Formas: Nogueira, Petrópolis.</figcaption></figure>
 </div></section>
 
-<section class="band" id="sobre"><div class="wrap intro">
+<section class="band" id="sobre"><div class="wrap intro so">
 <div><span class="eyebrow">Por que este site existe</span><h2>Um caderno aberto de marcenaria</h2>
 <p>Já procurou como afiar um formão, regular uma plaina ou escolher a lixa certa e só achou resposta em inglês, em vídeos soltos ou em lojas querendo vender? O melhor da marcenaria está em livros, manuais e revistas de outros idiomas.</p>
 <p>Quem está progredindo no ofício passa horas na tela, em vez de na oficina, juntando peças soltas da internet. Para devolver esse tempo à bancada, criei o Serras &amp; Formas: guias práticos, projetos, estudos sobre ferramentas e traduções comentadas, em português e com as fontes.</p>
 <p>Sou um entusiasta que pratica numa pequena oficina na serra de Petrópolis, faz cursos e lê muito. Não sou profissional, mas já tropecei nas mesmas dúvidas e anoto o que aprendo para que a sua próxima peça saia melhor.</p>
 <div class="assina">{ASSINATURA}<span>Petrópolis, Serra Fluminense</span></div></div>
-<aside class="lado"><h3>O que você encontra aqui</h3><ul>
-<li><a href="secao-ferramentas.html">Ferramentas</a> e <a href="secao-maquinas.html">máquinas</a>: funcionamento, manutenção e escolha.</li>
-<li><a href="secao-encaixes.html">Técnicas</a> e <a href="secao-projetos.html">projetos</a>: exercícios, métodos e experiências.</li>
-<li><a href="secao-traducoes.html">Manuais e traduções</a>: referências comentadas em português, com as fontes indicadas.</li>
-<li><a href="secao-historia.html">História</a> e <a href="secao-glossario.html">glossário</a>: o contexto e o vocabulário da marcenaria.</li>
-<li><a href="#cursos">Escolas e cursos</a>: onde ter aula presencial, no Brasil e no exterior.</li>
-<li><a href="referencias.html">Referências</a>: canais do YouTube, sites, cursos online e livros.</li>
-</ul></aside>
+
 </div></section>
 
-<section class="band" style="padding-top:0"><div class="wrap">
-<span class="eyebrow">Primeiro guia publicado</span><h2>Comece pela oficina</h2>
-<a class="feature" href="{pag_artigo(oficina)}"><img src="media/oficina-desengrosso-entrada.webp" alt="Desengrosso posicionado sobre a serra de bancada na entrada da oficina" loading="lazy">
-<div><span class="eyebrow">Organização do espaço · 17,3 m²</span><h3>Quer montar sua oficina e não sabe por onde começar?</h3>
-<p>Uma garagem de 6,40 × 2,70 m serve de estudo de caso para discutir layout, circulação, posição das máquinas, bancada, iluminação, energia, armazenamento e controle de pó. Não é um modelo a copiar: é um ponto de partida para pensar no seu espaço.</p><span class="mais">Ler o guia completo →</span></div></a>
-</div></section>
+{BLOCO_RECENTES}
+
+{BLOCO_GUIAS}
 
 <section class="band faixa-clara"><div class="wrap">
 <div class="titulo-bloco"><div><span class="eyebrow">Biblioteca em construção</span><h2>Explore por assunto</h2></div><a href="biblioteca.html">Ver o acervo inteiro</a></div>
 <div class="grade">{grade}</div></div></section>
-
-<section class="band"><div class="wrap"><div class="titulo-bloco"><h2>Publicados recentemente</h2><a href="biblioteca.html">Todos os artigos</a></div>
-<ul class="lista">{"".join(item_lista(a) for a in A[:6])}</ul></div></section>
 
 {bloco_pautas}
 
@@ -167,10 +177,9 @@ inicio = f"""<section class="hero"><div class="wrap hero-grid">
 
 <section class="band seguranca" id="seguranca"><div class="wrap">
 <span class="eyebrow">Antes de começar</span><h2>Segurança em primeiro lugar</h2>
-<p>A marcenaria envolve ferramentas cortantes, máquinas de alta rotação, poeira e outros riscos que podem provocar acidentes graves.</p>
-<p>Os conteúdos deste site são registros de estudo e experiência pessoal. Não substituem cursos presenciais, treinamento supervisionado, manuais dos fabricantes ou orientações de profissionais qualificados. Cada leitor é responsável por avaliar os riscos e trabalhar dentro dos limites de sua formação e experiência.</p>
-<p>Recomendo fortemente fazer cursos de marcenaria antes de operar máquinas, conhecer os procedimentos de segurança de cada equipamento e utilizar os equipamentos de proteção individual adequados à atividade.</p>
-<p>Aprender a trabalhar com segurança faz parte da própria arte da marcenaria.</p>
+<p>Ferramentas cortantes, máquinas de alta rotação e poeira podem causar acidentes graves.</p>
+<p>Este site reúne estudos e experiência pessoal: não substitui cursos presenciais, manuais dos fabricantes nem a orientação de profissionais. Cada leitor responde pelos riscos que assume.</p>
+<p>Antes de operar máquinas, faça um curso, conheça os procedimentos de cada equipamento e use proteção adequada. Trabalhar com segurança faz parte da arte.</p>
 </div></section>"""
 w("index.html", pagina("index.html", "Serras & Formas — Artigos e técnicas de marcenaria",
   "Guias, técnicas, projetos, glossário e estudos de marcenaria em português, reunidos por um entusiasta de marcenaria em Petrópolis, Serra Fluminense.", inicio, "inicio"))

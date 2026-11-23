@@ -261,7 +261,7 @@ CATS = [("canais","Canais do YouTube","Para assistir: quem ensina em vídeo.",("
         ("sites","Sites e cursos online","Para ler e estudar no seu ritmo: blogs, cursos online, bancos de dados e encontros.",("Site","Banco de dados","Evento")),
         ("livros","Livros e editoras","Para ter na estante.",("Livro","Editora")),
         ("revistas","Revistas","Técnica, projetos e testes, com décadas de acervo.",("Revista",)),
-        ("lojas","Lojas e fóruns","Ferramentas de qualidade e comunidades para tirar dúvidas.",("Loja","Fórum"))]
+        ("lojas","Fabricantes, lojas e fóruns","Quem faz ferramentas de qualidade, onde comprar e comunidades para tirar dúvidas.",("Fabricante","Loja","Fórum"))]
 def link_ref2(it):
     u = link_ref(it); ext = u.startswith("http")
     return u, (' target="_blank" rel="noopener"' if ext else "")

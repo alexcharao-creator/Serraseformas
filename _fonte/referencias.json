@@ -314,6 +314,24 @@
     "tipo": "Canal",
     "d": "Marcenaria em francês, do manual às ferramentas elétricas.",
     "yt": "French Coast Workshop"
+   },
+   {
+    "n": "Copain des Copeaux (Nicolas)",
+    "tipo": "Canal",
+    "d": "Menuiserie com humor e precisão desde 2010, de rabos de andorinha à mão a gabaritos de oficina; o site tem um dos fóruns franceses mais ricos sobre o assunto.",
+    "u": "https://www.youtube.com/channel/UC7TiJ6Tnxc_dSE42byTPMug"
+   },
+   {
+    "n": "Cray Birkenwald",
+    "tipo": "Canal",
+    "d": "Um amador que compartilha sua visão da menuiserie e do trabalho com madeira, com projetos bem filmados e explicados.",
+    "u": "https://www.youtube.com/channel/UCQCKYg5FUr03eRlTUoA8vwQ"
+   },
+   {
+    "n": "Astuces Design",
+    "tipo": "Canal",
+    "d": "Mostra o ofício de ébéniste por meio da fabricação de móveis originais, com técnicas e dicas de oficina.",
+    "u": "https://www.youtube.com/channel/UCbgNddqMRfoOV8DvQbsUrbQ"
    }
   ]
  },
@@ -344,6 +362,30 @@
     "tipo": "Canal",
     "d": "Marcenaria manual e teoria bem explicada.",
     "yt": "Schwalbe und Zinken"
+   },
+   {
+    "n": "Lothar Jansen-Greef",
+    "tipo": "Canal",
+    "d": "Restaurador e mestre marceneiro de Bad Arolsen, com mais de 40 anos restaurando móveis antigos: técnicas tradicionais, colas, acabamentos e antiguidades.",
+    "u": "https://www.youtube.com/channel/UCQxjyDrWTixePHMwkpRIr3g"
+   }
+  ]
+ },
+ {
+  "pais": "Itália",
+  "id": "italia",
+  "itens": [
+   {
+    "n": "Stefano il falegname",
+    "tipo": "Canal",
+    "d": "Stefano Heritier, marceneiro da Sardenha: falegnameria tradicional com ferramentas manuais e também com máquinas, além de uma escola online.",
+    "u": "https://www.youtube.com/channel/UCoFKp_9wRw6F_hP5cDnq2Pg"
+   },
+   {
+    "n": "Legno Lab",
+    "tipo": "Canal",
+    "d": "Canal de formação e cultura da madeira da Legno Lab, a única revista italiana inteiramente dedicada à marcenaria.",
+    "u": "https://www.youtube.com/channel/UC7npacUliv3KMER0uwvci1A"
    }
   ]
  },

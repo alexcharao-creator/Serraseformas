@@ -12,7 +12,7 @@
   "u": "https://www.moritoebine.com/register-list.php?param=cursos"
  },
  {
-  "nome": "Ricardo Graham Ferreira · oEbanista",
+  "nome": "Ricardo Graham Ferreira – O Ebanista",
   "local": "Nova Friburgo, RJ",
   "d": "Workshops de encaixes e ebanisteria.",
   "u": "https://www.oebanista.com.br/workshops/"
@@ -36,9 +36,55 @@
   "u": "https://www.sympla.com.br/produtor/stopalab"
  },
  {
+  "nome": "CTT Cursos de Marcenaria",
+  "local": "Lapa, São Paulo, SP",
+  "d": "Escola tradicional, desde 1987: marcenaria básica em bancada individual, marchetaria, torno e lustração.",
+  "u": "https://www.ctt.com.br/"
+ },
+ {
+  "nome": "Sesc Pompeia · Cadu Valadão",
+  "local": "Pompeia, São Paulo, SP",
+  "d": "Técnicas tradicionais de marcenaria: rabo de andorinha e furo-espiga com cunha, em módulos básico e avançado.",
+  "u": "https://www.sescsp.org.br/programacao/tecnicas-tradicionais-de-marcenaria-avancado/",
+  "em": "Programação do Sesc"
+ },
+ {
+  "nome": "Saber com as Mãos · Thiago Endrigo",
+  "local": "São Paulo, SP",
+  "d": "Ofícios tradicionais: banquetas, móveis estaqueados e construção de plainas.",
+  "u": "https://sabercomasmaos.com/",
+  "em": "Site e agenda"
+ },
+ {
+  "nome": "Craftwerk · Mik Biersack",
+  "local": "Gamboa, Rio de Janeiro, RJ",
+  "d": "Espaço maker com curso prático do Banco Max Bill: encaixe tradicional, gabaritos e ergonomia.",
+  "u": "https://www.craftwerk.com.br/"
+ },
+ {
+  "nome": "Polo Maker",
+  "local": "Rio de Janeiro, RJ",
+  "d": "Oficina compartilhada com cursos de marcenaria básica para iniciantes e aulas de tornearia; aluga bancada e ferramentas.",
+  "u": "https://www.sympla.com.br/polomaker",
+  "em": "Agenda no Sympla"
+ },
+ {
   "nome": "Vinícius Carvas",
   "local": "Barra da Tijuca, Rio de Janeiro, RJ",
   "d": "Referência pessoal de curso realizado; programação atual a confirmar.",
   "u": ""
+ },
+ {
+  "nome": "Fabrique Escola de Marcenaria",
+  "local": "Porto Alegre, RS",
+  "d": "Madeira maciça: restauro, técnicas de encaixe, afiação, plaina e bancada de marceneiro.",
+  "u": "https://www.fabrique.cc/"
+ },
+ {
+  "nome": "Madeira Prima · Cleber Saydelles",
+  "local": "Porto Alegre, RS",
+  "d": "Ateliê de restauração com curso de 24 horas de restauro de móveis e objetos de madeira.",
+  "u": "https://www.madeiraprimaloja.com.br/pd-95fd45-curso-de-restauracao-de-moveis-e-objetos-de-madeira.html",
+  "em": "Turmas a confirmar"
  }
 ]

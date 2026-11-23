@@ -69,6 +69,7 @@ def pagina(nome, titulo, descricao, corpo, ativo=""):
 <meta property="og:locale" content="pt_BR">
 <link rel="icon" href="media/favicon.png" type="image/png">
 <link rel="stylesheet" href="style.css">
+{'<script src="fotos.js"></script>' if re.search(r'<img[^>]+src="https?://', corpo) else ""}
 {stack_js}
 </head>
 <body>
@@ -111,6 +112,7 @@ def ajusta_corpo(h):
 os.makedirs(OUT, exist_ok=True)
 w = lambda nome, txt: open(os.path.join(OUT, nome), "w", encoding="utf-8").write(txt)
 w("style.css", css)
+shutil.copy(os.path.join(os.path.dirname(os.path.abspath(__file__)), "fotos.js"), os.path.join(OUT, "fotos.js"))
 
 # ---- início ----
 oficina = next((a for a in A if a["slug"] == "como-montar-sua-oficina"), A[0])
@@ -118,7 +120,7 @@ def cartao(sid, nome, desc): return f'<a href="{pag_secao(sid)}"><h3>{nome}<span
 grade = '<p class="grupo">Na bancada</p>' + "".join(cartao(*x) for x in SECOES if x[0] in BANCADA)
 grade += '<p class="grupo">Para ler e aprender</p>' + "".join(cartao(*x) for x in SECOES if x[0] not in BANCADA)
 grade += f'<a href="referencias.html"><h3>Referências<span>{sum(len(p["itens"]) for p in R)}</span></h3><p>Canais do YouTube, sites e cursos online, livros, revistas e lojas do mundo todo.</p></a>'
-cursos = "".join(f'<a href="{e(x["u"]) if x["u"] else "#cursos"}"{" target=\"_blank\" rel=\"noopener\"" if x["u"] else ""}><span class="tipo">{e(x["local"])}</span><strong>{e(x["nome"])}</strong><p>{e(x["d"])}</p><em>{"Site e cursos" if x["u"] else "Agenda a confirmar"}</em></a>' for x in ESCOLAS)
+cursos = "".join(f'<a href="{e(x["u"]) if x["u"] else "#cursos"}"{" target=\"_blank\" rel=\"noopener\"" if x["u"] else ""}><span class="tipo">{e(x["local"])}</span><strong>{e(x["nome"])}</strong><p>{e(x["d"])}</p><em>{e(x.get("em") or ("Site e cursos" if x["u"] else "Agenda a confirmar"))}</em></a>' for x in ESCOLAS)
 pautas = "".join(f'<li><small>{e(x["s"])} · {e(x["st"])}</small><b>{e(x["t"])}</b><span>{e(x["d"])}</span></li>' for x in PAUTAS)
 bloco_pautas = (f'<section class="band faixa-clara"><div class="wrap"><span class="eyebrow">Próximos artigos</span><h2>Em preparação</h2><p class="contagem" style="margin-bottom:18px">Pautas planejadas, ainda não publicadas.</p><ul class="pautas">{pautas}</ul></div></section>') if PAUTAS else ""
 def foto_de(a):

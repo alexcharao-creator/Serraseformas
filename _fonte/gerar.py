@@ -131,13 +131,13 @@ def slide(a, n):
         olho, tit, txt = f'{SEC[a["secao"]][1]} · {minutos(a)} min de leitura', e(a["titulo"]), e(a["resumo"])
     return f'<a class="feature" href="{pag_artigo(a)}"><img src="{foto_de(a)}" alt="" loading="{"eager" if n == 0 else "lazy"}"><div><span class="eyebrow">{olho}</span><h3>{tit}</h3><p>{txt}</p><span class="mais">Ler o guia completo →</span></div></a>'
 guias = [POR[g] for g in GUIAS if g in POR]
-BLOCO_GUIAS = f'''<section class="band guias-band"><div class="wrap">
+BLOCO_GUIAS = f'''<section class="band guias-band cor-verde"><div class="wrap">
 <span class="eyebrow">Primeiro guia publicado</span><h2>Comece pela oficina</h2>
 <div class="arraste"><span>Arraste para o lado para ver outros guias</span><span class="setas"><button type="button" data-d="-1" aria-label="Guia anterior">←</button><button type="button" data-d="1" aria-label="Próximo guia">→</button></span></div>
 <div class="carrossel" tabindex="0" aria-label="Guias publicados">{"".join(slide(a, n) for n, a in enumerate(guias))}</div>
 </div></section>
 <script>(()=>{{const c=document.querySelector('.carrossel');document.querySelectorAll('.arraste button').forEach(b=>b.onclick=()=>c.scrollBy({{left:b.dataset.d*c.clientWidth*.9,behavior:'smooth'}}))}})()</script>'''
-BLOCO_RECENTES = f'''<section class="band recentes"><div class="wrap"><div class="titulo-bloco"><div><span class="eyebrow">Novidades</span><h2>Publicados recentemente</h2></div></div>
+BLOCO_RECENTES = f'''<section class="band recentes cor-ouro"><div class="wrap"><div class="titulo-bloco"><div><span class="eyebrow">Novidades</span><h2>Publicados recentemente</h2></div></div>
 <ul class="lista">{"".join(item_lista(a) for a in A[:4])}</ul>
 <p class="ver-mais"><a href="biblioteca.html">Veja mais publicações →</a></p></div></section>'''
 inicio = f"""<section class="hero"><div class="wrap hero-grid">
@@ -163,7 +163,7 @@ inicio = f"""<section class="hero"><div class="wrap hero-grid">
 
 {BLOCO_GUIAS}
 
-<section class="band faixa-clara"><div class="wrap">
+<section class="band faixa-clara cor-branca"><div class="wrap">
 <div class="titulo-bloco"><div><span class="eyebrow">Biblioteca em construção</span><h2>Explore por assunto</h2></div><a href="biblioteca.html">Ver o acervo inteiro</a></div>
 <div class="grade">{grade}</div></div></section>
 

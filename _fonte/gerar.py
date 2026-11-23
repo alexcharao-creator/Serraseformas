@@ -85,9 +85,13 @@ def pagina(nome, titulo, descricao, corpo, ativo=""):
 </html>
 """
 
-def item_lista(a):
+def miniatura(a):
+    u = foto_de(a)
+    return u.replace("/960px-", "/330px-") if "thumb.wikimedia.org" in u else u
+def item_lista(a, foto=False):
     s = SEC[a["secao"]][1]
-    return f'<li data-s="{a["secao"]}"><a href="{pag_artigo(a)}"><h3>{e(a["titulo"])}</h3><p>{e(a["resumo"])}</p><span class="meta"><b>{e(s)}</b>{e(a["tipo"])} · {minutos(a)} min</span></a></li>'
+    mini = f'<img class="mini" src="{miniatura(a)}" alt="" loading="lazy">' if foto else ""
+    return f'<li data-s="{a["secao"]}"><a href="{pag_artigo(a)}">{mini}<h3>{e(a["titulo"])}</h3><p>{e(a["resumo"])}</p><span class="meta"><b>{e(s)}</b>{e(a["tipo"])} · {minutos(a)} min</span></a></li>'
 
 def link_ref(it): return it.get("u") or ("https://www.youtube.com/results?search_query=" + quote_plus(it["yt"]))
 def onde(it):
@@ -138,7 +142,7 @@ BLOCO_GUIAS = f'''<section class="band guias-band cor-verde"><div class="wrap">
 </div></section>
 <script>(()=>{{const c=document.querySelector('.carrossel');document.querySelectorAll('.arraste button').forEach(b=>b.onclick=()=>c.scrollBy({{left:b.dataset.d*c.clientWidth*.9,behavior:'smooth'}}))}})()</script>'''
 BLOCO_RECENTES = f'''<section class="band recentes cor-ouro"><div class="wrap"><div class="titulo-bloco"><div><span class="eyebrow">Novidades</span><h2>Publicados recentemente</h2></div></div>
-<ul class="lista">{"".join(item_lista(a) for a in A[:4])}</ul>
+<ul class="lista com-foto">{"".join(item_lista(a, True) for a in A[:4])}</ul>
 <p class="ver-mais"><a href="biblioteca.html">Veja mais publicações →</a></p></div></section>'''
 inicio = f"""<section class="hero"><div class="wrap hero-grid">
 <div><span class="eyebrow">Petrópolis · Serra Fluminense</span>

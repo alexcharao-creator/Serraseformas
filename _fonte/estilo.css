@@ -322,3 +322,13 @@ footer .rod .assinatura{height:24px}
 .lista.com-foto p{grid-column:2;max-width:64ch;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;min-height:4.65em;line-height:1.55}
 .lista.com-foto .meta{grid-column:3;grid-row:1/3}
 @media(max-width:760px){.lista.com-foto a{grid-template-columns:96px minmax(0,1fr);gap:4px 16px}.lista.com-foto .mini{width:96px;height:96px;grid-row:1/4}.lista.com-foto .meta{grid-column:2;grid-row:auto;text-align:left}.lista.com-foto p{min-height:0;font-size:15px}}
+/* recentes: faixas alternadas dourado / branco */
+.cor-ouro .lista.com-foto{border-top:0;display:flex;flex-direction:column;gap:10px}
+.cor-ouro .lista.com-foto li{border-bottom:0;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px #5a42100f}
+.cor-ouro .lista.com-foto li:nth-child(odd){background:light-dark(#dcbf78,#4a3c1c)}
+.cor-ouro .lista.com-foto li:nth-child(even){background:light-dark(#fffdf8,#1d2a24)}
+.cor-ouro .lista.com-foto a{padding:20px 22px}
+.cor-ouro .lista.com-foto li:nth-child(even) p,.cor-ouro .lista.com-foto li:nth-child(even) .meta{color:var(--muted)}
+.cor-ouro .lista.com-foto li:nth-child(odd) p,.cor-ouro .lista.com-foto li:nth-child(odd) .meta{color:light-dark(#3f3622,#e4d8bc)}
+.cor-ouro .lista.com-foto li:hover{box-shadow:0 8px 24px #5a42102b}
+@media(max-width:760px){.cor-ouro .lista.com-foto a{padding:16px 14px}}

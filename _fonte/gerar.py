@@ -15,17 +15,17 @@ A = sorted(ler("artigos"), key=lambda a: a["data"], reverse=True)  # sort estáv
 R, F = ler("referencias"), ler("fotos")
 
 SECOES = [
- ("afiacao","Afiação","Pedras, ângulos e métodos para um fio que corta sem esforço."),
+ ("afiacao","Afiação","Pedras, ângulos e métodos para um fio que entra na fibra sem esforço."),
  ("ferramentas","Ferramentas manuais","Uma a uma: anatomia, escolha, uso e cuidado de cada ferramenta."),
  ("maquinas","Máquinas","Regulagem, manutenção e segurança das máquinas estacionárias."),
  ("encaixes","Técnicas e encaixes","Espiga e furo, rabo de andorinha, sashimono e outras uniões."),
- ("madeiras","Madeiras","Espécies brasileiras e estrangeiras, secagem e madeira de demolição."),
- ("acabamento","Acabamento","Lixas, óleos, ceras e vernizes."),
+ ("madeiras","Madeiras","Espécies brasileiras e estrangeiras, com nome científico, secagem e madeira de demolição."),
+ ("acabamento","Acabamento","Lixas, óleos, ceras e vernizes: quando a madeira revela o seu desenho."),
  ("oficina","Oficina","Bancadas, gabaritos, acessórios e máquinas feitas em casa."),
  ("projetos","Projetos","Peças construídas e projetos em andamento, com medidas."),
  ("traducoes","Traduções","Artigos clássicos e atuais vertidos do inglês para o português."),
  ("formacao","Formação","Escolas e cursos presenciais, no Brasil e no exterior: onde ir para ter aula."),
- ("historia","História","A origem das ferramentas, dos fabricantes e dos ofícios."),
+ ("historia","História","A origem das ferramentas, dos fabricantes e dos ofícios: séculos de bancada."),
  ("glossario","Glossário","Vocabulário da marcenaria em português e inglês."),
  ("mestres","Mestres e leituras","Perfis de marceneiros, autores e canais, e resenhas de livros."),
 ]
@@ -149,7 +149,7 @@ BLOCO_RECENTES = f'''<section class="band recentes cor-ouro"><div class="wrap"><
 inicio = f"""<section class="hero hero-capa"><div class="wrap hero-grid">
 <div><span class="eyebrow">Petrópolis · Serra Fluminense</span>
 <h1>O prazer de aprender, criar e compartilhar.</h1>
-<p class="sub">Guias, ferramentas, projetos e técnicas de marcenaria em português. Um caderno de bancada onde a madeira, o aço e a paciência se encontram.</p>
+<p class="sub">Guias, ferramentas, projetos e técnicas de marcenaria em português. Um caderno de bancada onde a madeira e o aço encontram a precisão e a dedicação.</p>
 <div class="botoes"><a class="btn" href="biblioteca.html">Explorar o acervo</a><a class="btn sec" href="#sobre">Conheça o projeto</a></div>
 <form class="busca" role="search" action="biblioteca.html" method="get"><svg aria-hidden="true"><use href="#lupa"/></svg><label class="sr" for="q-inicio">Buscar no acervo</label><input id="q-inicio" name="q" type="search" placeholder="Buscar: afiação, serra de fita, encaixe…" autocomplete="off"></form>
 </div>
@@ -195,7 +195,7 @@ w("index.html", pagina("index.html", "Serras & Formas — Artigos e técnicas de
 indice = [{"s": a["secao"], "t": norm(a["titulo"] + " " + a["resumo"] + " " + sem_tags(a["corpo"]))} for a in A]
 chips = '<button type="button" data-s="" aria-pressed="true">Todas</button>' + "".join(f'<button type="button" data-s="{sid}" aria-pressed="false">{nome}</button>' for sid, nome, _ in SECOES if conta(sid))
 bib = f"""<div class="wrap">
-<div class="cabeca"><h1>Biblioteca</h1><p>Todo o acervo, do mais recente ao mais antigo. Busque por palavra ou filtre por seção.</p></div>
+<div class="cabeca"><h1>Biblioteca</h1><p>Todo o acervo, do mais recente ao mais antigo, como as tábuas de uma pilha bem organizada. Busque por palavra ou filtre por seção.</p></div>
 <div class="filtro"><svg aria-hidden="true"><use href="#lupa"/></svg><label class="sr" for="q">Buscar no acervo</label><input id="q" type="search" placeholder="Buscar no acervo" autocomplete="off"></div>
 <div class="chips" role="group" aria-label="Filtrar por seção" id="chips" style="margin-top:14px">{chips}</div>
 <p class="contagem" id="cont" aria-live="polite">{plural(len(A),"artigo","artigos")}</p>
@@ -272,7 +272,7 @@ def onde2(it):
     u = it.get("u") or ""
     return "Neste site" if u and not u.startswith("http") else onde(it)
 total = sum(len(p["itens"]) for p in R)
-refs = f'<div class="wrap"><div class="cabeca"><h1>Referências</h1><p>{total} canais, sites, cursos online, livros, revistas e lojas de {len(R)} países, comentados em português. Aqui está o que se aprende pela tela ou pelo papel. Para ter aula presencial, veja <a href="escolas.html">Escolas e cursos</a>. Uma seleção maior de sites, por língua, está em <a href="artigo-sites-de-marcenaria-pelo-mundo.html">Sites de marcenaria pelo mundo</a>.</p></div>'
+refs = f'<div class="wrap"><div class="cabeca"><h1>Referências</h1><p>{total} canais, sites, cursos online, livros, revistas e lojas de {len(R)} países, comentados em português. Aqui está o que se aprende pela tela ou pelo papel, à espera da bancada. Para ter aula presencial, veja <a href="escolas.html">Escolas e cursos</a>. Uma seleção maior de sites, por língua, está em <a href="artigo-sites-de-marcenaria-pelo-mundo.html">Sites de marcenaria pelo mundo</a>.</p></div>'
 refs += '<div class="paises claro" style="margin-bottom:12px">' + "".join(f'<a href="#{cid}">{cn}</a>' for cid, cn, _, tps in CATS if any(it["tipo"] in tps for p in R for it in p["itens"])) + "</div>"
 for cid, cn, cd, tps in CATS:
     grupos = [(p, [it for it in p["itens"] if it["tipo"] in tps]) for p in R]
@@ -298,7 +298,7 @@ for x in ESCOLAS:
     uf = x["local"].rsplit(",", 1)[-1].strip()
     por_uf.setdefault(uf, []).append(x)
 ordem = sorted(por_uf, key=lambda u: (-len(por_uf[u]), UFS.get(u, u)))
-esc = f'<div class="wrap"><div class="cabeca"><h1>Escolas e cursos de marcenaria no Brasil</h1><p>Minha recomendação mais importante para quem está começando é ter aulas práticas com orientação de profissionais. Aqui estão {len(ESCOLAS)} escolas e mestres, separados por estado. Confirme diretamente com cada um as turmas, os requisitos e a disponibilidade.</p></div>'
+esc = f'<div class="wrap"><div class="cabeca"><h1>Escolas e cursos de marcenaria no Brasil</h1><p>Nenhum livro, nenhum vídeo substitui a mão de um mestre corrigindo a sua. Minha recomendação mais importante para quem começa é ter aulas práticas com orientação de profissionais. Aqui estão {len(ESCOLAS)} escolas e mestres, separados por estado. Confirme diretamente com cada um as turmas, os requisitos e a disponibilidade.</p></div>'
 esc += '<div class="paises claro" style="margin-bottom:12px">' + "".join(f'<a href="#{u.lower()}">{UFS.get(u, u)}</a>' for u in ordem) + "</div>"
 for u in ordem:
     esc += f'<section class="ref-cat" id="{u.lower()}"><h2>{UFS.get(u, u)}</h2><div class="refs">'
@@ -314,7 +314,7 @@ w("escolas.html", pagina("escolas.html", "Escolas e cursos de marcenaria no Bras
 # ---- fabricantes ----
 FAB = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "fabricantes.json"), encoding="utf-8"))
 nf = sum(len(p["itens"]) for p in FAB)
-fab = f'<div class="wrap"><div class="cabeca"><h1>Fabricantes</h1><p>Quem faz as ferramentas: {nf} fabricantes de {len(FAB)} países, do artesão que faz uma plaina por vez às oficinas que abastecem o mundo. A lista vai crescer; para escolas, veja <a href="escolas.html">Escolas e cursos</a>, e para lojas, canais e livros, as <a href="referencias.html">Referências</a>.</p></div>'
+fab = f'<div class="wrap"><div class="cabeca"><h1>Fabricantes</h1><p>Por trás de cada boa ferramenta há uma mão que a temperou, afiou e ajustou. Quem faz as ferramentas: {nf} fabricantes de {len(FAB)} países, do artesão que faz uma plaina por vez às oficinas que abastecem o mundo. A lista vai crescer; para escolas, veja <a href="escolas.html">Escolas e cursos</a>, e para lojas, canais e livros, as <a href="referencias.html">Referências</a>.</p></div>'
 fab += '<div class="paises claro" style="margin-bottom:12px">' + "".join(f'<a href="#{p["id"]}">{p["pais"]}</a>' for p in FAB) + "</div>"
 for p in FAB:
     fab += f'<section class="ref-cat" id="{p["id"]}"><h2>{p["pais"]}</h2><div class="refs">'
@@ -326,7 +326,7 @@ w("fabricantes.html", pagina("fabricantes.html", "Fabricantes de ferramentas de 
   "Fabricantes de ferramentas manuais de marcenaria no Brasil, Estados Unidos, Canadá, Inglaterra e Alemanha: plainas, formões, serrotes e morsas.", fab, "referencias"))
 
 # ---- galeria ----
-gal = '<div class="wrap"><div class="cabeca"><h1>Galeria</h1><p>A oficina, as ferramentas e algumas peças. Toque numa foto para abrir o artigo relacionado.</p></div><div class="fotos">'
+gal = '<div class="wrap"><div class="cabeca"><h1>Galeria</h1><p>A oficina, as ferramentas e algumas peças, ainda com cheiro de serragem. Toque numa foto para abrir o artigo relacionado.</p></div><div class="fotos">'
 gal += "".join(f'<a class="foto" href="{(f["link"].replace("artigo-", "artigo-", 1) + ".html") if f.get("link") else "galeria.html"}"><img src="{e(f["src"])}" alt="{e(f["alt"])}" loading="lazy"><span>{e(f.get("legenda",""))}</span></a>' for f in F)
 gal += "</div></div>"
 w("galeria.html", pagina("galeria.html", "Galeria — Serras & Formas", "Fotos da oficina, das máquinas e das peças do Serras & Formas.", gal, "galeria"))

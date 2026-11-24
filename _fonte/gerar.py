@@ -319,7 +319,7 @@ fab += '<div class="paises claro" style="margin-bottom:12px">' + "".join(f'<a hr
 for p in FAB:
     fab += f'<section class="ref-cat" id="{p["id"]}"><h2>{p["pais"]}</h2><div class="refs">'
     for it in p["itens"]:
-        fab += f'<a href="{e(it["u"])}" target="_blank" rel="noopener"><span class="tipo">{e(it["local"])}</span><strong>{e(it["n"])}</strong><p>{e(it["d"])}</p><em>{e(it["faz"])}</em></a>'
+        fab += f'<a href="{e(it["u"])}" target="_blank" rel="noopener"><span class="tipo">{e(it["local"])}</span><strong>{e(it["n"])}</strong><p>{it["d"]}</p><em>{e(it["faz"])}</em></a>'
     fab += "</div></section>"
 fab += "</div>"
 w("fabricantes.html", pagina("fabricantes.html", "Fabricantes de ferramentas de marcenaria — Serras & Formas",

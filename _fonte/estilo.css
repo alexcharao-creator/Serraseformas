@@ -373,3 +373,5 @@ footer .rod .assinatura{height:24px}
 @media(max-width:760px){.hero-capa .wrap{position:relative}}
 .hero-capa .hero-grid{position:static}.hero-capa .hero-grid>div{position:relative;z-index:1}
 @media(max-width:760px){.hero-capa .hero-grid{position:relative}}
+
+.refs p em{font-style:italic;font-size:inherit;color:inherit;margin-top:0}

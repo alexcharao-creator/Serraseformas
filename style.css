@@ -374,6 +374,8 @@ footer .rod .assinatura{height:24px}
 .hero-capa .hero-grid{position:static}.hero-capa .hero-grid>div{position:relative;z-index:1}
 @media(max-width:760px){.hero-capa .hero-grid{position:relative}}
 
+.refs p em{font-style:italic;font-size:inherit;color:inherit;margin-top:0}
+
 .lista a{color:inherit}.sr{position:absolute;left:-9999px}
 .grade .grupo{grid-column:1/-1;margin:0;padding:14px 22px 10px;background:var(--bg);font:600 12px/1.2 system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mata)}
 .ref-cat{margin:44px 0 6px;scroll-margin-top:90px}.ref-cat>h2{font-size:30px}.ref-cat>p{color:var(--muted);margin:4px 0 18px}.ref-grupo h3{font-size:19px;margin:22px 0 10px;font-weight:400}

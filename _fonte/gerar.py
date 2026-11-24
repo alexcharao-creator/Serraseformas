@@ -158,7 +158,7 @@ inicio = f"""<section class="hero"><div class="wrap hero-grid">
 
 <section class="band" id="sobre"><div class="wrap intro so">
 <div><span class="eyebrow">Por que este site existe</span><h2>Um caderno aberto de marcenaria</h2>
-<p>Já procurou como afiar um formão, regular uma plaina ou escolher a lixa certa e só achou resposta em inglês, em vídeos soltos ou em lojas querendo vender? O melhor da marcenaria está em livros e revistas de outros idiomas.</p>
+<p>Já procurou como afiar um formão, regular uma plaina ou escolher a lixa certa e só achou resposta em inglês ou em vídeos soltos? Já te aconteceu de ver vários canais do YouTube e depois ficar perdido com tanta informação, sem saber como começar? O melhor da marcenaria está em livros e revistas de outros idiomas.</p>
 <p>Para devolver à bancada o tempo gasto juntando peças soltas da internet, criei o Serras &amp; Formas: guias práticos, projetos, estudos de ferramentas e traduções comentadas, em português e com as fontes.</p>
 <p>Sou um entusiasta com uma pequena oficina na serra de Petrópolis. Não sou profissional, mas anoto o que aprendo para que a sua próxima peça saia melhor.</p>
 <div class="assina">{ASSINATURA}<span>Petrópolis, Serra Fluminense</span></div></div>

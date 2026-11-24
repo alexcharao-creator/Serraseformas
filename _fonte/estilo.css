@@ -375,3 +375,8 @@ footer .rod .assinatura{height:24px}
 @media(max-width:760px){.hero-capa .hero-grid{position:relative}}
 
 .refs p em{font-style:italic;font-size:inherit;color:inherit;margin-top:0}
+
+/* Artigo: folha branca sobre o fundo dourado */
+article.texto{max-width:820px;background:#fff;border:1px solid #c9a35c;border-radius:20px;padding:44px 50px 48px;margin:36px auto 56px;box-shadow:0 0 0 6px rgba(255,255,255,.35),0 10px 30px rgba(60,45,15,.10)}
+@media (max-width:700px){article.texto{padding:26px 20px 30px;border-radius:16px;margin:20px auto 36px;box-shadow:0 0 0 4px rgba(255,255,255,.35),0 6px 18px rgba(60,45,15,.10)}}
+article.texto .cabeca{padding-top:0}

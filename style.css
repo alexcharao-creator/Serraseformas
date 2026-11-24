@@ -376,6 +376,11 @@ footer .rod .assinatura{height:24px}
 
 .refs p em{font-style:italic;font-size:inherit;color:inherit;margin-top:0}
 
+/* Artigo: folha branca sobre o fundo dourado */
+article.texto{max-width:820px;background:#fff;border:1px solid #c9a35c;border-radius:20px;padding:44px 50px 48px;margin:36px auto 56px;box-shadow:0 0 0 6px rgba(255,255,255,.35),0 10px 30px rgba(60,45,15,.10)}
+@media (max-width:700px){article.texto{padding:26px 20px 30px;border-radius:16px;margin:20px auto 36px;box-shadow:0 0 0 4px rgba(255,255,255,.35),0 6px 18px rgba(60,45,15,.10)}}
+article.texto .cabeca{padding-top:0}
+
 .lista a{color:inherit}.sr{position:absolute;left:-9999px}
 .grade .grupo{grid-column:1/-1;margin:0;padding:14px 22px 10px;background:var(--bg);font:600 12px/1.2 system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mata)}
 .ref-cat{margin:44px 0 6px;scroll-margin-top:90px}.ref-cat>h2{font-size:30px}.ref-cat>p{color:var(--muted);margin:4px 0 18px}.ref-grupo h3{font-size:19px;margin:22px 0 10px;font-weight:400}

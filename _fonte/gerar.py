@@ -149,7 +149,7 @@ BLOCO_RECENTES = f'''<section class="band recentes cor-ouro"><div class="wrap"><
 inicio = f"""<section class="hero hero-capa"><div class="wrap hero-grid">
 <div><span class="eyebrow">Petrópolis · Serra Fluminense</span>
 <h1>O prazer de aprender, criar e compartilhar.</h1>
-<p class="sub">Guias, ferramentas, projetos e técnicas de marcenaria em português. Um acervo pessoal de descobertas, estudos e experiências.</p>
+<p class="sub">Guias, ferramentas, projetos e técnicas de marcenaria em português. Um caderno de bancada onde a madeira, o aço e a paciência se encontram.</p>
 <div class="botoes"><a class="btn" href="biblioteca.html">Explorar o acervo</a><a class="btn sec" href="#sobre">Conheça o projeto</a></div>
 <form class="busca" role="search" action="biblioteca.html" method="get"><svg aria-hidden="true"><use href="#lupa"/></svg><label class="sr" for="q-inicio">Buscar no acervo</label><input id="q-inicio" name="q" type="search" placeholder="Buscar: afiação, serra de fita, encaixe…" autocomplete="off"></form>
 </div>
@@ -158,9 +158,10 @@ inicio = f"""<section class="hero hero-capa"><div class="wrap hero-grid">
 
 <section class="band" id="sobre"><div class="wrap intro so">
 <div><span class="eyebrow">Por que este site existe</span><h2>Um caderno aberto de marcenaria</h2>
-<p>Já procurou como afiar um formão, regular uma plaina ou escolher a lixa certa e só achou resposta em inglês ou em vídeos soltos? Já te aconteceu de ver vários canais do YouTube e depois ficar perdido com tanta informação, sem saber como começar? O melhor da marcenaria está em livros e revistas de outros idiomas.</p>
-<p>Para devolver à bancada o tempo gasto juntando peças soltas da internet, criei o Serras &amp; Formas: guias práticos, projetos, estudos de ferramentas e traduções comentadas, em português e com as fontes.</p>
-<p>Sou um entusiasta com uma pequena oficina na serra de Petrópolis. Não sou profissional, mas anoto o que aprendo para que a sua próxima peça saia melhor.</p>
+<p>Já procurou como afiar um formão, regular uma plaina ou escolher a lixa certa e só encontrou respostas em inglês, dispersas em vídeos soltos? Já lhe aconteceu de assistir a vários canais e terminar mais perdido do que começou, sem saber por onde pegar a primeira tábua?</p>
+<p>O melhor da marcenaria repousa em livros, manuais e revistas de outros idiomas.</p>
+<p>Para devolver à bancada o tempo gasto garimpando a internet, criei o Serras &amp; Formas: guias práticos, projetos, estudos de ferramentas e traduções comentadas, em português e sempre com as fontes.</p>
+<p>Sou um entusiasta, com uma pequena oficina na serra de Petrópolis, entre o perfume do cedro e o chiado da plaina. Não sou profissional… mas anoto, com o rigor possível, o que aprendo, para que a sua próxima peça saia melhor.</p>
 <div class="assina">{ASSINATURA}<span>Petrópolis, Serra Fluminense</span></div></div>
 
 </div></section>
@@ -177,15 +178,15 @@ inicio = f"""<section class="hero hero-capa"><div class="wrap hero-grid">
 
 <section class="band" id="cursos"><div class="wrap">
 <div class="titulo-bloco"><div><span class="eyebrow">Formação presencial</span><h2>Escolas e cursos</h2></div><a href="secao-formacao.html">Escolas no exterior</a></div>
-<p class="lede" style="max-width:62ch;color:var(--muted);margin:0 0 22px">Minha recomendação mais importante para quem está começando: <strong>procure aulas práticas com orientação de profissionais</strong>. Nada substitui um professor ao lado da bancada. Reuni {len(ESCOLAS)} escolas e mestres no Brasil, separados por estado, com uma resenha de cada um.</p>
+<p class="lede" style="max-width:62ch;color:var(--muted);margin:0 0 22px">Nenhum livro, nenhum vídeo substitui a mão de um mestre corrigindo a sua. Minha recomendação mais importante para quem começa: <strong>procure aulas práticas com orientação de profissionais</strong>. Reuni {len(ESCOLAS)} escolas e mestres no Brasil, separados por estado, com uma resenha de cada um.</p>
 <p class="ver-escolas"><a class="botao-escolas" href="escolas.html">Clique aqui para conhecer as escolas →</a></p>
 <p class="lede" style="margin:24px 0 0;color:var(--muted)">No exterior: escolas nos <a href="artigo-escolas-de-marcenaria-eua.html">Estados Unidos</a>, no <a href="artigo-escolas-de-marcenaria-canada.html">Canadá</a>, na <a href="artigo-escolas-de-marcenaria-reino-unido.html">Inglaterra e Escócia</a>, na <a href="artigo-escolas-de-marcenaria-franca.html">França</a>, na <a href="artigo-escolas-de-marcenaria-espanha.html">Espanha</a> e <a href="artigo-escolas-de-marcenaria-pelo-mundo.html">pelo mundo</a>. Prefere aprender online? <a href="referencias.html">Canais, sites e livros →</a></p><p class="discreto"><a href="fabricantes.html">Quem faz as ferramentas? Conheça os fabricantes →</a></p></div></section>
 
 <section class="band seguranca" id="seguranca"><div class="wrap">
 <span class="eyebrow">Antes de começar</span><h2>Segurança em primeiro lugar</h2>
-<p>Ferramentas cortantes, máquinas de alta rotação e poeira podem causar acidentes graves.</p>
+<p>A lâmina que corta a madeira não distingue a fibra do dedo. Ferramentas afiadas, máquinas de alta rotação e a poeira fina pedem respeito.</p>
 <p>Este site reúne estudos e experiência pessoal: não substitui cursos presenciais, manuais dos fabricantes nem a orientação de profissionais. Cada leitor responde pelos riscos que assume.</p>
-<p>Antes de operar máquinas, faça um curso, conheça os procedimentos de cada equipamento e use proteção adequada. Trabalhar com segurança faz parte da arte.</p>
+<p>Antes de ligar uma máquina, faça um curso, conheça cada equipamento e use a proteção adequada. A segurança também é parte da arte.</p>
 </div></section>"""
 w("index.html", pagina("index.html", "Serras & Formas — Artigos e técnicas de marcenaria",
   "Guias, técnicas, projetos, glossário e estudos de marcenaria em português, reunidos por um entusiasta de marcenaria em Petrópolis, Serra Fluminense.", inicio, "inicio"))

@@ -146,14 +146,14 @@ BLOCO_GUIAS = f'''<section class="band guias-band cor-verde"><div class="wrap">
 BLOCO_RECENTES = f'''<section class="band recentes cor-ouro"><div class="wrap"><div class="titulo-bloco"><div><span class="eyebrow">Novidades</span><h2>Publicados recentemente</h2></div></div>
 <ul class="lista com-foto">{"".join(item_lista(a, True) for a in A[:4])}</ul>
 <p class="ver-mais"><a href="biblioteca.html">Veja mais publicações →</a></p></div></section>'''
-inicio = f"""<section class="hero"><div class="wrap hero-grid">
+inicio = f"""<section class="hero hero-capa"><div class="wrap hero-grid">
 <div><span class="eyebrow">Petrópolis · Serra Fluminense</span>
 <h1>O prazer de aprender, criar e compartilhar.</h1>
 <p class="sub">Guias, ferramentas, projetos e técnicas de marcenaria em português. Um acervo pessoal de descobertas, estudos e experiências.</p>
 <div class="botoes"><a class="btn" href="biblioteca.html">Explorar o acervo</a><a class="btn sec" href="#sobre">Conheça o projeto</a></div>
 <form class="busca" role="search" action="biblioteca.html" method="get"><svg aria-hidden="true"><use href="#lupa"/></svg><label class="sr" for="q-inicio">Buscar no acervo</label><input id="q-inicio" name="q" type="search" placeholder="Buscar: afiação, serra de fita, encaixe…" autocomplete="off"></form>
 </div>
-<figure><img src="media/pedra-itaipava.webp" alt="Vista das montanhas da região de Itaipava a partir de Nogueira, Petrópolis"><figcaption>A paisagem que inspira o Serras &amp; Formas: Nogueira, Petrópolis.</figcaption></figure>
+<p class="capa-legenda">Serra dos Órgãos e o Dedo de Deus, a paisagem da Serra Fluminense.</p>
 </div></section>
 
 <section class="band" id="sobre"><div class="wrap intro so">

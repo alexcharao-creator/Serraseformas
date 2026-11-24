@@ -360,3 +360,16 @@ footer .rod .assinatura{height:24px}
 
 /* botão para a página de escolas */
 .ver-escolas{margin:0 0 6px}.botao-escolas{display:inline-block;background:var(--mata-fundo);color:#fff;text-decoration:none;font-weight:600;padding:13px 24px;border-radius:999px;transition:background .15s}.botao-escolas:hover{background:var(--sol);color:#1d2a20}
+
+/* capa: foto da Serra dos Órgãos em toda a largura */
+.hero-capa{position:relative;overflow:hidden;background:#1b2a24 url(media/capa-serra-dos-orgaos.webp) center 40%/cover no-repeat;min-height:clamp(520px,72vh,760px);display:flex;align-items:center}
+.hero-capa::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,28,22,.86) 0%,rgba(12,28,22,.62) 42%,rgba(12,28,22,.12) 75%,rgba(12,28,22,0) 100%)}
+.hero-capa .wrap{position:relative;width:100%}
+.hero-capa .hero-grid{grid-template-columns:minmax(0,640px)}
+.hero-capa h1,.hero-capa p.sub{text-shadow:0 2px 18px rgba(0,0,0,.45)}
+.capa-legenda{position:absolute;right:18px;bottom:12px;margin:0;color:#f1e6cf;font-size:12.5px;opacity:.85;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+@media(max-width:760px){.hero-capa{background-image:url(media/capa-serra-dos-orgaos-960.webp);background-position:62% center;min-height:0}.hero-capa::before{background:linear-gradient(180deg,rgba(12,28,22,.55) 0%,rgba(12,28,22,.82) 100%)}.capa-legenda{position:static;margin-top:18px;text-align:left}}
+.hero-capa .wrap{position:static}.hero-capa .hero-grid{position:relative;z-index:1}.capa-legenda{z-index:1}
+@media(max-width:760px){.hero-capa .wrap{position:relative}}
+.hero-capa .hero-grid{position:static}.hero-capa .hero-grid>div{position:relative;z-index:1}
+@media(max-width:760px){.hero-capa .hero-grid{position:relative}}

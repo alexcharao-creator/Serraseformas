@@ -54,7 +54,7 @@ def pagina(nome, titulo, descricao, corpo, ativo=""):
     def item(href, rot, k):
         cur = ' aria-current="page"' if k == ativo else ""
         return f'<a href="{href}"{cur}>{rot}</a>'
-    nav = item("index.html","Início","inicio") + item("biblioteca.html","Biblioteca","biblioteca") + item("index.html#cursos","Escolas e cursos","cursos") + item("referencias.html","Referências","referencias") + item("galeria.html","Galeria","galeria")
+    nav = item("index.html","Início","inicio") + item("biblioteca.html","Biblioteca","biblioteca") + item("escolas.html","Escolas e cursos","cursos") + item("referencias.html","Referências","referencias") + item("galeria.html","Galeria","galeria")
     url = DOM.rstrip("/") + "/" + ("" if nome == "index.html" else nome)
     return f"""<!DOCTYPE html>
 <html lang="pt-BR">
@@ -158,9 +158,9 @@ inicio = f"""<section class="hero"><div class="wrap hero-grid">
 
 <section class="band" id="sobre"><div class="wrap intro so">
 <div><span class="eyebrow">Por que este site existe</span><h2>Um caderno aberto de marcenaria</h2>
-<p>Já procurou como afiar um formão, regular uma plaina ou escolher a lixa certa e só achou resposta em inglês, em vídeos soltos ou em lojas querendo vender? O melhor da marcenaria está em livros, manuais e revistas de outros idiomas.</p>
-<p>Quem está progredindo no ofício passa horas na tela, em vez de na oficina, juntando peças soltas da internet. Para devolver esse tempo à bancada, criei o Serras &amp; Formas: guias práticos, projetos, estudos sobre ferramentas e traduções comentadas, em português e com as fontes.</p>
-<p>Sou um entusiasta que pratica numa pequena oficina na serra de Petrópolis, faz cursos e lê muito. Não sou profissional, mas já tropecei nas mesmas dúvidas e anoto o que aprendo para que a sua próxima peça saia melhor.</p>
+<p>Já procurou como afiar um formão, regular uma plaina ou escolher a lixa certa e só achou resposta em inglês, em vídeos soltos ou em lojas querendo vender? O melhor da marcenaria está em livros e revistas de outros idiomas.</p>
+<p>Para devolver à bancada o tempo gasto juntando peças soltas da internet, criei o Serras &amp; Formas: guias práticos, projetos, estudos de ferramentas e traduções comentadas, em português e com as fontes.</p>
+<p>Sou um entusiasta com uma pequena oficina na serra de Petrópolis. Não sou profissional, mas anoto o que aprendo para que a sua próxima peça saia melhor.</p>
 <div class="assina">{ASSINATURA}<span>Petrópolis, Serra Fluminense</span></div></div>
 
 </div></section>
@@ -177,8 +177,8 @@ inicio = f"""<section class="hero"><div class="wrap hero-grid">
 
 <section class="band" id="cursos"><div class="wrap">
 <div class="titulo-bloco"><div><span class="eyebrow">Formação presencial</span><h2>Escolas e cursos</h2></div><a href="secao-formacao.html">Escolas no exterior</a></div>
-<p class="lede" style="max-width:62ch;color:var(--muted);margin:0 0 22px">Minha recomendação mais importante para quem está começando: procure aulas práticas com orientação de profissionais. Estas são referências para explorar; confirme diretamente com cada escola as turmas, os requisitos e a disponibilidade.</p>
-<div class="refs">{cursos}</div>
+<p class="lede" style="max-width:62ch;color:var(--muted);margin:0 0 22px">Minha recomendação mais importante para quem está começando: <strong>procure aulas práticas com orientação de profissionais</strong>. Nada substitui um professor ao lado da bancada. Reuni {len(ESCOLAS)} escolas e mestres no Brasil, separados por estado, com uma resenha de cada um.</p>
+<p class="ver-escolas"><a class="botao-escolas" href="escolas.html">Clique aqui para conhecer as escolas →</a></p>
 <p class="lede" style="margin:24px 0 0;color:var(--muted)">No exterior: escolas nos <a href="artigo-escolas-de-marcenaria-eua.html">Estados Unidos</a>, no <a href="artigo-escolas-de-marcenaria-canada.html">Canadá</a>, na <a href="artigo-escolas-de-marcenaria-reino-unido.html">Inglaterra e Escócia</a>, na <a href="artigo-escolas-de-marcenaria-franca.html">França</a>, na <a href="artigo-escolas-de-marcenaria-espanha.html">Espanha</a> e <a href="artigo-escolas-de-marcenaria-pelo-mundo.html">pelo mundo</a>. Prefere aprender online? <a href="referencias.html">Canais, sites e livros →</a></p><p class="discreto"><a href="fabricantes.html">Quem faz as ferramentas? Conheça os fabricantes →</a></p></div></section>
 
 <section class="band seguranca" id="seguranca"><div class="wrap">
@@ -226,7 +226,7 @@ for sid, nome, desc in SECOES:
     corpo = f'<div class="wrap"><div class="cabeca"><div class="trilha"><a href="biblioteca.html">Biblioteca</a> / Seção</div><h1>{nome}</h1><p>{desc}</p></div>'
     extra = ""
     if sid == "formacao":
-        extra = f'<li data-s="formacao"><a href="index.html#cursos"><h3>Escolas de marcenaria no Brasil</h3><p>Mestres e escolas brasileiras com cursos presenciais: {len(ESCOLAS)} endereços, de Cruzeiro (SP) a Nova Friburgo (RJ) e Campo Alegre (SC). A lista fica na página inicial.</p><span class="meta"><b>Formação</b>Lista · página inicial</span></a></li>'
+        extra = f'<li data-s="formacao"><a href="escolas.html"><h3>Escolas de marcenaria no Brasil</h3><p>Mestres e escolas brasileiras com cursos presenciais: {len(ESCOLAS)} endereços, de Cruzeiro (SP) a Nova Friburgo (RJ) e Campo Alegre (SC). Lista completa, separada por estado.</p><span class="meta"><b>Formação</b>Lista por estado</span></a></li>'
     corpo += (f'<p class="contagem">{plural(len(lista) + (1 if extra else 0),"item","itens") if extra else plural(len(lista),"artigo","artigos")}</p><ul class="lista">{extra}{"".join(item_lista(a) for a in lista)}</ul>' if lista
               else '<div class="vazio">Esta seção ainda não tem artigos. Os primeiros chegam em breve.</div>') + "</div>"
     w(pag_secao(sid), pagina(pag_secao(sid), f"{nome} — Serras & Formas", f"{nome}: {desc}", corpo, "biblioteca"))
@@ -271,7 +271,7 @@ def onde2(it):
     u = it.get("u") or ""
     return "Neste site" if u and not u.startswith("http") else onde(it)
 total = sum(len(p["itens"]) for p in R)
-refs = f'<div class="wrap"><div class="cabeca"><h1>Referências</h1><p>{total} canais, sites, cursos online, livros, revistas e lojas de {len(R)} países, comentados em português. Aqui está o que se aprende pela tela ou pelo papel. Para ter aula presencial, veja <a href="index.html#cursos">Escolas e cursos</a>. Uma seleção maior de sites, por língua, está em <a href="artigo-sites-de-marcenaria-pelo-mundo.html">Sites de marcenaria pelo mundo</a>.</p></div>'
+refs = f'<div class="wrap"><div class="cabeca"><h1>Referências</h1><p>{total} canais, sites, cursos online, livros, revistas e lojas de {len(R)} países, comentados em português. Aqui está o que se aprende pela tela ou pelo papel. Para ter aula presencial, veja <a href="escolas.html">Escolas e cursos</a>. Uma seleção maior de sites, por língua, está em <a href="artigo-sites-de-marcenaria-pelo-mundo.html">Sites de marcenaria pelo mundo</a>.</p></div>'
 refs += '<div class="paises claro" style="margin-bottom:12px">' + "".join(f'<a href="#{cid}">{cn}</a>' for cid, cn, _, tps in CATS if any(it["tipo"] in tps for p in R for it in p["itens"])) + "</div>"
 for cid, cn, cd, tps in CATS:
     grupos = [(p, [it for it in p["itens"] if it["tipo"] in tps]) for p in R]
@@ -290,10 +290,30 @@ refs += "</div>"
 w("referencias.html", pagina("referencias.html", "Referências de marcenaria: canais, sites, livros e revistas — Serras & Formas",
   "Canais de YouTube, sites e cursos online, livros, editoras, revistas e lojas de marcenaria do Brasil, EUA, Inglaterra, Japão, França e outros países.", refs, "referencias"))
 
+# ---- escolas ----
+UFS = {"SP": "São Paulo", "RJ": "Rio de Janeiro", "SC": "Santa Catarina", "RS": "Rio Grande do Sul", "MG": "Minas Gerais", "PR": "Paraná"}
+por_uf = {}
+for x in ESCOLAS:
+    uf = x["local"].rsplit(",", 1)[-1].strip()
+    por_uf.setdefault(uf, []).append(x)
+ordem = sorted(por_uf, key=lambda u: (-len(por_uf[u]), UFS.get(u, u)))
+esc = f'<div class="wrap"><div class="cabeca"><h1>Escolas e cursos de marcenaria no Brasil</h1><p>Minha recomendação mais importante para quem está começando é ter aulas práticas com orientação de profissionais. Aqui estão {len(ESCOLAS)} escolas e mestres, separados por estado. Confirme diretamente com cada um as turmas, os requisitos e a disponibilidade.</p></div>'
+esc += '<div class="paises claro" style="margin-bottom:12px">' + "".join(f'<a href="#{u.lower()}">{UFS.get(u, u)}</a>' for u in ordem) + "</div>"
+for u in ordem:
+    esc += f'<section class="ref-cat" id="{u.lower()}"><h2>{UFS.get(u, u)}</h2><div class="refs">'
+    for x in por_uf[u]:
+        href = e(x["u"]) if x["u"] else "#"
+        alvo = ' target="_blank" rel="noopener"' if x["u"] else ""
+        esc += f'<a href="{href}"{alvo}><span class="tipo">{e(x["local"])}</span><strong>{e(x["nome"])}</strong><p>{e(x["d"])}</p><em>{e(x.get("em") or ("Site e cursos" if x["u"] else "Agenda a confirmar"))}</em></a>'
+    esc += "</div></section>"
+esc += '<p class="lede" style="margin:28px 0 0;color:var(--muted)">No exterior: escolas nos <a href="artigo-escolas-de-marcenaria-eua.html">Estados Unidos</a>, no <a href="artigo-escolas-de-marcenaria-canada.html">Canadá</a>, na <a href="artigo-escolas-de-marcenaria-reino-unido.html">Inglaterra e Escócia</a>, na <a href="artigo-escolas-de-marcenaria-franca.html">França</a>, na <a href="artigo-escolas-de-marcenaria-espanha.html">Espanha</a> e <a href="artigo-escolas-de-marcenaria-pelo-mundo.html">pelo mundo</a>.</p></div>'
+w("escolas.html", pagina("escolas.html", "Escolas e cursos de marcenaria no Brasil — Serras & Formas",
+  "Escolas e mestres de marcenaria com cursos presenciais no Brasil, separados por estado: São Paulo, Rio de Janeiro, Rio Grande do Sul e Santa Catarina.", esc, "cursos"))
+
 # ---- fabricantes ----
 FAB = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "fabricantes.json"), encoding="utf-8"))
 nf = sum(len(p["itens"]) for p in FAB)
-fab = f'<div class="wrap"><div class="cabeca"><h1>Fabricantes</h1><p>Quem faz as ferramentas: {nf} fabricantes de {len(FAB)} países, do artesão que faz uma plaina por vez às oficinas que abastecem o mundo. A lista vai crescer; para escolas, veja <a href="index.html#cursos">Escolas e cursos</a>, e para lojas, canais e livros, as <a href="referencias.html">Referências</a>.</p></div>'
+fab = f'<div class="wrap"><div class="cabeca"><h1>Fabricantes</h1><p>Quem faz as ferramentas: {nf} fabricantes de {len(FAB)} países, do artesão que faz uma plaina por vez às oficinas que abastecem o mundo. A lista vai crescer; para escolas, veja <a href="escolas.html">Escolas e cursos</a>, e para lojas, canais e livros, as <a href="referencias.html">Referências</a>.</p></div>'
 fab += '<div class="paises claro" style="margin-bottom:12px">' + "".join(f'<a href="#{p["id"]}">{p["pais"]}</a>' for p in FAB) + "</div>"
 for p in FAB:
     fab += f'<section class="ref-cat" id="{p["id"]}"><h2>{p["pais"]}</h2><div class="refs">'
@@ -313,7 +333,7 @@ w("galeria.html", pagina("galeria.html", "Galeria — Serras & Formas", "Fotos d
 # ---- 404, robots e sitemap ----
 w("404.html", pagina("404.html", "Página não encontrada — Serras & Formas", "Página não encontrada.",
   '<div class="wrap"><div class="cabeca"><h1>Página não encontrada</h1><p>O endereço pode ter mudado. <a href="biblioteca.html" style="color:var(--mata)">Voltar à biblioteca</a>.</p></div></div>'))
-paginas = ["", "biblioteca.html", "referencias.html", "fabricantes.html", "galeria.html"] + [pag_secao(s[0]) for s in SECOES] + [pag_artigo(a) for a in A]
+paginas = ["", "biblioteca.html", "referencias.html", "escolas.html", "fabricantes.html", "galeria.html"] + [pag_secao(s[0]) for s in SECOES] + [pag_artigo(a) for a in A]
 base = DOM.rstrip("/") + "/"
 w("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
   "".join(f"  <url><loc>{base}{p}</loc></url>\n" for p in paginas) + "</urlset>\n")

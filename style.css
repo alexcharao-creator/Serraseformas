@@ -358,6 +358,9 @@ footer .rod .assinatura{height:24px}
 /* chamada discreta para a página de fabricantes */
 .discreto{margin:14px 0 0;font-size:14px}.discreto a{color:var(--muted);text-decoration:none;border-bottom:1px dotted currentColor}.discreto a:hover{color:var(--mata)}
 
+/* botão para a página de escolas */
+.ver-escolas{margin:0 0 6px}.botao-escolas{display:inline-block;background:var(--mata-fundo);color:#fff;text-decoration:none;font-weight:600;padding:13px 24px;border-radius:999px;transition:background .15s}.botao-escolas:hover{background:var(--sol);color:#1d2a20}
+
 .lista a{color:inherit}.sr{position:absolute;left:-9999px}
 .grade .grupo{grid-column:1/-1;margin:0;padding:14px 22px 10px;background:var(--bg);font:600 12px/1.2 system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mata)}
 .ref-cat{margin:44px 0 6px;scroll-margin-top:90px}.ref-cat>h2{font-size:30px}.ref-cat>p{color:var(--muted);margin:4px 0 18px}.ref-grupo h3{font-size:19px;margin:22px 0 10px;font-weight:400}

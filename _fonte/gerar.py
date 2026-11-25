@@ -13,6 +13,9 @@ DOM = args[args.index("--dominio") + 1] if "--dominio" in args else "https://www
 ler = lambda n: json.load(open(os.path.join(FONTE, n + ".json"), encoding="utf-8"))
 A = sorted(ler("artigos"), key=lambda a: a["data"], reverse=True)  # sort estável: mantém a ordem do arquivo nos empates
 R, F = ler("referencias"), ler("fotos")
+sys.path.insert(0, FONTE)
+import xiloteca
+xiloteca.SEC_ARTIGO = {f"artigo-{a['slug']}.html": a["secao"] for a in A}
 
 SECOES = [
  ("afiacao","Afiação","Pedras, ângulos e métodos para um fio que entra na fibra sem esforço."),
@@ -86,6 +89,9 @@ def pagina(nome, titulo, descricao, corpo, ativo=""):
 </html>
 """
 
+_pagina_base = pagina
+def pagina(nome, *a, **k): return xiloteca.decorar(nome, _pagina_base(nome, *a, **k))
+
 def miniatura(a):
     u = foto_de(a)
     return u.replace("/960px-", "/330px-") if "thumb.wikimedia.org" in u else u
@@ -111,7 +117,7 @@ def ajusta_corpo(h):
 
 os.makedirs(OUT, exist_ok=True)
 w = lambda nome, txt: open(os.path.join(OUT, nome), "w", encoding="utf-8").write(txt)
-w("style.css", css)
+w("style.css", css + xiloteca.CSS)
 shutil.copy(os.path.join(os.path.dirname(os.path.abspath(__file__)), "fotos.js"), os.path.join(OUT, "fotos.js"))
 
 # ---- início ----

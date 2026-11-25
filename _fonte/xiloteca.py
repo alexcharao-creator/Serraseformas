@@ -1,5 +1,5 @@
 """Xiloteca: fundo de madeira clara em cada página, enxertos de madeiras brasileiras com o nome no centro."""
-import hashlib, re
+import hashlib, os, re
 from urllib.parse import quote
 # ---------- madeiras ----------
 # nome: (nome científico, cor base, cor do veio, frequência do veio, faixas escuras?)
@@ -23,10 +23,10 @@ ESCURAS = {
  'Roxinho':      ('Peltogyne spp.',          '#7A3655', '#5A2440', .10),
  'Imbuia':       ('Ocotea porosa',           '#6B5238', '#4A3826', .07),
  'Muiracatiara': ('Astronium lecointei',     '#A0643A', '#5E3A22', .05),
- 'Guajuvira':    ('Cordia americana',        '#7A6450', '#4F3F30', .06),
+ 'Angelim-pedra':('Hymenolobium petraeum',   '#9A7A48', '#6E5430', .06),
  'Pau-brasil':   ('Paubrasilia echinata',    '#B0412F', '#842B20', .10),
  'Ipê':          ('Handroanthus spp.',       '#6A5236', '#4D3A25', .12),
- 'Jacarandá':    ('Dalbergia nigra',         '#5A3626', '#2E1A12', .05),
+ 'Itaúba':       ('Mezilaurus itauba',       '#4E4630', '#2E2A1C', .05),
  'Cumaru':       ('Dipteryx odorata',        '#957044', '#6E5030', .11),
  'Jatobá':       ('Hymenaea courbaril',      '#A2553A', '#7A3C27', .09),
  'Sucupira':     ('Bowdichia nitida',        '#6E4E30', '#4C341F', .08),
@@ -61,17 +61,17 @@ def luminancia(hexc):
 
 # ---------- páginas ----------
 PAGINAS = {
- 'index.html':            ('Caixeta',         ['Roxinho','Muiracatiara','Imbuia','Pau-brasil','Guajuvira','Jatobá']),
- 'secao-ferramentas.html':('Pau-marfim',      ['Ipê','Pau-amarelo','Jacarandá','Cabreúva']),
+ 'index.html':            ('Caixeta',         ['Roxinho','Muiracatiara','Imbuia','Pau-brasil','Angelim-pedra','Jatobá']),
+ 'secao-ferramentas.html':('Pau-marfim',      ['Ipê','Pau-amarelo','Itaúba','Cabreúva']),
  'secao-afiacao.html':    ('Marupá',          ['Muirapiranga','Sucupira','Tatajuba','Imbuia']),
- 'secao-encaixes.html':   ('Freijó',          ['Roxinho','Cumaru','Peroba-rosa','Jacarandá']),
+ 'secao-encaixes.html':   ('Freijó',          ['Roxinho','Cumaru','Peroba-rosa','Itaúba']),
  'secao-madeiras.html':   ('Garapa',          ['Pau-brasil','Muiracatiara','Imbuia','Pau-amarelo','Roxinho','Jatobá']),
- 'secao-acabamento.html': ('Tauari',          ['Mogno','Guajuvira','Tatajuba','Muirapiranga']),
+ 'secao-acabamento.html': ('Tauari',          ['Mogno','Angelim-pedra','Tatajuba','Muirapiranga']),
  'secao-maquinas.html':   ('Guatambu',        ['Jatobá','Ipê','Cabreúva','Roxinho']),
  'secao-oficina.html':    ('Pinho-do-paraná', ['Imbuia','Peroba-rosa','Sucupira','Pau-brasil']),
- 'secao-projetos.html':   ('Jequitibá',       ['Cumaru','Muiracatiara','Jacarandá','Pau-amarelo']),
- 'secao-historia.html':   ('Cedro',           ['Pau-brasil','Jacarandá','Mogno','Imbuia']),
- 'secao-mestres.html':    ('Amendoim',        ['Roxinho','Guajuvira','Muirapiranga','Ipê']),
+ 'secao-projetos.html':   ('Jequitibá',       ['Cumaru','Muiracatiara','Itaúba','Pau-amarelo']),
+ 'secao-historia.html':   ('Cedro',           ['Pau-brasil','Itaúba','Mogno','Imbuia']),
+ 'secao-mestres.html':    ('Amendoim',        ['Roxinho','Angelim-pedra','Muirapiranga','Ipê']),
  'secao-formacao.html':   ('Cerejeira',       ['Tatajuba','Jatobá','Sucupira','Peroba-rosa']),
  'secao-traducoes.html':  ('Açoita-cavalo',   ['Muiracatiara','Cabreúva','Pau-amarelo','Mogno']),
  'secao-glossario.html':  ('Pequiá-marfim',   ['Cumaru','Roxinho','Imbuia','Pau-brasil']),
@@ -80,17 +80,39 @@ FORMAS = ['retangulo']
 # posições (lado, topo em % da página) para até 6 enxertos
 POS = [('e',9),('d',20),('e',38),('d',52),('e',70),('d',84)]
 
+import unicodedata as _ud
+FOTOS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'media', 'madeiras')
+def foto(n):
+    slug = _ud.normalize('NFKD', n).encode('ascii','ignore').decode().lower()
+    return 'media/madeiras/%s.jpg' % slug
+
+_LUM = {}
+def lum_foto(n):
+    if n not in _LUM:
+        try:
+            from PIL import Image
+            im = Image.open(os.path.join(FOTOS_DIR, os.path.basename(foto(n)))).convert('L').resize((1,1))
+            _LUM[n] = im.getpixel((0,0))
+        except Exception:
+            _LUM[n] = luminancia(ESCURAS[n][1])
+    return _LUM[n]
+
+# Fotos reais (amostras de xiloteca): CIRAD via Wikimedia Commons, domínio público;
+# Pau-amarelo: "Brya", CC BY-SA 4.0; Pau-brasil: "Fopseh", CC BY-SA 4.0.
+CREDITO = ('Amostras de madeira: fotografias reais da Xiloteca do CIRAD (domínio público, via Wikimedia Commons); '
+           'Pau-amarelo, foto de Brya, e Pau-brasil, foto de Fopseh, ambas CC BY-SA 4.0.')
+
 def enxertos(lista, css):
     out=[]
     for i,n in enumerate(lista):
         sci, base, veio, fr = ESCURAS[n]
         forma = FORMAS[0]
         lado, top = POS[i % len(POS)]
-        claro = luminancia(base) > 150
-        css.append(f'.enx[data-m="{i}"]{{background-image:{textura(n,base,veio,fr,300,300)}}}')
-        out.append(f'<figure class="enx {forma} {lado}{" claro" if claro else ""}" style="top:{top}%" data-m="{i}" title="{n} ({sci})">'
+        claro = lum_foto(n) > 150
+        css.append(f'.enx[data-m="{i}"]{{background:{base} url({foto(n)}) center/cover no-repeat}}')
+        out.append(f'<figure class="enx {forma} {lado}{" claro" if claro else ""}" style="top:{top}%" data-m="{i}" title="{n} ({sci}), amostra real">'
                    f'<span class="nm">{n}</span><em>{sci}</em></figure>')
-    return '<div class="xiloteca" aria-label="Xiloteca: amostras de madeiras brasileiras">' + ''.join(out) + '</div>'
+    return '<div class="xiloteca" aria-label="Xiloteca: amostras reais de madeiras brasileiras">' + ''.join(out) + '</div>'
 
 CSS = r"""
 /* ===== Prévia xiloteca ===== */
@@ -156,10 +178,11 @@ body.madeira .carrossel .feature h3{font-size:clamp(24px,2.6vw,34px)}
 .enx .nm{font:700 10.5px/1.15 Inter,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.6);max-width:92%}
 .enx em{font:italic 9px/1.2 Georgia,serif;color:rgba(255,255,255,.85);margin-top:3px;text-shadow:0 1px 2px rgba(0,0,0,.6);max-width:88%}
 .enx.claro .nm,.enx.claro em{color:#2a2418;text-shadow:0 1px 1px rgba(255,255,255,.5)}
-.fundo-legenda{position:relative;z-index:2;width:max-content;max-width:92%;margin:8px auto 36px;background:rgba(255,255,255,.92);border:1px solid #c7a560;outline:1px solid #c7a560;outline-offset:-4px;
+.fundo-legenda{position:relative;z-index:2;width:max-content;max-width:min(92%,600px);margin:8px auto 36px;text-align:center;background:rgba(255,255,255,.92);border:1px solid #c7a560;outline:1px solid #c7a560;outline-offset:-4px;
   padding:8px 14px;font:11px/1.35 Inter,system-ui,sans-serif;letter-spacing:.08em;color:#3b352a}
 .fundo-legenda b{text-transform:uppercase;letter-spacing:.14em}
 .fundo-legenda em{font-family:Georgia,serif}
+.fundo-legenda small{display:block;margin-top:4px;font-size:9.5px;letter-spacing:.02em;color:#6b6252;max-width:560px;white-space:normal}
 @media (max-width:1300px){
   .xiloteca{position:relative;inset:auto;display:flex;flex-wrap:wrap;justify-content:center;gap:18px;padding:28px 12px 8px;z-index:1}
   .enx{position:relative;left:auto!important;right:auto!important;top:auto!important;width:132px;height:64px}
@@ -210,5 +233,7 @@ def decorar(nome, h):
     cls = 'madeira' + (' pg-artigo' if nome in SEC_ARTIGO else '')
     h = h.replace('<link rel="stylesheet" href="style.css">', '<link rel="stylesheet" href="style.css">\n<style>' + '\n'.join(css) + '</style>', 1)
     h = h.replace('<body>', f'<body class="{cls}">', 1)
-    leg = f'<div class="fundo-legenda">Fundo: <b>{fundo}</b> · <em>{sci}</em></div>'
+    leg = (f'<div class="fundo-legenda">Fundo: <b>{fundo}</b> · <em>{sci}</em>'
+           f'<small>Enxertos: fotos reais de amostras, Xiloteca do CIRAD (domínio público, via Wikimedia Commons); '
+           f'Pau-amarelo por Brya e Pau-brasil por Fopseh (CC BY-SA 4.0).</small></div>')
     return h.replace('</main>', '</main>\n' + xil + leg, 1)

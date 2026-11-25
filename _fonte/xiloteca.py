@@ -59,21 +59,22 @@ def luminancia(hexc):
     return .299*r+.587*g+.114*b
 
 # ---------- páginas ----------
-PAGINAS = {  # pagina: madeira do fundo (enxertos escolhidos automaticamente, misturando tons)
- 'index.html':             'Pau-marfim',
- 'secao-ferramentas.html': 'Pau-amarelo',
- 'secao-afiacao.html':     'Roxinho',
- 'secao-encaixes.html':    'Freijó',
- 'secao-madeiras.html':    'Pau-brasil',
- 'secao-acabamento.html':  'Peroba-rosa',
- 'secao-maquinas.html':    'Itaúba',
- 'secao-oficina.html':     'Pinho-do-paraná',
- 'secao-projetos.html':    'Muirapiranga',
- 'secao-historia.html':    'Imbuia',
- 'secao-mestres.html':     'Ipê',
- 'secao-formacao.html':    'Cerejeira',
- 'secao-traducoes.html':   'Mogno',
- 'secao-glossario.html':   'Sumaúma',
+PAGINAS = {  # na ordem dos cartões da página inicial: do mais claro (topo) ao mais escuro (fim)
+ 'index.html': 'Pau-marfim',
+ 'secao-afiacao.html': 'Caroba',
+ 'secao-ferramentas.html': 'Pequiá',
+ 'secao-maquinas.html': 'Sumaúma',
+ 'secao-encaixes.html': 'Tauari',
+ 'secao-madeiras.html': 'Pau-mulato',
+ 'secao-acabamento.html': 'Quaruba',
+ 'secao-oficina.html': 'Cerejeira',
+ 'secao-projetos.html': 'Pau-brasil',
+ 'secao-traducoes.html': 'Cedro',
+ 'secao-formacao.html': 'Imbuia',
+ 'secao-historia.html': 'Jatobá',
+ 'secao-glossario.html': 'Roxinho',
+ 'secao-mestres.html': 'Muirapiranga',
+ 'referencias.html': 'Itaúba',
 }
 FORMAS = ['retangulo']
 # posições (lado, topo em % da página) para até 6 enxertos
@@ -212,7 +213,7 @@ body.madeira .cabeca h1{margin-top:4px}
  body.madeira.pg-artigo .enx{position:relative;left:auto!important;right:auto!important;top:auto!important;width:132px;height:64px}}
 """
 
-OUTRAS = {'biblioteca.html':'Cabreúva','escolas.html':'Cedro','referencias.html':'Caroba',
+OUTRAS = {'biblioteca.html':'Cabreúva','escolas.html':'Cedro',
           'fabricantes.html':'Jatobá','galeria.html':'Muiracatiara','404.html':'Pau-marfim'}
 SEC_ARTIGO = {}   # pagina do artigo -> id da secao (preenchido pelo gerar.py)
 
@@ -246,7 +247,7 @@ def decorar(nome, h):
     xil = enxertos(lista, css)
     if nome == 'index.html':
         for sp,fd in PAGINAS.items():
-            if not sp.startswith('secao-'): continue
+            if sp == 'index.html': continue
             css.append(f'body.madeira .grade a[href="{sp}"]{{--sw:url({fundo_foto(fd)}) center/cover}}')
             h = h.replace(f'<a href="{sp}"><h3>', f'<a href="{sp}" data-mad="Madeira: {fd}"><h3>', 1)
     cls = 'madeira' + (' pg-artigo' if nome in SEC_ARTIGO else '')

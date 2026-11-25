@@ -387,7 +387,7 @@ article.texto .cabeca{padding-top:0}
 .corpo figure.foto img{max-height:560px;background:#fff;object-fit:contain}.corpo figure.foto figcaption strong{color:var(--ink,#1d2a22)}.corpo .credito{display:block;font-size:12px;margin-top:4px;opacity:.85}.corpo .credito a{color:inherit}.corpo .par.fotos2{align-items:start}.corpo .par.fotos2 img{aspect-ratio:auto;max-height:420px;object-fit:contain}.corpo .ver-museu{border:1px dashed var(--line);border-radius:10px;padding:14px 18px;margin:20px 0;background:var(--card)}.corpo .ver-museu p{margin:4px 0;font-size:15px}.corpo .ver-museu .vm-t{font-weight:600}@media(max-width:600px){.corpo .par.fotos2{grid-template-columns:1fr}}
 
 /* ===== Prévia xiloteca ===== */
-body.madeira{color-scheme:light;background-size:900px 420px;position:relative}
+body.madeira{color-scheme:light;background-size:1400px 680px;position:relative}
 body.madeira main{position:relative;z-index:1}
 body.madeira .band,body.madeira .cor-ouro,body.madeira .cor-verde,body.madeira .cor-branca,body.madeira .faixa-clara,body.madeira .seguranca{background:transparent!important;color:#2b2b26}
 body.madeira .band{padding:clamp(18px,3vw,36px) 0}
@@ -459,6 +459,15 @@ body.madeira .carrossel .feature h3{font-size:clamp(24px,2.6vw,34px)}
   .enx{position:relative;left:auto!important;right:auto!important;top:auto!important;width:132px;height:64px}
 }
 
+@media (min-width:1500px){
+  .enx{width:210px;height:103px}
+  .enx.e{left:calc(50% - 490px - 244px)}
+  .enx.d{right:calc(50% - 490px - 244px)}
+  body.madeira.pg-artigo .enx.e{left:calc(50% - 410px - 248px)}
+  body.madeira.pg-artigo .enx.d{right:calc(50% - 410px - 248px)}
+  .enx .nm{font-size:13px}
+  .enx em{font-size:11px;margin-top:4px}
+}
 
 /* artigos: folha branca com moldura dupla sobre a madeira */
 body.madeira article.texto{background:#fff;border:1px solid #c7a560;outline:1px solid #c7a560;outline-offset:-8px;border-radius:0;box-shadow:0 8px 28px rgba(60,45,15,.10);position:relative;z-index:1}
@@ -467,3 +476,8 @@ body.madeira.pg-artigo .enx.d{right:calc(50% - 410px - 186px)}
 body.madeira .cabeca h1{margin-top:4px}
 @media (max-width:1180px){body.madeira.pg-artigo .xiloteca{position:relative;inset:auto;display:flex;flex-wrap:wrap;justify-content:center;gap:18px;padding:28px 12px 8px;z-index:1}
  body.madeira.pg-artigo .enx{position:relative;left:auto!important;right:auto!important;top:auto!important;width:132px;height:64px}}
+
+@media (min-width:1500px){
+  body.madeira.pg-artigo .enx.e{left:calc(50% - 410px - 248px)}
+  body.madeira.pg-artigo .enx.d{right:calc(50% - 410px - 248px)}
+}

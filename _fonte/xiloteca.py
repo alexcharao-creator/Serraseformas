@@ -269,3 +269,7 @@ CSS += r"""
 /* rodapé legível sobre qualquer madeira */
 body.madeira footer{background:rgba(255,253,247,.95);position:relative;z-index:2;border-top:1px solid #c7a560}
 """
+
+CSS += r"""
+body.madeira .hero .eyebrow,body.madeira .seguranca .eyebrow,body.madeira .cor-verde .eyebrow{color:#F6DC9A!important;text-shadow:0 1px 2px rgba(0,0,0,.9),0 0 12px rgba(0,0,0,.6)}
+"""

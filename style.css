@@ -381,6 +381,11 @@ article.texto{max-width:820px;background:#fff;border:1px solid #c9a35c;border-ra
 @media (max-width:700px){article.texto{padding:26px 20px 30px;border-radius:16px;margin:20px auto 36px;box-shadow:0 0 0 4px rgba(255,255,255,.35),0 6px 18px rgba(60,45,15,.10)}}
 article.texto .cabeca{padding-top:0}
 
+/* contraste do texto sobre a foto da capa */
+.hero .eyebrow,.hero-capa .eyebrow{color:#F6DC9A!important;opacity:1!important;text-shadow:0 1px 2px rgba(0,0,0,.9),0 0 12px rgba(0,0,0,.6)}
+.hero-capa h1,.hero-capa p.sub{text-shadow:0 1px 3px rgba(0,0,0,.75)}
+.hero-capa p.sub{color:#eef3ee!important}
+
 .lista a{color:inherit}.sr{position:absolute;left:-9999px}
 .grade .grupo{grid-column:1/-1;margin:0;padding:14px 22px 10px;background:var(--bg);font:600 12px/1.2 system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mata)}
 .ref-cat{margin:44px 0 6px;scroll-margin-top:90px}.ref-cat>h2{font-size:30px}.ref-cat>p{color:var(--muted);margin:4px 0 18px}.ref-grupo h3{font-size:19px;margin:22px 0 10px;font-weight:400}
@@ -484,3 +489,5 @@ body.madeira .cabeca h1{margin-top:4px}
 
 /* rodapé legível sobre qualquer madeira */
 body.madeira footer{background:rgba(255,253,247,.95);position:relative;z-index:2;border-top:1px solid #c7a560}
+
+body.madeira .hero .eyebrow,body.madeira .seguranca .eyebrow,body.madeira .cor-verde .eyebrow{color:#F6DC9A!important;text-shadow:0 1px 2px rgba(0,0,0,.9),0 0 12px rgba(0,0,0,.6)}

@@ -158,10 +158,9 @@ inicio = f"""<section class="hero hero-capa"><div class="wrap hero-grid">
 
 <section class="band" id="sobre"><div class="wrap intro so">
 <div><span class="eyebrow">Por que este site existe</span><h2>Um caderno aberto de marcenaria</h2>
-<p>Já procurou como afiar um formão, regular uma plaina ou escolher a lixa certa e só encontrou respostas em inglês, dispersas em vídeos soltos? Já lhe aconteceu de assistir a vários canais e terminar mais perdido do que começou, sem saber por onde pegar a primeira tábua?</p>
-<p>O melhor da marcenaria repousa em livros, manuais e revistas de outros idiomas.</p>
-<p>Para devolver à bancada o tempo gasto garimpando a internet, criei o Serras &amp; Formas: guias práticos, projetos, estudos de ferramentas e traduções comentadas, em português e sempre com as fontes.</p>
-<p>Sou um entusiasta, com uma pequena oficina na serra de Petrópolis, entre o perfume do cedro e o chiado da plaina. Não sou profissional… mas anoto, com o rigor possível, o que aprendo, para que a sua próxima peça saia melhor.</p>
+<p>Já procurou como afiar um formão, regular uma plaina ou escolher a lixa certa e só encontrou respostas em inglês, dispersas em vídeos soltos? Pois o melhor da marcenaria repousa em livros, manuais e revistas de outros idiomas.</p>
+<p>Para devolver à bancada o tempo gasto garimpando a internet, criei o Serras &amp; Formas, uma biblioteca de guias práticos, projetos, estudos de ferramentas e traduções comentadas, escritos em português e sempre com as fontes.</p>
+<p>Sou um entusiasta, com uma pequena oficina na serra de Petrópolis, entre o perfume do cedro e o chiado da plaina. Não sou profissional… mas anoto, com todo o rigor, o que aprendo, para que a sua próxima peça saia melhor.</p>
 <div class="assina">{ASSINATURA}<span>Petrópolis, Serra Fluminense</span></div></div>
 
 </div></section>

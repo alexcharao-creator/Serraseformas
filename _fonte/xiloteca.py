@@ -19,22 +19,22 @@ CLARAS = {  # nome: (nome científico, cor média de reserva)
  'Sumaúma':         ('Ceiba pentandra',             '#C2B184'),
 }
 ESCURAS = {
- 'Roxinho':      ('Peltogyne spp.',          '#7A3655', '#5A2440', .10),
- 'Imbuia':       ('Ocotea porosa',           '#6B5238', '#4A3826', .07),
- 'Muiracatiara': ('Astronium lecointei',     '#A0643A', '#5E3A22', .05),
- 'Angelim-pedra':('Hymenolobium petraeum',   '#9A7A48', '#6E5430', .06),
- 'Pau-brasil':   ('Paubrasilia echinata',    '#B0412F', '#842B20', .10),
- 'Ipê':          ('Handroanthus spp.',       '#6A5236', '#4D3A25', .12),
- 'Itaúba':       ('Mezilaurus itauba',       '#4E4630', '#2E2A1C', .05),
- 'Cumaru':       ('Dipteryx odorata',        '#957044', '#6E5030', .11),
- 'Jatobá':       ('Hymenaea courbaril',      '#A2553A', '#7A3C27', .09),
- 'Sucupira':     ('Bowdichia nitida',        '#6E4E30', '#4C341F', .08),
- 'Cabreúva':     ('Myroxylon peruiferum',    '#8E4E32', '#6A3622', .10),
- 'Tatajuba':     ('Bagassa guianensis',      '#B98E3E', '#8E6A2A', .10),
- 'Muirapiranga': ('Brosimum rubescens',      '#962F2A', '#6E1F1C', .11),
- 'Pau-amarelo':  ('Euxylophora paraensis',   '#D2AE3C', '#AE8C28', .12),
- 'Peroba-rosa':  ('Aspidosperma polyneuron', '#C48E6C', '#A06E50', .11),
- 'Mogno':        ('Swietenia macrophylla',   '#93452E', '#6B2F1E', .09),
+ 'Roxinho':      ('Peltogyne spp.',          '#7A3655'),
+ 'Imbuia':       ('Ocotea porosa',           '#6B5238'),
+ 'Muiracatiara': ('Astronium lecointei',     '#A0643A'),
+ 'Angelim-pedra':('Hymenolobium petraeum',   '#9A7A48'),
+ 'Pau-brasil':   ('Paubrasilia echinata',    '#B0412F'),
+ 'Ipê':          ('Handroanthus spp.',       '#6A5236'),
+ 'Itaúba':       ('Mezilaurus itauba',       '#4E4630'),
+ 'Cumaru':       ('Dipteryx odorata',        '#957044'),
+ 'Jatobá':       ('Hymenaea courbaril',      '#A2553A'),
+ 'Sucupira':     ('Bowdichia nitida',        '#6E4E30'),
+ 'Cabreúva':     ('Myroxylon peruiferum',    '#8E4E32'),
+ 'Tatajuba':     ('Bagassa guianensis',      '#B98E3E'),
+ 'Muirapiranga': ('Brosimum rubescens',      '#962F2A'),
+ 'Pau-amarelo':  ('Euxylophora paraensis',   '#D2AE3C'),
+ 'Peroba-rosa':  ('Aspidosperma polyneuron', '#C48E6C'),
+ 'Mogno':        ('Swietenia macrophylla',   '#93452E'),
 }
 
 def seed(nome): return int(hashlib.md5(nome.encode()).hexdigest()[:4],16)%900+1
@@ -59,21 +59,21 @@ def luminancia(hexc):
     return .299*r+.587*g+.114*b
 
 # ---------- páginas ----------
-PAGINAS = {
- 'index.html':            ('Pau-marfim',         ['Roxinho','Muiracatiara','Imbuia','Pau-brasil','Angelim-pedra','Jatobá']),
- 'secao-ferramentas.html':('Caroba',      ['Ipê','Pau-amarelo','Itaúba','Cabreúva']),
- 'secao-afiacao.html':    ('Caroba',          ['Muirapiranga','Sucupira','Tatajuba','Imbuia']),
- 'secao-encaixes.html':   ('Freijó',          ['Roxinho','Cumaru','Peroba-rosa','Itaúba']),
- 'secao-madeiras.html':   ('Garapa',          ['Pau-brasil','Muiracatiara','Imbuia','Pau-amarelo','Roxinho','Jatobá']),
- 'secao-acabamento.html': ('Tauari',          ['Mogno','Angelim-pedra','Tatajuba','Muirapiranga']),
- 'secao-maquinas.html':   ('Morototó',        ['Jatobá','Ipê','Cabreúva','Roxinho']),
- 'secao-oficina.html':    ('Pinho-do-paraná', ['Imbuia','Peroba-rosa','Sucupira','Pau-brasil']),
- 'secao-projetos.html':   ('Pequiá',       ['Cumaru','Muiracatiara','Itaúba','Pau-amarelo']),
- 'secao-historia.html':   ('Cedro',           ['Pau-brasil','Itaúba','Mogno','Imbuia']),
- 'secao-mestres.html':    ('Pau-mulato',        ['Roxinho','Angelim-pedra','Muirapiranga','Ipê']),
- 'secao-formacao.html':   ('Cerejeira',       ['Tatajuba','Jatobá','Sucupira','Peroba-rosa']),
- 'secao-traducoes.html':  ('Quaruba',   ['Muiracatiara','Cabreúva','Pau-amarelo','Mogno']),
- 'secao-glossario.html':  ('Sumaúma',   ['Cumaru','Roxinho','Imbuia','Pau-brasil']),
+PAGINAS = {  # pagina: madeira do fundo (enxertos escolhidos automaticamente, misturando tons)
+ 'index.html':             'Pau-marfim',
+ 'secao-ferramentas.html': 'Pau-amarelo',
+ 'secao-afiacao.html':     'Roxinho',
+ 'secao-encaixes.html':    'Freijó',
+ 'secao-madeiras.html':    'Pau-brasil',
+ 'secao-acabamento.html':  'Peroba-rosa',
+ 'secao-maquinas.html':    'Itaúba',
+ 'secao-oficina.html':     'Pinho-do-paraná',
+ 'secao-projetos.html':    'Muirapiranga',
+ 'secao-historia.html':    'Imbuia',
+ 'secao-mestres.html':     'Ipê',
+ 'secao-formacao.html':    'Cerejeira',
+ 'secao-traducoes.html':   'Mogno',
+ 'secao-glossario.html':   'Sumaúma',
 }
 FORMAS = ['retangulo']
 # posições (lado, topo em % da página) para até 6 enxertos
@@ -107,7 +107,7 @@ def fundo_foto(n):
 def enxertos(lista, css):
     out=[]
     for i,n in enumerate(lista):
-        sci, base, veio, fr = ESCURAS[n]
+        sci, base = sci_de(n), base_de(n)
         forma = FORMAS[0]
         lado, top = POS[i % len(POS)]
         claro = lum_foto(n) > 150
@@ -212,31 +212,40 @@ body.madeira .cabeca h1{margin-top:4px}
  body.madeira.pg-artigo .enx{position:relative;left:auto!important;right:auto!important;top:auto!important;width:132px;height:64px}}
 """
 
-OUTRAS = {'index.html':'Pau-marfim','biblioteca.html':'Pau-marfim','escolas.html':'Freijó','referencias.html':'Caroba',
-          'fabricantes.html':'Garapa','galeria.html':'Pau-marfim','404.html':'Pau-marfim'}
+OUTRAS = {'biblioteca.html':'Cabreúva','escolas.html':'Cedro','referencias.html':'Caroba',
+          'fabricantes.html':'Jatobá','galeria.html':'Muiracatiara','404.html':'Pau-marfim'}
 SEC_ARTIGO = {}   # pagina do artigo -> id da secao (preenchido pelo gerar.py)
 
-def escolhe(nome, n=4):
-    lst = sorted(ESCURAS, key=lambda k: hashlib.md5((nome+k).encode()).hexdigest())
-    return lst[:n]
+def sci_de(n): return (CLARAS.get(n) or ESCURAS[n])[0]
+def base_de(n): return (CLARAS.get(n) or ESCURAS[n])[1]
+
+def escolhe(nome, fundo, n=4):
+    """Mistura tons: metade claras, metade médias/avermelhadas/escuras, sem repetir o fundo."""
+    h = lambda k: hashlib.md5((nome+k).encode()).hexdigest()
+    cl = sorted([k for k in CLARAS if k != fundo], key=h)
+    es = sorted([k for k in ESCURAS if k != fundo], key=h)
+    out = []
+    for i in range(n): out.append((es if i % 2 == 0 else cl)[i // 2])
+    return out
 
 def plano(nome):
-    if nome in PAGINAS: return PAGINAS[nome]
+    if nome in PAGINAS:
+        f = PAGINAS[nome]; return (f, escolhe(nome, f, 6 if nome == 'index.html' else 4))
     if nome in SEC_ARTIGO:
-        f = PAGINAS.get('secao-%s.html' % SEC_ARTIGO[nome], ('Pau-marfim',None))[0]
-        return (f, escolhe(nome, 4))
-    if nome in OUTRAS: return (OUTRAS[nome], escolhe(nome, 4))
+        f = PAGINAS.get('secao-%s.html' % SEC_ARTIGO[nome], 'Pau-marfim')
+        return (f, escolhe(nome, f, 4))
+    if nome in OUTRAS: return (OUTRAS[nome], escolhe(nome, OUTRAS[nome], 4))
     return None
 
 def decorar(nome, h):
     p = plano(nome)
     if not p: return h
     fundo, lista = p
-    sci, base = CLARAS[fundo]
+    sci, base = sci_de(fundo), base_de(fundo)
     css = [f'body.madeira{{background-color:{base};background-image:url({fundo_foto(fundo)})}}']
     xil = enxertos(lista, css)
     if nome == 'index.html':
-        for sp,(fd,_) in PAGINAS.items():
+        for sp,fd in PAGINAS.items():
             if not sp.startswith('secao-'): continue
             css.append(f'body.madeira .grade a[href="{sp}"]{{--sw:url({fundo_foto(fd)}) center/cover}}')
             h = h.replace(f'<a href="{sp}"><h3>', f'<a href="{sp}" data-mad="Madeira: {fd}"><h3>', 1)
@@ -253,4 +262,9 @@ CSS += r"""
   body.madeira.pg-artigo .enx.e{left:calc(50% - 410px - 248px)}
   body.madeira.pg-artigo .enx.d{right:calc(50% - 410px - 248px)}
 }
+"""
+
+CSS += r"""
+/* rodapé legível sobre qualquer madeira */
+body.madeira footer{background:rgba(255,253,247,.95);position:relative;z-index:2;border-top:1px solid #c7a560}
 """

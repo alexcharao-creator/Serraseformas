@@ -450,6 +450,18 @@
   ]
  },
  {
+  "pais": "Suécia",
+  "id": "suecia",
+  "itens": [
+   {
+    "n": "od form (Olof Davidsson)",
+    "tipo": "Canal",
+    "d": "Designer e marceneiro sueco, formado na escola Capellagården, com oficina em Habo. Faz caixas com gavetas escondidas, travas de madeira e marchetaria, além de móveis finos, e mostra cada encaixe de perto, de dicas rápidas a projetos inteiros.",
+    "u": "https://www.youtube.com/@od_form"
+   }
+  ]
+ },
+ {
   "pais": "Outros países",
   "id": "outros",
   "itens": [

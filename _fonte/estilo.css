@@ -385,3 +385,6 @@ article.texto .cabeca{padding-top:0}
 .hero .eyebrow,.hero-capa .eyebrow{color:#F6DC9A!important;opacity:1!important;text-shadow:0 1px 2px rgba(0,0,0,.9),0 0 12px rgba(0,0,0,.6)}
 .hero-capa h1,.hero-capa p.sub{text-shadow:0 1px 3px rgba(0,0,0,.75)}
 .hero-capa p.sub{color:#eef3ee!important}
+/* assinatura com cumes: um pouco mais alta para manter a leitura */
+.assina .assinatura{height:50px}
+footer .rod .assinatura{height:32px}

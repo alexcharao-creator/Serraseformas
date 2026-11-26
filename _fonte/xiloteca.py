@@ -277,7 +277,7 @@ body.madeira footer{background:rgba(255,253,247,.95);position:relative;z-index:2
 """
 
 CSS += r"""
-body.madeira .hero .eyebrow,body.madeira .seguranca .eyebrow,body.madeira .cor-verde .eyebrow{color:#F6DC9A!important;text-shadow:0 1px 2px rgba(0,0,0,.9),0 0 12px rgba(0,0,0,.6)}
+body.madeira .cor-verde .eyebrow,body.madeira .seguranca .eyebrow{color:#7a4f1d!important;text-shadow:none!important}body.madeira .hero .eyebrow{color:#F6DC9A!important;text-shadow:0 1px 2px rgba(0,0,0,.9),0 0 12px rgba(0,0,0,.6)}
 """
 
 CSS += r"""

@@ -491,3 +491,26 @@ body.madeira .cabeca h1{margin-top:4px}
 body.madeira footer{background:rgba(255,253,247,.95);position:relative;z-index:2;border-top:1px solid #c7a560}
 
 body.madeira .hero .eyebrow,body.madeira .seguranca .eyebrow,body.madeira .cor-verde .eyebrow{color:#F6DC9A!important;text-shadow:0 1px 2px rgba(0,0,0,.9),0 0 12px rgba(0,0,0,.6)}
+
+/* faixa de madeira com revelação ao passar o cursor */
+body.madeira .grade a::before,body.madeira .grade a::after{content:none!important;display:none!important}
+body.madeira .grade a .faixa{position:absolute;left:0;top:0;bottom:0;width:20px;background:var(--sw);cursor:help;z-index:3;transition:width .15s}
+body.madeira .grade a .faixa:hover{width:26px}
+body.madeira .grade a .faixa::after{content:attr(data-n) "\A" attr(data-s);white-space:pre;position:absolute;left:32px;top:50%;transform:translateY(-50%) scale(.96);
+  background:#1f1f1c;color:#f6e7c1;font:700 11px/1.45 Inter,system-ui,sans-serif;letter-spacing:.14em;text-transform:none;padding:9px 13px;border:1px solid #c7a560;
+  outline:1px solid #c7a560;outline-offset:-4px;box-shadow:0 6px 18px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .12s,transform .12s;z-index:5;min-width:max-content}
+body.madeira .grade a .faixa:hover::after{opacity:1;transform:translateY(-50%) scale(1)}
+body.madeira .grade a .faixa::before{content:"";position:absolute;left:24px;top:50%;margin-top:-6px;border:6px solid transparent;border-right-color:#c7a560;opacity:0;transition:opacity .12s}
+body.madeira .grade a .faixa:hover::before{opacity:1}
+
+/* enxertos: uma linha de seis, do claro ao escuro */
+.xiloteca,body.madeira.pg-artigo .xiloteca{position:relative!important;inset:auto!important;display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;
+  max-width:980px;margin:30px auto 8px!important;padding:0 14px!important;z-index:1}
+.enx,body.madeira.pg-artigo .enx{position:relative!important;left:auto!important;right:auto!important;top:auto!important;width:auto!important;height:auto!important;aspect-ratio:2/1}
+.enx .nm{font-size:10.5px}
+.enx em{font-size:9px}
+@media (max-width:760px){.xiloteca,body.madeira.pg-artigo .xiloteca{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}}
+
+/* ficha da madeira do fundo */
+.fundo-legenda.com-ficha{max-width:min(92%,640px);width:auto;padding:14px 22px 12px}
+.fundo-legenda .ficha{margin:8px auto 2px;font:15px/1.6 Georgia,serif;letter-spacing:0;color:#2f2a22;text-align:left;max-width:58ch}
